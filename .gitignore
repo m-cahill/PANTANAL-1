@@ -1,0 +1,46 @@
+# Kaggle credentials / secrets
+.kaggle/
+kaggle.json
+.env
+.env.*
+*.secret
+*.key
+*.pem
+
+# Competition data
+train_audio/
+test_soundscapes/
+train_soundscapes/
+*.ogg
+*.wav
+*.mp3
+*.flac
+
+# Generated submissions / outputs
+submission.csv
+submissions/
+runs/
+outputs/
+artifacts/
+wandb/
+mlruns/
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+*.bin
+*.pkl
+*.joblib
+
+# Python/cache
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
