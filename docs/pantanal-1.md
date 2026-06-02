@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M01 in progress)
+**Last updated:** 2026-06-04 (M01 closed)
 
 ---
 
@@ -11,6 +11,7 @@
 | Milestone | Plan | Summary | Audit | Toolcalls |
 |-----------|------|---------|-------|-----------|
 | M00 | [M00_plan.md](milestones/M00/M00_plan.md) | [M00_summary.md](milestones/M00/M00_summary.md) | [M00_audit.md](milestones/M00/M00_audit.md) | [M00_toolcalls.md](milestones/M00/M00_toolcalls.md) |
+| M01 | [M01_plan.md](milestones/M01/M01_plan.md) | [M01_summary.md](milestones/M01/M01_summary.md) | [M01_audit.md](milestones/M01/M01_audit.md) | [M01_toolcalls.md](milestones/M01/M01_toolcalls.md) |
 
 ---
 
@@ -92,8 +93,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | Milestone | Title | Status | Notes |
 |-----------|-------|--------|-------|
 | M00 | Public repo bootstrap and governance initialization | closed | PR #1; [summary](milestones/M00/M00_summary.md), [audit](milestones/M00/M00_audit.md) |
-| M01 | submission.csv skeleton + sample_submission contract | in progress | Branch `m01-submission-skeleton-contract` |
-| M02 | Kaggle notebook smoke | planned | Compressed path |
+| M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
+| M02 | Kaggle notebook smoke | planned | Stub after M01 merge |
 | M03 | Baseline inference notebook / first scored attempt | planned | If eligible |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
@@ -122,6 +123,15 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - Leaderboard submission.
 - Competition score.
 - Working note readiness.
+
+**M01 explicit non-claims:**
+
+- M01 does not prove real Kaggle `sample_submission.csv` compatibility.
+- M01 does not prove Kaggle notebook execution.
+- M01 does not prove model inference.
+- M01 does not prove CPU runtime compliance.
+- M01 does not prove leaderboard submission or score.
+- M01 does not prove working-note readiness.
 
 ---
 
@@ -158,10 +168,10 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
 | DEF-002 | Kaggle notebook smoke | M02 | Notebook runs in Kaggle CPU environment |
-| DEF-003 | Valid submission.csv vs sample | M01 | Synthetic contract tests pass; real sample alignment deferred |
+| DEF-003 | Real sample_submission.csv alignment | Future milestone | Synthetic contract tests complete (M01); real sample alignment deferred |
 
 ---
 
 ## 12. Next milestone recommendation
 
-After M00 closeout: **M01 — submission.csv skeleton + sample_submission contract** (see `docs/baselines/baseline_strategy.md`). M01 implementation on branch `m01-submission-skeleton-contract`.
+After M01 closeout: **M02 — Kaggle notebook smoke** (see `docs/baselines/baseline_strategy.md`). M02 stub seeded after M01 merge; implementation awaits owner-approved plan.

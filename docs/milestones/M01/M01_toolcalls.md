@@ -10,3 +10,5 @@ M01 was seeded after M00 closeout and merge to `main`. No implementation has sta
 | 2026-06-03T23:25:00Z | Shell | Local verification (ruff, compileall, pytest, verifier) | repo root | completed |
 | 2026-06-03T23:26:00Z | Shell | Commit, push, open PR #2 | m01-submission-skeleton-contract | completed |
 | 2026-06-03T23:27:00Z | Shell | CI watch run 26854002110 | .github/workflows/ci.yml | completed (success) |
+| 2026-06-04T00:10:00Z | Read | M01 closeout recovery + artifact review | docs/milestones/M01/, docs/pantanal-1.md | completed |
+| 2026-06-04T00:11:00Z | Write | Generate M01 summary and audit closeout docs | M01_summary.md, M01_audit.md | in progress |

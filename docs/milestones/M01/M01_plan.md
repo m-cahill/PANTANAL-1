@@ -1,6 +1,6 @@
 # M01 Plan — submission.csv Skeleton + sample_submission Contract
 
-**Status:** In progress (owner-approved 2026-06-03)
+**Status:** Closed (2026-06-04)
 
 **Branch:** `m01-submission-skeleton-contract`
 
@@ -16,15 +16,15 @@ M01 is **not** a model milestone.
 
 ## 2. Definition of done
 
-- [ ] Synthetic submission contract module with row_id, validation, and CSV writer
-- [ ] Reusable synthetic 234-class fixture module
-- [ ] Zero-baseline submission generator script writing to `tmp/submissions/submission.csv`
-- [ ] Contract tests covering row counts, schema, validation failures, and safe output paths
-- [ ] Repo verifier still rejects root-level `submission.csv`
-- [ ] `tmp/` gitignored; no real submission artifacts committed
-- [ ] Local verification green (ruff, compileall, pytest, verifier)
-- [ ] PR opened with green CI
-- [ ] `docs/pantanal-1.md` updated with narrow M01 claim and non-claims
+- [x] Synthetic submission contract module with row_id, validation, and CSV writer
+- [x] Reusable synthetic 234-class fixture module
+- [x] Zero-baseline submission generator script writing to `tmp/submissions/submission.csv`
+- [x] Contract tests covering row counts, schema, validation failures, and safe output paths
+- [x] Repo verifier still rejects root-level `submission.csv`
+- [x] `tmp/` gitignored; no real submission artifacts committed
+- [x] Local verification green (ruff, compileall, pytest, verifier)
+- [x] PR opened with green CI
+- [x] `docs/pantanal-1.md` updated with narrow M01 claim and non-claims
 
 ---
 
