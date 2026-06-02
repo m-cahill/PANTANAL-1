@@ -2,7 +2,15 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M00 bootstrap)
+**Last updated:** 2026-06-03 (M00 closed)
+
+---
+
+## Milestone artifacts
+
+| Milestone | Plan | Summary | Audit | Toolcalls |
+|-----------|------|---------|-------|-----------|
+| M00 | [M00_plan.md](milestones/M00/M00_plan.md) | [M00_summary.md](milestones/M00/M00_summary.md) | [M00_audit.md](milestones/M00/M00_audit.md) | [M00_toolcalls.md](milestones/M00/M00_toolcalls.md) |
 
 ---
 
@@ -83,7 +91,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 
 | Milestone | Title | Status | Notes |
 |-----------|-------|--------|-------|
-| M00 | Public repo bootstrap and governance initialization | in progress | Scaffold, CI, verifier, policies |
+| M00 | Public repo bootstrap and governance initialization | closed | PR #1; [summary](milestones/M00/M00_summary.md), [audit](milestones/M00/M00_audit.md) |
 | M01 | submission.csv skeleton + sample_submission contract | planned | Compressed path (deadline) |
 | M02 | Kaggle notebook smoke | planned | Compressed path |
 | M03 | Baseline inference notebook / first scored attempt | planned | If eligible |
@@ -154,4 +162,4 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-After M00 CI is green: **M01 — submission.csv skeleton + sample_submission contract** (see `docs/baselines/baseline_strategy.md`).
+After M00 closeout: **M01 — submission.csv skeleton + sample_submission contract** (see `docs/baselines/baseline_strategy.md`). M01 stub seeded on branch `m01-submission-skeleton-contract`; implementation awaits owner-approved plan.
