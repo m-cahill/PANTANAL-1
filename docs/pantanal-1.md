@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M00 closed)
+**Last updated:** 2026-06-03 (M01 in progress)
 
 ---
 
@@ -92,7 +92,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | Milestone | Title | Status | Notes |
 |-----------|-------|--------|-------|
 | M00 | Public repo bootstrap and governance initialization | closed | PR #1; [summary](milestones/M00/M00_summary.md), [audit](milestones/M00/M00_audit.md) |
-| M01 | submission.csv skeleton + sample_submission contract | planned | Compressed path (deadline) |
+| M01 | submission.csv skeleton + sample_submission contract | in progress | Branch `m01-submission-skeleton-contract` |
 | M02 | Kaggle notebook smoke | planned | Compressed path |
 | M03 | Baseline inference notebook / first scored attempt | planned | If eligible |
 
@@ -111,11 +111,12 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - Boundary, policy, Kaggle snapshot, and submission contract docs.
 - Minimal importable package `pantanal_1` at version `0.0.0`.
 - Repo state verifier and GitHub Actions CI (lint, compile, pytest, verify).
+- Synthetic submission contract: generate and validate zero-baseline submission-shaped CSV with 234 synthetic class columns and 5-second row windows (M01).
 
 **Not yet proven:**
 
 - Kaggle notebook execution.
-- Valid `submission.csv` generation against `sample_submission.csv`.
+- Valid `submission.csv` generation against real `sample_submission.csv`.
 - CPU-only 90-minute runtime compliance.
 - Model inference.
 - Leaderboard submission.
@@ -129,6 +130,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 PANTANAL-1 does **not** currently claim:
 
 - Useful model training or inference quality
+- Real Kaggle `sample_submission.csv` compatibility (M01 uses synthetic labels only)
 - BirdCLEF submission readiness or leaderboard performance
 - ORNITHOS private artifact reuse in this repo
 - AURORA runtime consumption in this repo
@@ -156,10 +158,10 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
 | DEF-002 | Kaggle notebook smoke | M02 | Notebook runs in Kaggle CPU environment |
-| DEF-003 | Valid submission.csv vs sample | M01 | Schema/column contract tests pass |
+| DEF-003 | Valid submission.csv vs sample | M01 | Synthetic contract tests pass; real sample alignment deferred |
 
 ---
 
 ## 12. Next milestone recommendation
 
-After M00 closeout: **M01 — submission.csv skeleton + sample_submission contract** (see `docs/baselines/baseline_strategy.md`). M01 stub seeded on branch `m01-submission-skeleton-contract`; implementation awaits owner-approved plan.
+After M00 closeout: **M01 — submission.csv skeleton + sample_submission contract** (see `docs/baselines/baseline_strategy.md`). M01 implementation on branch `m01-submission-skeleton-contract`.

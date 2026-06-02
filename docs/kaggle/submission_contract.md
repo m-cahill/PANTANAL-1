@@ -30,6 +30,17 @@ Example row id: for soundscape `BC2026_Test_0001_S05_20250227_010002.ogg`, segme
 
 ---
 
-## Validation (future milestones)
+## Validation
 
-M01+ should add automated checks against `sample_submission.csv` schema when that file is available locally (not committed to git).
+M01 provides a **synthetic validation surface** in `src/pantanal_1/submission_contract.py` with reusable fixtures in `tests/fixtures/synthetic_submission_schema.py`. Tests validate:
+
+- `row_id` presence and BirdCLEF-style segment suffix
+- exactly 234 synthetic class probability columns
+- one row per 5-second window (12 rows per 60-second soundscape)
+- probabilities numeric and in `[0, 1]`
+- no duplicate row ids
+- safe output paths (repo-root `submission.csv` rejected)
+
+This does **not** prove compatibility with the real Kaggle `sample_submission.csv` or taxonomy labels until a future milestone uses local competition files outside git.
+
+Future milestones may add checks against `sample_submission.csv` schema when that file is available locally (not committed to git).

@@ -19,6 +19,7 @@ train_soundscapes/
 # Generated submissions / outputs
 submission.csv
 submissions/
+tmp/
 runs/
 outputs/
 artifacts/
