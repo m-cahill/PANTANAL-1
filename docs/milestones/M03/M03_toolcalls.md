@@ -21,4 +21,7 @@ M03 was seeded after M02 closeout and merge to `main` (PR #3, merge commit `15d6
 | 2026-06-03T05:02:00Z | Write | DEF-002B open; DEF-003 split 003A evidenced / 003B open | docs/pantanal-1.md | completed |
 | 2026-06-03T05:03:00Z | Write | Update test_m03_kaggle_evidence.py | tests/ | completed |
 | 2026-06-03T05:04:00Z | Shell | Verification: 83 tests pass | pytest, ruff, verifier | completed |
-| 2026-06-03T05:05:00Z | Shell | Commit cca0bf5; PR #4 CI run 26866519763 | git, gh | completed (success) |
+| 2026-06-03T05:05:00Z | Shell | Commit cca0bf5; PR #4 CI run 26866538387 | git, gh | completed (success) |
+| 2026-06-03T06:00:00Z | Write | Generate M03_summary.md, M03_audit.md | docs/milestones/M03/ | completed |
+| 2026-06-03T06:01:00Z | Write | Closeout: pantanal-1.md M03 closed, M03_plan closed | docs/pantanal-1.md | completed |
+| 2026-06-03T06:02:00Z | Shell | Closeout local verification | ruff, pytest, verifier | in_progress |
