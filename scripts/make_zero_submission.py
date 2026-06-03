@@ -15,9 +15,9 @@ from pantanal_1.submission_contract import (  # noqa: E402
     build_zero_submission_rows,
     write_submission_csv,
 )
-from tests.fixtures.synthetic_submission_schema import (  # noqa: E402
-    synthetic_class_labels,
-    synthetic_soundscape_stems,
+from pantanal_1.synthetic_schema import (  # noqa: E402
+    SYNTHETIC_CLASS_LABELS,
+    SYNTHETIC_SOUNDSCAPE_STEMS,
 )
 
 DEFAULT_OUTPUT = REPO_ROOT / "tmp" / "submissions" / "submission.csv"
@@ -38,8 +38,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    class_labels = synthetic_class_labels()
-    rows = build_zero_submission_rows(synthetic_soundscape_stems(), class_labels)
+    class_labels = list(SYNTHETIC_CLASS_LABELS)
+    rows = build_zero_submission_rows(list(SYNTHETIC_SOUNDSCAPE_STEMS), class_labels)
     output_path = write_submission_csv(rows, args.output, class_labels)
     print(f"Wrote zero-baseline submission to {output_path}")
     return 0
