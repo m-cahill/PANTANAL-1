@@ -32,7 +32,7 @@ Example row id: for soundscape `BC2026_Test_0001_S05_20250227_010002.ogg`, segme
 
 ## Validation
 
-M01 provides a **synthetic validation surface** in `src/pantanal_1/submission_contract.py` with reusable fixtures in `tests/fixtures/synthetic_submission_schema.py`. Tests validate:
+M01 provides a **synthetic validation surface** in `src/pantanal_1/submission_contract.py` with package-level fixtures in `src/pantanal_1/synthetic_schema.py` (re-exported from `tests/fixtures/synthetic_submission_schema.py` for tests). M02 adds a smoke notebook and mirror script; see `docs/kaggle/notebook_smoke.md`. Tests validate:
 
 - `row_id` presence and BirdCLEF-style segment suffix
 - exactly 234 synthetic class probability columns

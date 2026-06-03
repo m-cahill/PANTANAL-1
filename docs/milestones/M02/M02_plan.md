@@ -1,0 +1,88 @@
+# M02 Plan — Kaggle Notebook Smoke
+
+**Status:** Closed
+
+---
+
+## Objective
+
+Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in, output-cleared notebook and dependency-free mirror script that import the M01 submission contract, use synthetic fixtures only, and document Kaggle vs local paths—without claiming Kaggle execution, inference, or leaderboard score.
+
+---
+
+## Definition of done
+
+- [x] `src/pantanal_1/synthetic_schema.py` with `SYNTHETIC_CLASS_LABELS` and `SYNTHETIC_SOUNDSCAPE_STEMS`
+- [x] `tests/fixtures/synthetic_submission_schema.py` re-exports from package
+- [x] `notebooks/pantanal_1_m02_smoke.ipynb` (cleared outputs, safety markdown)
+- [x] `scripts/run_m02_notebook_smoke.py` writes `tmp/submissions/m02_smoke_submission.csv`
+- [x] `docs/kaggle/notebook_smoke.md` documents claims and non-claims
+- [x] `docs/kaggle/kaggle_setup_runbook.md` manual Kaggle setup checklist
+- [x] `docs/kaggle/kaggle_setup_evidence.md` evidence template (not yet executed)
+- [x] Kaggle interactive synthetic smoke evidenced (`docs/kaggle/kaggle_setup_evidence.md`; DEF-002A)
+- [x] `docs/kaggle/kaggle_submission_bible.md`
+- [ ] DEF-002B: commit/submit-mode `/kaggle/working/submission.csv` (out of M02 scope unless owner evidences)
+- [x] `tests/test_notebook_smoke.py` and `tests/test_synthetic_schema.py`
+- [x] `tests/test_kaggle_setup_docs.py` runbook/evidence doc guards
+- [x] `docs/pantanal-1.md` updated (M02 in progress; closed at closeout)
+- [x] Local verification green
+- [x] PR CI green; merged via PR #3
+
+---
+
+## In scope
+
+1. Package-level synthetic schema refactor (M01 audit FIX-001)
+2. Notebook smoke artifact + static JSON tests
+3. Mirror smoke script (stdlib + existing package only)
+4. Documentation: local vs Kaggle, archival intent, deadline passed
+5. Preserve M00/M01 guardrails and `verify_repo_state.py`
+6. Kaggle setup runbook, evidence file, and submission bible
+7. Record interactive Kaggle smoke evidence (DEF-002A)
+
+---
+
+## Out of scope
+
+- Claiming Kaggle execution without owner-provided evidence in `kaggle_setup_evidence.md`
+- Real Kaggle notebook commit/submit proof (unless evidenced by owner)
+- Real `sample_submission.csv` / taxonomy alignment
+- Competition audio, model inference, runtime budget proof
+- Leaderboard submission or score
+- Jupyter, nbconvert, papermill, Kaggle API, pandas, torch, librosa
+- M03 implementation
+
+---
+
+## Allowed claim (after success)
+
+PANTANAL-1 contains a checked-in, output-cleared Kaggle-oriented smoke notebook and dependency-free mirror smoke script that exercise the synthetic M01 submission contract surface without using competition data.
+
+---
+
+## Explicit non-claims
+
+- M02 does not prove the notebook ran on Kaggle.
+- M02 does not prove active competition submission eligibility.
+- M02 does not prove real `sample_submission.csv` compatibility.
+- M02 does not prove CPU 90-minute runtime compliance.
+- M02 does not prove inference.
+- M02 does not prove leaderboard submission or score.
+
+---
+
+## Verification
+
+```bash
+ruff check .
+ruff format --check .
+python -m compileall src tests scripts
+pytest -q
+python scripts/verify_repo_state.py
+```
+
+---
+
+## Branch
+
+`m02-kaggle-notebook-smoke`
