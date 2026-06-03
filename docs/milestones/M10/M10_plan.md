@@ -1,6 +1,6 @@
 # M10 Plan — Real Inference Baseline Spike
 
-**Status:** In progress (owner-approved 2026-06-03; M10B locked).
+**Status:** Closed (PR #11; owner-approved 2026-06-03; M10B).
 
 **Branch:** `m10-real-inference-baseline-spike`
 

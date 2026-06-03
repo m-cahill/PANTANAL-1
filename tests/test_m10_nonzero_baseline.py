@@ -168,11 +168,11 @@ def test_m10_nonzero_baseline_doc_exists() -> None:
     assert "Uniform epsilon" in text or "uniform" in text.lower()
 
 
-def test_pantanal_marks_m10_in_progress() -> None:
+def test_pantanal_marks_m10_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1]
     assert "| M10 |" in ledger
-    assert "in progress" in ledger.lower()
+    assert "closed" in ledger.lower()
 
 
 def test_pantanal_m10_narrow_claim_and_non_claims() -> None:
