@@ -19,4 +19,4 @@ M06 was seeded after M05 closeout and squash merge to `main` (PR #6, merge commi
 | 2026-06-03T12:05:00Z | Shell | Final PR-head CI | run 26873749142 | completed (success, head `aecc037`) |
 | 2026-06-03T12:06:00Z | Shell | Squash merge PR #7 | `main` | completed (merge `fac3af2`) |
 | 2026-06-03T12:07:00Z | Shell | Post-merge main CI | run 26873776568 | completed (success) |
-| 2026-06-03T12:08:00Z | Write | Seed M07 stub | `M07_plan.md`, `M07_toolcalls.md` | in_progress |
+| 2026-06-03T12:08:00Z | Write | Seed M07 stub | `M07_plan.md`, `M07_toolcalls.md` | completed (branch `m07-security-supply-chain-gate`, `3132b93`) |
