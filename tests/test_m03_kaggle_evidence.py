@@ -1,4 +1,4 @@
-"""Tests that M03 Kaggle evidence template exists and remains honest (pre-execution)."""
+"""Tests that M03 Kaggle evidence is recorded honestly after manual run."""
 
 from __future__ import annotations
 
@@ -8,55 +8,61 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE_PATH = REPO_ROOT / "docs" / "kaggle" / "m03_kaggle_evidence.md"
 ULTIMATE_TRUTH = REPO_ROOT / "docs" / "pantanal-1.md"
 
+SAMPLE_PATH = "/kaggle/input/competitions/birdclef-2026/sample_submission.csv"
+
 
 def test_m03_kaggle_evidence_file_exists() -> None:
     assert EVIDENCE_PATH.is_file()
 
 
-def test_m03_kaggle_evidence_not_yet_executed() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert "not yet executed" in text or "awaiting owner manual kaggle run" in text
-
-
-def test_m03_kaggle_evidence_contains_baseline_modes() -> None:
+def test_m03_kaggle_evidence_records_execution() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
     assert "REAL_SAMPLE_ZERO_BASELINE" in text
-    assert "SYNTHETIC_FALLBACK_ONLY" in text
+    assert "Executed" in text or "Interactive mode" in text
+    assert "not yet executed" not in text.lower()
 
 
-def test_m03_kaggle_evidence_contains_scored_submission_path() -> None:
+def test_m03_kaggle_evidence_records_sample_path() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert SAMPLE_PATH in text
+
+
+def test_m03_kaggle_evidence_records_working_submission() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
     assert "/kaggle/working/submission.csv" in text
+    assert "produced: **yes**" in text.lower() or "produced: yes" in text.lower()
 
 
-def test_m03_kaggle_evidence_asks_for_exact_sample_path() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert "exact sample path" in text
+def test_m03_kaggle_evidence_records_interactive_mode() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert "Interactive" in text
+    assert "DEF-002B" in text
+    assert "Open" in text or "open" in text
 
 
 def test_m03_kaggle_evidence_does_not_claim_leaderboard_score() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
-    assert "Public leaderboard score:" in text
     lines = text.splitlines()
     for line in lines:
         if line.strip().startswith("- Public leaderboard score:"):
             value = line.split(":", 1)[1].strip()
-            assert value == "", "must not record a score before manual run"
-            break
-    else:
-        raise AssertionError("missing Public leaderboard score field")
+            assert value.lower() in ("n/a", "none", ""), "must not record an actual score"
+            return
+    raise AssertionError("missing Public leaderboard score field")
 
 
 def test_pantanal_1_keeps_def_002b_open() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
+    deferred = text.split("## 11. Deferred issues register", 1)[-1]
+    assert "DEF-002B" in deferred
     assert "DEF-002B" in text
-    assert "DEF-002B" in text and (
-        "remains open" in text.lower() or "not yet proven" in text.lower() or "open" in text.lower()
-    )
+    not_proven = text.split("## 8. Current claims", 1)[-1].split("## 9.", 1)[0]
+    assert "DEF-002B" in not_proven or "commit/submit" in not_proven.lower()
 
 
-def test_pantanal_1_keeps_def_003_open() -> None:
+def test_pantanal_1_def_003a_evidenced_def_003b_open() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
-    assert "DEF-003" in text
-    deferred_section = text.split("## 11. Deferred issues register", 1)[-1]
-    assert "DEF-003" in deferred_section
+    deferred = text.split("## 11. Deferred issues register", 1)[-1]
+    assert "DEF-003A" in deferred
+    assert "DEF-003B" in deferred
+    assert "evidenced" in deferred.lower() or "M03" in deferred

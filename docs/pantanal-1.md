@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-02 (M03 in progress)
+**Last updated:** 2026-06-03 (M03 in progress; Kaggle interactive evidence recorded)
 
 ---
 
@@ -96,7 +96,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M00 | Public repo bootstrap and governance initialization | closed | PR #1; [summary](milestones/M00/M00_summary.md), [audit](milestones/M00/M00_audit.md) |
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
-| M03 | Baseline inference notebook / first scored attempt | in progress | PR #4 repo-side green (`0c8b2ed`); manual Kaggle evidence pending — see `docs/kaggle/m03_kaggle_evidence.md` |
+| M03 | Baseline inference notebook / first scored attempt | in progress | PR #4; Kaggle interactive real-sample evidence recorded — see `docs/kaggle/m03_kaggle_evidence.md` |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -119,12 +119,12 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M02 smoke notebook includes Kaggle environment diagnostics and inline synthetic fallback when `pantanal_1` is not installed.
 - **M02 Kaggle interactive evidence:** patched smoke notebook ran in Kaggle interactive mode via inline fallback and produced synthetic smoke CSV at `tmp/submissions/m02_smoke_submission.csv` without competition data (see `docs/kaggle/kaggle_setup_evidence.md`).
 - PANTANAL-1 contains a baseline-oriented Kaggle notebook scaffold that can either generate a local synthetic fallback CSV or, when real Kaggle `sample_submission.csv` is available in the Kaggle environment, generate a zero-baseline `/kaggle/working/submission.csv` using that schema (M03 repo-side; see `docs/kaggle/baseline_inference_notebook.md`).
-- **M03 manual Kaggle evidence:** not yet recorded; owner run pending (`docs/kaggle/m03_kaggle_evidence.md`).
+- **M03 Kaggle interactive evidence:** baseline notebook (inline fallback) discovered real `sample_submission.csv` at `/kaggle/input/competitions/birdclef-2026/sample_submission.csv`, selected `REAL_SAMPLE_ZERO_BASELINE`, and produced `/kaggle/working/submission.csv` with 3 rows and 235 columns using the sample schema (see `docs/kaggle/m03_kaggle_evidence.md`). **Interactive mode only** — not scored commit/submit mode.
 
 **Not yet proven:**
 
 - Kaggle commit/submit-mode execution producing `/kaggle/working/submission.csv` (DEF-002B).
-- Valid `submission.csv` generation against real `sample_submission.csv`.
+- Scored/hidden test submission schema behavior (DEF-003B).
 - CPU-only 90-minute runtime compliance.
 - Model inference.
 - Leaderboard submission.
@@ -149,6 +149,15 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M02 does not prove model inference.
 - M02 does not prove leaderboard submission or score.
 
+**M03 explicit non-claims:**
+
+- M03 does not prove active competition submission eligibility.
+- M03 does not prove commit/submit-mode or scored submission execution (DEF-002B open).
+- M03 does not prove leaderboard submission or score.
+- M03 does not prove CPU 90-minute **scoring** runtime compliance (interactive runtime observed only).
+- M03 does not prove model inference or meaningful model quality (zero baseline only).
+- M03 does not prove hidden/full test row count (sample had 3 rows in observed run).
+
 ---
 
 ## 9. Explicit non-claims
@@ -156,7 +165,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 PANTANAL-1 does **not** currently claim:
 
 - Useful model training or inference quality
-- Real Kaggle `sample_submission.csv` compatibility (M01 uses synthetic labels only)
+- Full scored/hidden-test `sample_submission.csv` behavior (DEF-003B; M03 evidenced sample-schema alignment in interactive mode only — DEF-003A)
 - BirdCLEF submission readiness or leaderboard performance
 - ORNITHOS private artifact reuse in this repo
 - AURORA runtime consumption in this repo
@@ -185,10 +194,11 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
 | DEF-002A | Kaggle interactive synthetic smoke | M02 (evidenced) | Patched smoke notebook runs in Kaggle interactive mode and produces synthetic CSV under `tmp/submissions/` (see `docs/kaggle/kaggle_setup_evidence.md`) |
 | DEF-002B | Kaggle scored/commit-mode real submission path | Future milestone | Commit/submit-mode notebook runs in CPU environment and produces `/kaggle/working/submission.csv` with recorded evidence |
-| DEF-003 | Real sample_submission.csv alignment | Future milestone | Synthetic contract tests complete (M01); real sample alignment deferred |
+| DEF-003A | Real sample_submission.csv schema discovery and zero-baseline alignment | M03 (evidenced) | Real `sample_submission.csv` discovered on Kaggle; zero baseline preserves sample header/row order (see `docs/kaggle/m03_kaggle_evidence.md`) |
+| DEF-003B | Scored/hidden test submission schema behavior | Future milestone | Commit/submit-mode run confirms scored submission behavior |
 
 ---
 
 ## 12. Next milestone recommendation
 
-After M02 closeout: **M03 — Baseline inference notebook / first scored attempt if eligible** (see `docs/milestones/M03/M03_plan.md` when seeded). BirdCLEF+ 2026 final deadline has passed; treat M03 as archival/reusable baseline work unless active eligibility is directly evidenced. **DEF-002B** (scored `/kaggle/working/submission.csv`) remains open.
+M03 in progress: baseline notebook and interactive real-sample evidence recorded. **DEF-002B** (commit/submit-mode `/kaggle/working/submission.csv`) and **DEF-003B** (scored/hidden test behavior) remain open. See `docs/milestones/M03/M03_plan.md`.
