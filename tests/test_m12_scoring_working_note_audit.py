@@ -65,11 +65,11 @@ def test_pantanal_includes_m12_ledger_and_non_claims() -> None:
     assert "M12_scoring_methodology_audit.md" in text
 
 
-def test_pantanal_marks_m12_in_progress() -> None:
+def test_pantanal_marks_m12_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
     m12_row = ledger.split("| M12 |", 1)[-1].split("\n", 1)[0]
-    assert "in progress" in m12_row.lower()
+    assert "closed" in m12_row.lower()
 
 
 def test_pantanal_recommends_m13_next() -> None:

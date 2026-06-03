@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M12 in progress)
+**Last updated:** 2026-06-03 (M12 closed)
 
 ---
 
@@ -22,7 +22,7 @@
 | M09 | [M09_plan.md](milestones/M09/M09_plan.md) | [M09_summary.md](milestones/M09/M09_summary.md) | [M09_audit.md](milestones/M09/M09_audit.md) | [M09_toolcalls.md](milestones/M09/M09_toolcalls.md) |
 | M10 | [M10_plan.md](milestones/M10/M10_plan.md) | [M10_summary.md](milestones/M10/M10_summary.md) | [M10_audit.md](milestones/M10/M10_audit.md) | [M10_toolcalls.md](milestones/M10/M10_toolcalls.md) |
 | M11 | [M11_plan.md](milestones/M11/M11_plan.md) | [M11_summary.md](milestones/M11/M11_summary.md) | [M11_audit.md](milestones/M11/M11_audit.md) | [M11_toolcalls.md](milestones/M11/M11_toolcalls.md) |
-| M12 | [M12_plan.md](milestones/M12/M12_plan.md) | — | — | [M12_toolcalls.md](milestones/M12/M12_toolcalls.md) |
+| M12 | [M12_plan.md](milestones/M12/M12_plan.md) | [M12_summary.md](milestones/M12/M12_summary.md) | [M12_audit.md](milestones/M12/M12_audit.md) | [M12_toolcalls.md](milestones/M12/M12_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -117,7 +117,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M09 | Working-note draft planning / public narrative decision gate | closed | PR #10; [summary](milestones/M09/M09_summary.md), [audit](milestones/M09/M09_audit.md); [decision gate](working_note/draft_decision_gate.md), [readiness checklist](working_note/draft_readiness_checklist.md), [recommendation](analysis/M09_next_direction_recommendation.md) |
 | M10 | Real inference baseline spike | closed | PR #11; [summary](milestones/M10/M10_summary.md), [audit](milestones/M10/M10_audit.md); uniform-ε nonzero baseline (M10B); [nonzero baseline doc](kaggle/nonzero_baseline.md) |
 | M11 | Kaggle non-zero baseline evidence probe | closed | PR #12; [summary](milestones/M11/M11_summary.md), [audit](milestones/M11/M11_audit.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
-| M12 | Scoring Methodology and Working-Note Criteria Audit | in progress | [plan](milestones/M12/M12_plan.md); [scoring audit](analysis/M12_scoring_methodology_audit.md), [working-note criteria audit](working_note/M12_working_note_criteria_audit.md), [next direction](analysis/M12_next_direction_decision.md) |
+| M12 | Scoring Methodology and Working-Note Criteria Audit | closed | PR #13 squash `57d1ed7`; PR-head `1c3cf0b`; PR CI [26911494073](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911494073); post-merge CI [26911835469](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911835469); [summary](milestones/M12/M12_summary.md), [audit](milestones/M12/M12_audit.md); [scoring audit](analysis/M12_scoring_methodology_audit.md), [working-note criteria audit](working_note/M12_working_note_criteria_audit.md), [next direction](analysis/M12_next_direction_decision.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
