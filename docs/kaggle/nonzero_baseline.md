@@ -101,7 +101,7 @@ The M03 baseline notebook remains **unchanged**. Compare any new public score to
 
 Uniform epsilon may not improve ROC-AUC-style scoring because it does not create meaningful ranking separation. Score improvement must be empirically observed, not inferred.
 
-Future planning should separately evaluate the official scoring methodology and the CLEF working-note criteria, because the working-note prize may reward reproducibility, clarity, and scientific communication independently of leaderboard position.
+M12 completed that planning evaluation in-repo: see `docs/analysis/M12_scoring_methodology_audit.md` and `docs/working_note/M12_working_note_criteria_audit.md`. The working-note prize may still reward reproducibility, clarity, and scientific communication independently of leaderboard position.
 
 ---
 
