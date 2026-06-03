@@ -1,0 +1,23 @@
+{
+  "schema_version": "m14-1",
+  "model_id": "m14-baseline-planning-v0",
+  "status": "planning_only",
+  "created_at": "2026-06-03T00:00:00Z",
+  "prediction_summary": "Planning-only contract fixture. No training has occurred. No predictions from competition or private audio.",
+  "class_coverage": {
+    "species_columns_expected": 234,
+    "coverage_note": "Not applicable until private-lane training completes."
+  },
+  "metrics": {
+    "macro_roc_auc": null,
+    "per_class_roc_auc_mean": null
+  },
+  "claim_gate": "G0",
+  "non_claims": [
+    "Does not claim model training completion",
+    "Does not claim model quality or audio understanding",
+    "Does not claim score improvement or public leaderboard performance",
+    "Does not claim non-constant predictions verified"
+  ],
+  "non_constant_predictions_verified": false
+}

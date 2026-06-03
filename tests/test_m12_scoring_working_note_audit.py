@@ -72,8 +72,9 @@ def test_pantanal_marks_m12_closed() -> None:
     assert "closed" in m12_row.lower()
 
 
-def test_pantanal_recommends_m14_next() -> None:
+def test_pantanal_next_recommendation_after_m14_contract() -> None:
+    """Section 12 tracks post-M14 direction (M15 ingest or packaging)."""
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     section = text.split("## 12. Next milestone recommendation", 1)[-1]
-    assert "M14" in section
-    assert "5090 Blackwell Audio-Derived Baseline Training Sprint" in section
+    assert "M15" in section
+    assert "private-lane" in section.lower() or "kaggle" in section.lower()

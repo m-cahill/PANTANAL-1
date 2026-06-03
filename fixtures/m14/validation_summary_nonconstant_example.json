@@ -1,0 +1,24 @@
+{
+  "schema_version": "m14-1",
+  "model_id": "m14-baseline-synthetic-example-v0",
+  "status": "private_trained_summary",
+  "created_at": "2026-06-03T00:00:00Z",
+  "synthetic": true,
+  "prediction_summary": "SYNTHETIC FIXTURE ONLY. Illustrates future shape of non-constant evidence. Values are fabricated; not real BirdCLEF scores or private-lane predictions.",
+  "class_coverage": {
+    "species_columns_expected": 234,
+    "classes_with_nonzero_variance": 42,
+    "coverage_note": "Synthetic counts for contract testing only."
+  },
+  "metrics": {
+    "macro_roc_auc": 0.55,
+    "per_class_roc_auc_mean": 0.52
+  },
+  "claim_gate": "G1",
+  "non_claims": [
+    "Synthetic fixture only; not observed on Kaggle",
+    "Does not claim public score improvement above 0.500",
+    "Does not claim working-note readiness or RediAI certification"
+  ],
+  "non_constant_predictions_verified": true
+}

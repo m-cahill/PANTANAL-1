@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/m-cahill/PANTANAL-1/schemas/m14_validation_summary.schema.json",
+  "title": "M14 Validation Summary",
+  "description": "Public-safe validation summary for private-lane audio-derived baseline evidence. Stdlib validator implements checks; this file is contract documentation.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "model_id",
+    "status",
+    "created_at",
+    "prediction_summary",
+    "class_coverage",
+    "metrics",
+    "claim_gate",
+    "non_claims",
+    "non_constant_predictions_verified"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version identifier (e.g. m14-1)"
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Stable model identifier"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planning_only", "private_trained_summary", "owner_approved_binary"],
+      "description": "Evidence lifecycle status"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp"
+    },
+    "prediction_summary": {
+      "type": "string",
+      "description": "Public-safe aggregate description of predictions"
+    },
+    "class_coverage": {
+      "type": "object",
+      "description": "Species/class coverage summary",
+      "additionalProperties": true
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Metric names to values; null permitted when training has not occurred",
+      "additionalProperties": {
+        "type": ["number", "null"]
+      }
+    },
+    "claim_gate": {
+      "type": "string",
+      "description": "Target evaluation gate (G0-G5 per M13 evaluation plan)"
+    },
+    "non_claims": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Explicit non-claim strings"
+    },
+    "non_constant_predictions_verified": {
+      "type": "boolean",
+      "description": "True only when non-constant check passed in private lane"
+    },
+    "synthetic": {
+      "type": "boolean",
+      "description": "When true, fixture is synthetic-only and not real competition evidence"
+    }
+  }
+}
