@@ -20,9 +20,27 @@ Artifacts:
 
 ---
 
-## Kaggle setup (manual, not yet executed)
+## Kaggle setup (manual)
 
-To set up the notebook on Kaggle from scratch, follow `docs/kaggle/kaggle_setup_runbook.md`. Record observed results in `docs/kaggle/kaggle_setup_evidence.md`. Neither file proves execution until the evidence template is filled with actual observations.
+To set up the notebook on Kaggle from scratch, follow `docs/kaggle/kaggle_setup_runbook.md`. Record observed results in `docs/kaggle/kaggle_setup_evidence.md`.
+
+The first manual copy attempt failed with `ModuleNotFoundError: No module named 'pantanal_1'` because a blank Kaggle notebook does not install this repository. The patched `notebooks/pantanal_1_m02_smoke.ipynb` adds verbose environment diagnostics and an inline synthetic fallback when the package is unavailable.
+
+---
+
+## Troubleshooting: `ModuleNotFoundError: pantanal_1`
+
+**Symptom:** `from pantanal_1.submission_contract import ...` raises `ModuleNotFoundError` on Kaggle.
+
+**Cause:** The notebook was copied without installing the PANTANAL-1 package (`src/pantanal_1/` is not on `sys.path` by default).
+
+**M02 fix:** Re-copy or sync `notebooks/pantanal_1_m02_smoke.ipynb` from this repo. The notebook:
+
+1. Prints Kaggle path diagnostics (`/kaggle/input`, `/kaggle/working`, `KAGGLE_KERNEL_RUN_TYPE`, etc.).
+2. Tries package import first; on failure, uses an inline fallback with the same synthetic stems and 234 labels as `pantanal_1.synthetic_schema`.
+3. Writes only to `tmp/submissions/m02_smoke_submission.csv` (not `/kaggle/working/submission.csv`).
+
+For a real Kaggle submission notebook, the final output path must be `/kaggle/working/submission.csv`. M02 intentionally does not enable that path in the inline fallback because M02 is synthetic smoke only. A future milestone must add real Kaggle sample/schema alignment before enabling real submission output.
 
 ---
 

@@ -33,6 +33,22 @@ REQUIRED_CODE_SNIPPETS = (
     "tmp/submissions/m02_smoke_submission.csv",
 )
 
+KAGGLE_DEBUG_SNIPPETS = (
+    "=== PANTANAL-1 M02 Kaggle Smoke Debug ===",
+    "KAGGLE_KERNEL_RUN_TYPE",
+    "/kaggle/input",
+    "/kaggle/working",
+)
+
+FALLBACK_SNIPPETS = (
+    "try:",
+    "except ModuleNotFoundError",
+    'SOURCE = "inline fallback"',
+    "BC2026_Test_0001_S05_20250227_010002",
+    "BC2026_Test_0002_S05_20250227_010003",
+    "synthetic_class_000",
+)
+
 
 def _load_notebook() -> dict:
     with NOTEBOOK_PATH.open(encoding="utf-8") as handle:
@@ -90,6 +106,24 @@ def test_notebook_references_submission_contract(notebook: dict) -> None:
     source_text = _notebook_source_text(notebook)
     for snippet in REQUIRED_CODE_SNIPPETS:
         assert snippet in source_text, f"missing required snippet: {snippet}"
+
+
+def test_notebook_contains_kaggle_debug_diagnostics(notebook: dict) -> None:
+    source_text = _notebook_source_text(notebook)
+    for snippet in KAGGLE_DEBUG_SNIPPETS:
+        assert snippet in source_text, f"missing debug snippet: {snippet}"
+
+
+def test_notebook_contains_import_fallback(notebook: dict) -> None:
+    source_text = _notebook_source_text(notebook)
+    for snippet in FALLBACK_SNIPPETS:
+        assert snippet in source_text, f"missing fallback snippet: {snippet}"
+
+
+def test_notebook_fallback_allows_only_m02_smoke_output_name(notebook: dict) -> None:
+    source_text = _notebook_source_text(notebook)
+    assert "m02_smoke_submission.csv" in source_text
+    assert 'output_path.name != "m02_smoke_submission.csv"' in source_text
 
 
 def test_notebook_does_not_write_root_submission_csv(notebook: dict) -> None:

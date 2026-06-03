@@ -19,9 +19,11 @@ RUNBOOK_NON_CLAIMS = (
     "does not prove leaderboard submission or score",
 )
 
-EVIDENCE_NOT_EXECUTED_MARKERS = (
-    "not yet executed",
-    "no evidence recorded",
+EVIDENCE_INCOMPLETE_MARKERS = (
+    "attempted",
+    "blocked",
+    "modulenotfounderror",
+    "def-002",
 )
 
 
@@ -39,9 +41,11 @@ def test_runbook_contains_required_non_claims() -> None:
         assert phrase in text, f"missing runbook non-claim: {phrase}"
 
 
-def test_evidence_template_status_not_yet_executed() -> None:
+def test_evidence_records_failed_attempt_not_success() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert any(marker in text for marker in EVIDENCE_NOT_EXECUTED_MARKERS)
+    assert any(marker in text for marker in EVIDENCE_INCOMPLETE_MARKERS)
+    assert "modulenotfounderror" in text
+    assert "yes / no / unknown" in text
 
 
 def test_notebook_smoke_links_runbook_and_evidence() -> None:

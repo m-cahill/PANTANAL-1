@@ -2,7 +2,7 @@
 
 M02 was seeded after M01 closeout and merge to `main`.
 
-**Note:** Repo-side smoke scaffold is committed (PR #3). Manual Kaggle setup per `docs/kaggle/kaggle_setup_runbook.md` has **not** been executed; `docs/kaggle/kaggle_setup_evidence.md` remains empty template only.
+**Note:** Repo-side smoke scaffold is committed (PR #3). First manual Kaggle notebook copy failed with `ModuleNotFoundError: pantanal_1`; import-fallback debug patch added. Patched notebook re-test on Kaggle not yet recorded in evidence.
 
 | Timestamp (UTC) | Tool | Purpose | Files / Target | Status |
 |-----------------|------|---------|----------------|--------|
@@ -15,4 +15,7 @@ M02 was seeded after M01 closeout and merge to `main`.
 | 2026-06-03T17:13:00Z | Shell | Phase 4 push branch and open PR | origin/m02-kaggle-notebook-smoke | completed |
 | 2026-06-03T17:14:00Z | Shell | Phase 5 monitor CI run 26855702195 | PR #3 | completed (success) |
 | 2026-06-03T18:00:00Z | Write | Add Kaggle setup runbook and evidence template | docs/kaggle/ | completed |
-| 2026-06-03T18:01:00Z | Shell | Local verification and commit runbook follow-up | repo root | in_progress |
+| 2026-06-03T18:01:00Z | Shell | Local verification and commit runbook follow-up | repo root | completed |
+| 2026-06-03T18:02:00Z | Shell | Push fcfdd86 and monitor CI run 26856249610 for PR #3 | origin/m02-kaggle-notebook-smoke | completed (success) |
+| 2026-06-04T02:30:00Z | Write | Kaggle import debug patch: notebook fallback + docs | notebooks/, docs/, tests/ | completed |
+| 2026-06-04T02:35:00Z | Shell | Verify, commit, push import fallback patch | PR #3 | in_progress |

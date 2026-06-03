@@ -114,7 +114,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - Repo state verifier and GitHub Actions CI (lint, compile, pytest, verify).
 - Synthetic submission contract: generate and validate zero-baseline submission-shaped CSV with 234 synthetic class columns and 5-second row windows (M01).
 - Kaggle-oriented smoke notebook and dependency-free mirror script exercising the synthetic M01 contract surface without competition data (M02; see `docs/kaggle/notebook_smoke.md`).
-- Kaggle setup runbook and empty evidence template for manual notebook setup (`docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`); **live Kaggle setup not yet executed from this repo**.
+- Kaggle setup runbook and evidence template for manual notebook setup (`docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`).
+- M02 smoke notebook includes Kaggle environment diagnostics and inline synthetic fallback when `pantanal_1` is not installed (after first manual Kaggle attempt failed with `ModuleNotFoundError: No module named 'pantanal_1'`).
 
 **Not yet proven:**
 
@@ -178,7 +179,7 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 | ID | Issue | Deferred to | Exit criteria |
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
-| DEF-002 | Kaggle notebook smoke (live execution) | Post-M02 | Notebook runs in Kaggle CPU environment with recorded evidence |
+| DEF-002 | Kaggle notebook smoke (live execution) | Post-M02 | Patched notebook runs in Kaggle CPU environment with recorded evidence in `docs/kaggle/kaggle_setup_evidence.md` (first attempt failed: missing `pantanal_1` package) |
 | DEF-003 | Real sample_submission.csv alignment | Future milestone | Synthetic contract tests complete (M01); real sample alignment deferred |
 
 ---
