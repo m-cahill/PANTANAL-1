@@ -33,4 +33,11 @@ Milestone: M15 — Private-Lane Evidence Request Packet / Pre-Ingest Readiness G
 | 2026-06-03T22:30 | Shell | Pre-closeout: verify PR SHA, CI, git status | PR #16 | Complete |
 | 2026-06-03T22:30 | Shell | verify_repo_state.py pre-closeout | repo root | PASS |
 | 2026-06-03T22:30 | Write | Create M15_run1.md, M15_summary.md, M15_audit.md | docs/milestones/M15/ | Pending |
-| 2026-06-03T22:30 | StrReplace | Fix pantanal-1.md ledger row + closeout updates | docs/pantanal-1.md | Pending |
+| 2026-06-03T22:30 | StrReplace | Fix pantanal-1.md ledger row + closeout updates | docs/pantanal-1.md | Complete |
+| 2026-06-03T22:31 | Write | Create M15_run1.md, M15_summary.md, M15_audit.md | docs/milestones/M15/ | Complete |
+| 2026-06-03T22:31 | Shell | Commit closeout dc34e70, push | PR branch | Complete |
+| 2026-06-03T22:32 | Shell | Closeout PR CI | run 26917159945 | PASS (25s) |
+| 2026-06-03T22:32 | Shell | gh pr merge 16 --squash | main | Complete |
+| 2026-06-03T22:33 | Shell | Post-merge main CI | run 26917189928 | PASS |
+| 2026-06-03T22:33 | StrReplace | Post-merge pantanal-1.md M15 closed | docs/pantanal-1.md | Complete |
+| 2026-06-03T22:33 | Write | Seed M16_plan.md, M16_toolcalls.md | docs/milestones/M16/ | Complete |

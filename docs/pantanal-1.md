@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M15 in progress)
+**Last updated:** 2026-06-03 (M15 closed)
 
 ---
 
@@ -123,7 +123,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M12 | Scoring Methodology and Working-Note Criteria Audit | closed | PR #13 squash `57d1ed7`; PR-head `1c3cf0b`; PR CI [26911494073](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911494073); post-merge CI [26911835469](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911835469); [summary](milestones/M12/M12_summary.md), [audit](milestones/M12/M12_audit.md); [scoring audit](analysis/M12_scoring_methodology_audit.md), [working-note criteria audit](working_note/M12_working_note_criteria_audit.md), [next direction](analysis/M12_next_direction_decision.md) |
 | M13 | Audio-Derived Baseline Planning Gate | closed | PR #14 squash `a684b69`; PR-head `2de0f5f`; PR CI [26912874923](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912874923); post-merge CI [26912920316](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912920316); [summary](milestones/M13/M13_summary.md), [audit](milestones/M13/M13_audit.md); [audio strategy](analysis/M13_audio_baseline_strategy.md), [Blackwell training plan](analysis/M13_blackwell_training_plan.md), [artifact boundary](analysis/M13_artifact_boundary_plan.md), [Kaggle packaging](analysis/M13_kaggle_inference_packaging_plan.md), [evaluation plan](analysis/M13_evaluation_plan.md) |
 | M14 | 5090 Blackwell Audio-Derived Baseline Evidence Contract | closed | PR #15 squash `2b12658`; PR-head `a6934ef`; PR CI [26913828912](https://github.com/m-cahill/PANTANAL-1/actions/runs/26913828912) (impl `8481cf9`); closeout PR CI [26914768091](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914768091); post-merge CI [26914804282](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914804282); [summary](milestones/M14/M14_summary.md), [audit](milestones/M14/M14_audit.md); [evidence contract](analysis/M14_evidence_contract.md), [private runbook](analysis/M14_private_training_runbook.md), [manifest schema](models/M14_MODEL_MANIFEST_SCHEMA.md), [model card template](models/M14_model_card_template.md) |
-| M15 | Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate | in progress | PR #16; branch `m15-private-lane-evidence-request`; [evidence request](analysis/M15_private_lane_evidence_request.md), [ingest decision gate](analysis/M15_ingest_decision_gate.md), [packet template](analysis/M15_private_lane_evidence_packet_template.md) |
+| M15 | Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate | closed | PR #16 squash `d2a3736`; PR-head `dc34e70`; PR CI [26916594679](https://github.com/m-cahill/PANTANAL-1/actions/runs/26916594679) (impl `c9a3aaa`); closeout PR CI [26917159945](https://github.com/m-cahill/PANTANAL-1/actions/runs/26917159945); post-merge CI [26917189928](https://github.com/m-cahill/PANTANAL-1/actions/runs/26917189928); [summary](milestones/M15/M15_summary.md), [audit](milestones/M15/M15_audit.md); [evidence request](analysis/M15_private_lane_evidence_request.md), [ingest decision gate](analysis/M15_ingest_decision_gate.md), [packet template](analysis/M15_private_lane_evidence_packet_template.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -361,7 +361,7 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M15** is closing as **Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate** (PR #16). No owner-supplied private-lane evidence bundle was available; M15 delivered the request packet and decision gate for future private-lane ingest.
+**M15** closed as **Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate**. No owner-supplied private-lane evidence bundle was available; M15 delivered the request packet and decision gate for future private-lane ingest.
 
 M12 established that placeholder baselines (all-zero and uniform-ε) both scored **0.500** with no ranking signal. M13 defined the planning path; M14 defines the public-safe validation contract; M15 operationalizes the handoff checklist for the private lane.
 

@@ -90,11 +90,12 @@ Without M15, the private lane would lack a single checklist, go/no-go gate, and 
 | **Authoritative PR-head CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26916594679 — success (25s) |
 | **Impl commit** | `f1412355700b9b46c8896229d9c9986c82bdab40` |
 | **Telemetry commit** | `c9a3aaac9c47f530e44cc30f7b6879939c65f767` |
-| **Merge method** | squash merge (at closeout) |
-| **Merge timestamp (UTC)** | _Recorded at post-merge closeout_ |
-| **Squash/main SHA** | _Recorded at post-merge closeout_ |
-| **Closeout PR-head CI** | _Recorded at post-merge closeout_ |
-| **Post-merge main CI** | _Recorded at post-merge closeout_ |
+| **Merge method** | squash merge |
+| **Merge timestamp (UTC)** | 2026-06-03T22:32:43Z |
+| **Squash/main SHA** | `d2a3736f7be6dfe17e2c7f44535a97ff56097938` |
+| **Closeout PR-head SHA** | `dc34e70825729ca30d52f9d5c3e02307077758e8` |
+| **Closeout PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26917159945 — success (25s) |
+| **Post-merge main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26917189928 — success |
 
 No new runtime dependencies. M06/M07 gates unchanged.
 

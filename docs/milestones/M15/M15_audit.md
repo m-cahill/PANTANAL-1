@@ -236,7 +236,7 @@ No HIGH blocking issues.
   "milestone": "M15",
   "mode": "DELTA AUDIT",
   "pr_head_sha": "c9a3aaa",
-  "squash_main_sha": "TBD_POST_MERGE",
+  "squash_main_sha": "d2a3736",
   "verdict": "green",
   "score": 5.0,
   "tests_total": 310,
