@@ -14,4 +14,6 @@ M08 was seeded after M07 closeout and squash merge to `main` (PR #8, merge commi
 | 2026-06-03T14:01:00Z | Shell | Phase 0 recovery: git status, branch, log, remote; rm coverage.xml | repo root | completed |
 | 2026-06-03T14:02:00Z | Write | M08 closeout: summary, audit, pantanal-1, plan, test | docs/milestones/M08/*, docs/pantanal-1.md, tests/test_m08_working_note_outline.py | completed |
 | 2026-06-03T14:03:00Z | Shell | Final local verification before closeout commit | repo root | completed (157 passed) |
-| 2026-06-03T14:04:00Z | Shell | Closeout commit and push | m08-working-note-outline | pending |
+| 2026-06-03T14:04:00Z | Shell | Closeout commit and push | SHA 0689fd7 | completed |
+| 2026-06-03T14:05:00Z | Shell | Final PR-head CI | run 26875939927 | completed (success, 29s) |
+| 2026-06-03T14:06:00Z | Shell | Squash merge PR #9 | merge commit 75628a8 on main | completed |
