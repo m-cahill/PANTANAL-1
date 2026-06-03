@@ -67,11 +67,12 @@ def test_evidence_index_exists() -> None:
     assert INDEX_PATH.is_file()
 
 
-def test_pantanal_1_marks_m05_in_progress() -> None:
+def test_pantanal_1_marks_m05_closed_in_ledger() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
     m05_row = ledger.split("| M05 |", 1)[-1].split("\n", 1)[0]
-    assert "in progress" in m05_row.lower()
+    assert "closed" in m05_row.lower()
+    assert "pr #6" in m05_row.lower()
 
 
 def test_pantanal_1_does_not_claim_model_inference() -> None:

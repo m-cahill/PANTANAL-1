@@ -1,6 +1,6 @@
 # M05 Plan — Baseline Improvement Planning / Post-Competition Analysis
 
-**Status:** In progress (branch `m05-baseline-improvement-planning`)
+**Status:** Closed (PR #6; branch `m05-baseline-improvement-planning`)
 
 **Objective:** Analyze the completed zero-baseline Kaggle path (M00–M04), public score evidence, remaining gaps, and recommend the next project direction without implementing inference, training, or new submissions.
 
