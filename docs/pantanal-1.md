@@ -26,7 +26,7 @@
 | M13 | [M13_plan.md](milestones/M13/M13_plan.md) | [M13_summary.md](milestones/M13/M13_summary.md) | [M13_audit.md](milestones/M13/M13_audit.md) | [M13_toolcalls.md](milestones/M13/M13_toolcalls.md) |
 | M14 | [M14_plan.md](milestones/M14/M14_plan.md) | [M14_summary.md](milestones/M14/M14_summary.md) | [M14_audit.md](milestones/M14/M14_audit.md) | [M14_toolcalls.md](milestones/M14/M14_toolcalls.md) |
 | M15 | [M15_plan.md](milestones/M15/M15_plan.md) | [M15_summary.md](milestones/M15/M15_summary.md) | [M15_audit.md](milestones/M15/M15_audit.md) | [M15_toolcalls.md](milestones/M15/M15_toolcalls.md) |
-| M16 | [M16_plan.md](milestones/M16/M16_plan.md) | — | — | [M16_toolcalls.md](milestones/M16/M16_toolcalls.md) |
+| M16 | [M16_plan.md](milestones/M16/M16_plan.md) | [M16_summary.md](milestones/M16/M16_summary.md) | [M16_audit.md](milestones/M16/M16_audit.md) | [M16_toolcalls.md](milestones/M16/M16_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -162,7 +162,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains an audio-derived baseline planning package for a future 5090 Blackwell training sprint, including strategy, artifact boundary, Kaggle packaging, and evaluation plans (M13; see `docs/analysis/M13_audio_baseline_strategy.md`, `docs/analysis/M13_blackwell_training_plan.md`, `docs/analysis/M13_artifact_boundary_plan.md`, `docs/analysis/M13_kaggle_inference_packaging_plan.md`, `docs/analysis/M13_evaluation_plan.md`).
 - PANTANAL-1 contains a public-safe evidence contract for future private-lane audio-derived baseline training summaries, including validation-summary schema, synthetic fixtures, stdlib validator, model manifest guidance, model card template, private training runbook, and governance tests (M14; see `docs/analysis/M14_evidence_contract.md`, `docs/analysis/M14_private_training_runbook.md`, `docs/models/M14_MODEL_MANIFEST_SCHEMA.md`, `docs/models/M14_model_card_template.md`, `schemas/m14_validation_summary.schema.json`, `scripts/validate_m14_evidence.py`).
 - PANTANAL-1 contains a private-lane evidence request packet and pre-ingest decision gate for future M15A evidence ingest, including a required evidence checklist, go/no-go decision gate, packet template, and governance tests (M15; see `docs/analysis/M15_private_lane_evidence_request.md`, `docs/analysis/M15_ingest_decision_gate.md`, `docs/analysis/M15_private_lane_evidence_packet_template.md`, `tests/test_m15_private_lane_evidence_request.py`).
-- PANTANAL-1 contains a working-note draft v0 and final evidence lock consolidating M00–M15 evidence (M16; see `docs/working_note/M16_working_note_draft_v0.md`, `docs/working_note/M16_final_evidence_lock.md`, `docs/analysis/M16_final_submission_decision.md`, `tests/test_m16c_working_note_final_lock.py`).
+- PANTANAL-1 contains a working-note draft v0 and final evidence lock consolidating M00–M15 evidence, including a final submission decision memo (M16; see `docs/working_note/M16_working_note_draft_v0.md`, `docs/working_note/M16_final_evidence_lock.md`, `docs/analysis/M16_final_submission_decision.md`, `tests/test_m16c_working_note_final_lock.py`).
 
 **Not yet proven:**
 
@@ -378,16 +378,15 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M16C** is in progress as **Working-Note Draft v0 / Final Evidence Lock** before the BirdCLEF+ 2026 deadline. M16 consolidates M00–M15 into a truthful narrative; it does not submit new Kaggle notebooks or ingest private-lane evidence.
+**M16C** is closing as **Working-Note Draft v0 / Final Evidence Lock** (PR #17). M16 consolidates M00–M15 into a truthful narrative; it does not submit new Kaggle notebooks or ingest private-lane evidence from repo work.
 
-If Kaggle requires a final selection, use `docs/analysis/M16_final_submission_decision.md` (recommended: M04 zero-baseline Version 2, public score **0.500**).
+**Immediate manual action (if still before deadline):** If Kaggle requires a final selection, select the already-scored **M04 zero-baseline / `pantanal_1_m03_baseline` Version 2** (public score **0.500**). See `docs/analysis/M16_final_submission_decision.md`. This is not a competitive or model-quality claim.
 
 | Priority | Direction |
 |----------|-----------|
-| **Current (in progress)** | **M16C — Working-note draft v0 / final evidence lock** |
-| **Post-deadline** | **M16A — Private-lane evidence ingest** (when owner supplies public-safe bundle) |
-| **Post-deadline** | **M16B — Kaggle audio baseline packaging** (if CPU-compatible export exists) |
-| **Post-deadline** | Working-note refinement after stronger evidence |
+| **Post-deadline primary** | **M16A — Private-lane evidence ingest** (when owner supplies public-safe bundle) |
+| **Post-deadline alternative** | **M16B — Kaggle audio baseline packaging** (if CPU-compatible export exists) |
+| **Post-deadline narrative** | Refine working-note draft after stronger evidence |
 | Also available | **DEF-001 optional** — SBOM/provenance |
 
-Do not begin post-deadline M16A/M16B work or any further milestone until M16 is closed and owner authorizes direction.
+Do not begin any further milestone implementation without owner authorization.
