@@ -1,6 +1,6 @@
 # M06 Plan — Audit Hardening / Evidence Consolidation
 
-**Status:** In progress (branch `m06-audit-hardening-evidence-consolidation`)
+**Status:** Closed (PR #7; branch `m06-audit-hardening-evidence-consolidation`)
 
 **Objective:** Begin closing **DEF-001** by adding coverage and mypy CI gates for `src/pantanal_1`, plus audit-hardening evidence and doc tests — without changing Kaggle notebook behavior or adding model inference.
 

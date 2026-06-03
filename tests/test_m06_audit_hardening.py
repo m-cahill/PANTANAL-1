@@ -54,10 +54,13 @@ def test_requirements_dev_includes_coverage_tooling() -> None:
     assert "pytest-cov" in text or "coverage" in text
 
 
-def test_pantanal_marks_m06_in_progress() -> None:
+def test_pantanal_marks_m06_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     assert "M06" in text
-    assert "in progress" in text.lower()
+    ledger = text.split("## 7. Milestone ledger", 1)[-1]
+    assert "audit hardening" in ledger.lower()
+    assert "| M06 |" in ledger or "m06 |" in ledger.lower()
+    assert "closed" in ledger.lower()
 
 
 def test_pantanal_does_not_claim_inference_or_score_improvement() -> None:
