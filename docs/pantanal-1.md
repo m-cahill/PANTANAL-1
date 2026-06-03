@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M08 closed)
+**Last updated:** 2026-06-03 (M09 in progress)
 
 ---
 
@@ -19,6 +19,7 @@
 | M06 | [M06_plan.md](milestones/M06/M06_plan.md) | [M06_summary.md](milestones/M06/M06_summary.md) | [M06_audit.md](milestones/M06/M06_audit.md) | [M06_toolcalls.md](milestones/M06/M06_toolcalls.md) |
 | M07 | [M07_plan.md](milestones/M07/M07_plan.md) | [M07_summary.md](milestones/M07/M07_summary.md) | [M07_audit.md](milestones/M07/M07_audit.md) | [M07_toolcalls.md](milestones/M07/M07_toolcalls.md) |
 | M08 | [M08_plan.md](milestones/M08/M08_plan.md) | [M08_summary.md](milestones/M08/M08_summary.md) | [M08_audit.md](milestones/M08/M08_audit.md) | [M08_toolcalls.md](milestones/M08/M08_toolcalls.md) |
+| M09 | [M09_plan.md](milestones/M09/M09_plan.md) | — | — | [M09_toolcalls.md](milestones/M09/M09_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -110,6 +111,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M06 | Audit hardening / evidence consolidation | closed | PR #7; [summary](milestones/M06/M06_summary.md), [audit](milestones/M06/M06_audit.md); [audit hardening](quality/audit_hardening.md); coverage + mypy gates (DEF-001 partial through M06) |
 | M07 | Security and supply-chain audit gate | closed | PR #8; [summary](milestones/M07/M07_summary.md), [audit](milestones/M07/M07_audit.md); [security supply chain](quality/security_supply_chain.md); DEF-001 substantially addressed (Bandit + pip-audit) |
 | M08 | Working-note outline / evidence narrative seed | closed | PR #9; [summary](milestones/M08/M08_summary.md), [audit](milestones/M08/M08_audit.md); [outline](working_note/working_note_outline.md), [evidence map](working_note/evidence_map.md) |
+| M09 | Working-note draft planning / public narrative decision gate | in progress | [plan](milestones/M09/M09_plan.md); [decision gate](working_note/draft_decision_gate.md), [readiness checklist](working_note/draft_readiness_checklist.md), [recommendation](analysis/M09_next_direction_recommendation.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -138,6 +140,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 adds audit-hardening CI gates for source coverage and mypy type checking, improving enterprise CI posture without changing Kaggle notebook behavior (M06; see `docs/quality/audit_hardening.md`).
 - PANTANAL-1 adds security and dependency audit gates using Bandit and pip-audit, further hardening CI without changing Kaggle notebook behavior (M07; see `docs/quality/security_supply_chain.md`).
 - PANTANAL-1 contains a working-note outline and evidence map that organize the M00–M07 governance, Kaggle, and audit evidence into a public narrative seed (M08; see `docs/working_note/working_note_outline.md`, `docs/working_note/evidence_map.md`).
+- PANTANAL-1 contains a working-note draft decision gate, readiness checklist, and next-direction recommendation that evaluate whether to draft, pivot to inference, or archive/template the project (M09; see `docs/working_note/draft_decision_gate.md`, `docs/working_note/draft_readiness_checklist.md`, `docs/analysis/M09_next_direction_recommendation.md`).
 
 **Not yet proven:**
 
@@ -216,6 +219,15 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M08 does not improve leaderboard score.
 - M08 does not claim RediAI certification.
 
+**M09 explicit non-claims:**
+
+- M09 does not create a full working-note draft.
+- M09 does not make the project CLEF submission-ready.
+- M09 does not implement model inference.
+- M09 does not prove model quality.
+- M09 does not improve leaderboard score.
+- M09 does not claim RediAI certification.
+
 ---
 
 ## 9. Explicit non-claims
@@ -259,10 +271,12 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M09 — Working-Note Draft Planning / Public Narrative Decision Gate** (primary). Decide whether to expand the M08 outline into a full draft working note, pivot to a real inference baseline, or archive PANTANAL-1 as a reusable governed Kaggle template. See `docs/milestones/M09/M09_plan.md` when seeded. M09 must not claim working-note readiness or model quality unless separately implemented and evidenced.
+**M10 (pending owner approval after M09 closeout)** — see `docs/analysis/M09_next_direction_recommendation.md` and `docs/working_note/draft_decision_gate.md`.
 
-**M09A — Real inference baseline spike** remains the secondary option if the owner chooses ML/research momentum instead of further documentation work.
+| Priority | Direction |
+|----------|-----------|
+| **Primary** | **M10B — Real inference baseline spike** |
+| **Secondary** | **M10A — Full working-note draft** |
+| **Tertiary** | **M10C — Archive / governed Kaggle template cleanup** |
 
-Also evaluated in M05: M06C (Kaggle packaging), M06E (archive/template cleanup). See `docs/analysis/next_milestone_decision_matrix.md`.
-
-Do not begin M09 implementation until owner approves M09 plan.
+Also available: M10D (Kaggle packaging hardening), M10E (optional SBOM/provenance). Official M10 start requires owner approval after M09 merge and closeout.
