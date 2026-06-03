@@ -1,6 +1,6 @@
 # M15 — Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate
 
-**Status:** In progress  
+**Status:** Closing (PR #16 closeout)  
 **Branch:** `m15-private-lane-evidence-request`  
 **Authority:** `docs/pantanal-1.md`
 

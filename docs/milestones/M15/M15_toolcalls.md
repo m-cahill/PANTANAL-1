@@ -30,3 +30,7 @@ Milestone: M15 — Private-Lane Evidence Request Packet / Pre-Ingest Readiness G
 | 2026-06-03T22:18 | Shell | Commit f141235 | m15-private-lane-evidence-request | Complete |
 | 2026-06-03T22:18 | Shell | gh pr create | PR #16 | Complete |
 | 2026-06-03T22:19 | Shell | Wait for CI | run 26916534213 | Complete (success 25s) |
+| 2026-06-03T22:30 | Shell | Pre-closeout: verify PR SHA, CI, git status | PR #16 | Complete |
+| 2026-06-03T22:30 | Shell | verify_repo_state.py pre-closeout | repo root | PASS |
+| 2026-06-03T22:30 | Write | Create M15_run1.md, M15_summary.md, M15_audit.md | docs/milestones/M15/ | Pending |
+| 2026-06-03T22:30 | StrReplace | Fix pantanal-1.md ledger row + closeout updates | docs/pantanal-1.md | Pending |
