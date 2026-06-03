@@ -17,7 +17,9 @@ Milestone: M12 — Scoring Methodology and Working-Note Criteria Audit
 | 2026-06-03T21:02:00Z | Shell | Post-merge main CI | run 26911835469 on `57d1ed7` | complete |
 | 2026-06-03T21:05:00Z | Write | M12 summary and audit | `M12_summary.md`, `M12_audit.md` | complete |
 | 2026-06-03T21:06:00Z | Write | Seed M13 stubs | `docs/milestones/M13/` | complete |
-| 2026-06-03T21:07:00Z | StrReplace | Closeout Ultimate Truth + test closed | `docs/pantanal-1.md`, tests | pending |
+| 2026-06-03T21:07:00Z | StrReplace | Closeout Ultimate Truth + test closed | `docs/pantanal-1.md`, tests | complete |
+| 2026-06-03T21:08:00Z | Shell | Closeout commit push to main | `f0ef9f4` | complete |
+| 2026-06-03T21:09:00Z | Shell | Post-closeout main CI | run 26911906131 | complete |
 
 ---
 
@@ -32,8 +34,8 @@ Milestone: M12 — Scoring Methodology and Working-Note Criteria Audit
 | **Authoritative PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26911494073 — **success** (26s) |
 | **Squash/main SHA** | `57d1ed74012e4290299014b560793b74ce766ceb` |
 | **Post-merge main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26911835469 — **success** (24s) |
-| **Closeout commit SHA** | *(recorded after push)* |
-| **Post-closeout main CI** | *(recorded after push if triggered)* |
+| **Closeout commit SHA** | `f0ef9f450f9be576454fd3228089517ec87857cf` |
+| **Post-closeout main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26911906131 — **success** |
 
 ### Local verification (implementation + closeout)
 
