@@ -15,4 +15,8 @@ M04 was seeded after M03 closeout and squash merge to `main` (PR #4, merge commi
 | 2026-06-03T07:08:00Z | Shell | Monitor PR-head CI | run 26870696963 | completed (success) |
 | 2026-06-03T08:00:00Z | Write | M04 closeout: summary, audit, pantanal-1.md, test fix | docs/milestones/M04/, docs/pantanal-1.md, tests/ | completed |
 | 2026-06-03T08:05:00Z | Shell | Local verification before closeout commit | repo root | completed (99 passed) |
-| 2026-06-03T08:06:00Z | Shell | git commit/push closeout; monitor CI; merge PR #5 | branch m04-kaggle-commit-mode-probe | in_progress |
+| 2026-06-03T08:06:00Z | Shell | git commit/push closeout; monitor CI | SHA a6635e2; PR #5 | completed |
+| 2026-06-03T08:08:00Z | Shell | Final PR-head CI | run 26871298952 | completed (success) |
+| 2026-06-03T08:10:00Z | Shell | Squash merge PR #5 to main | merge commit 0ad893b | completed |
+| 2026-06-03T08:12:00Z | Shell | Post-merge main CI | run 26871327237 | completed (success) |
+| 2026-06-03T08:14:00Z | Write | Seed M05 stub on m05-baseline-improvement-planning | docs/milestones/M05/ | completed |
