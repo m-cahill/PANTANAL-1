@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M12 closed)
+**Last updated:** 2026-06-03 (M13 in progress)
 
 ---
 
@@ -23,6 +23,7 @@
 | M10 | [M10_plan.md](milestones/M10/M10_plan.md) | [M10_summary.md](milestones/M10/M10_summary.md) | [M10_audit.md](milestones/M10/M10_audit.md) | [M10_toolcalls.md](milestones/M10/M10_toolcalls.md) |
 | M11 | [M11_plan.md](milestones/M11/M11_plan.md) | [M11_summary.md](milestones/M11/M11_summary.md) | [M11_audit.md](milestones/M11/M11_audit.md) | [M11_toolcalls.md](milestones/M11/M11_toolcalls.md) |
 | M12 | [M12_plan.md](milestones/M12/M12_plan.md) | [M12_summary.md](milestones/M12/M12_summary.md) | [M12_audit.md](milestones/M12/M12_audit.md) | [M12_toolcalls.md](milestones/M12/M12_toolcalls.md) |
+| M13 | [M13_plan.md](milestones/M13/M13_plan.md) | — | — | [M13_toolcalls.md](milestones/M13/M13_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -118,6 +119,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M10 | Real inference baseline spike | closed | PR #11; [summary](milestones/M10/M10_summary.md), [audit](milestones/M10/M10_audit.md); uniform-ε nonzero baseline (M10B); [nonzero baseline doc](kaggle/nonzero_baseline.md) |
 | M11 | Kaggle non-zero baseline evidence probe | closed | PR #12; [summary](milestones/M11/M11_summary.md), [audit](milestones/M11/M11_audit.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
 | M12 | Scoring Methodology and Working-Note Criteria Audit | closed | PR #13 squash `57d1ed7`; PR-head `1c3cf0b`; PR CI [26911494073](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911494073); post-merge CI [26911835469](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911835469); [summary](milestones/M12/M12_summary.md), [audit](milestones/M12/M12_audit.md); [scoring audit](analysis/M12_scoring_methodology_audit.md), [working-note criteria audit](working_note/M12_working_note_criteria_audit.md), [next direction](analysis/M12_next_direction_decision.md) |
+| M13 | Audio-Derived Baseline Planning Gate | in progress | Branch `m13-audio-derived-baseline-planning`; [plan](milestones/M13/M13_plan.md); [audio strategy](analysis/M13_audio_baseline_strategy.md), [Blackwell training plan](analysis/M13_blackwell_training_plan.md), [artifact boundary](analysis/M13_artifact_boundary_plan.md), [Kaggle packaging](analysis/M13_kaggle_inference_packaging_plan.md), [evaluation plan](analysis/M13_evaluation_plan.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -151,6 +153,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains a runbook, evidence template, and output-cleared notebook for evaluating the M10 deterministic non-zero baseline on Kaggle without overclaiming model quality (M11; see `docs/kaggle/m11_nonzero_baseline_runbook.md`, `docs/kaggle/m11_nonzero_baseline_evidence.md`, `notebooks/pantanal_1_m11_nonzero_baseline.ipynb`).
 - M11 recorded Kaggle evidence for the uniform-ε non-zero baseline. The notebook produced a valid Kaggle submission path and received public score **0.500**, matching the prior all-zero baseline score of **0.500** (`pantanal_1_m03_baseline` Version 2); **no score improvement was observed** (see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Interactive run also evidenced `/kaggle/working/submission.csv` (3 rows, 235 columns) with ε **0.001** and inline fallback.
 - PANTANAL-1 contains M12 scoring methodology and working-note criteria audits that explain why all-zero and uniform-ε baselines both scored **0.500**, assess working-note readiness, and recommend the next milestone (M12; see `docs/analysis/M12_scoring_methodology_audit.md`, `docs/working_note/M12_working_note_criteria_audit.md`, `docs/analysis/M12_next_direction_decision.md`).
+- PANTANAL-1 contains an audio-derived baseline planning package for a future 5090 Blackwell training sprint, including strategy, artifact boundary, Kaggle packaging, and evaluation plans (M13; see `docs/analysis/M13_audio_baseline_strategy.md`, `docs/analysis/M13_blackwell_training_plan.md`, `docs/analysis/M13_artifact_boundary_plan.md`, `docs/analysis/M13_kaggle_inference_packaging_plan.md`, `docs/analysis/M13_evaluation_plan.md`).
 
 **Not yet proven:**
 
@@ -269,6 +272,17 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M12 does not claim RediAI certification.
 - M12 does not prove model quality or audio understanding.
 
+**M13 explicit non-claims:**
+
+- M13 does not train a model.
+- M13 does not implement audio inference.
+- M13 does not add audio or ML dependencies.
+- M13 does not improve leaderboard score.
+- M13 does not add model weights.
+- M13 does not claim model quality.
+- M13 does not claim RediAI certification.
+- M13 does not create working-note readiness.
+
 ---
 
 ## 9. Explicit non-claims
@@ -312,15 +326,16 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M13 — Audio-Derived Baseline Planning Gate** (primary; pending owner-approved plan). See `docs/milestones/M13/M13_plan.md` when seeded after M12 closeout.
+**M14 — 5090 Blackwell Audio-Derived Baseline Training Sprint** (primary after M13 closes). M13 planning package defines strategy, private/public artifact handoff, Kaggle CPU packaging, and evaluation gates (`docs/analysis/M13_audio_baseline_strategy.md`, `docs/analysis/M13_blackwell_training_plan.md`, `docs/analysis/M13_artifact_boundary_plan.md`, `docs/analysis/M13_kaggle_inference_packaging_plan.md`, `docs/analysis/M13_evaluation_plan.md`).
 
-M12 audited scoring methodology (all-zero and uniform-ε both **0.500**), working-note criteria readiness, and next direction (`docs/analysis/M12_scoring_methodology_audit.md`, `docs/working_note/M12_working_note_criteria_audit.md`, `docs/analysis/M12_next_direction_decision.md`). Before adding audio dependencies, M13 should choose the smallest CPU-compatible, license-safe, Kaggle-compatible audio-derived baseline path.
+M12 established that placeholder baselines (all-zero and uniform-ε) both scored **0.500** with no ranking signal. M13 records the planning path toward audio-derived predictions without training or score claims.
 
 | Priority | Direction |
 |----------|-----------|
-| **Primary** | **M13 — Audio-Derived Baseline Planning Gate** |
+| **Primary (next)** | **M14 — 5090 Blackwell Audio-Derived Baseline Training Sprint** |
+| **Current** | **M13 — Audio-Derived Baseline Planning Gate** (in progress) |
 | **Secondary** | **M13B — Working-note draft v0** |
 | **Tertiary** | **M13C — Archive / template hardening** |
-| Also available | **M13D — Kaggle packaging hardening**; **DEF-001 optional** — SBOM/provenance |
+| Also available | **M15 — Kaggle audio baseline packaging** (after M14 export); **DEF-001 optional** — SBOM/provenance |
 
-Do not begin M13 until owner approves `docs/milestones/M13/M13_plan.md` after M12 closeout.
+Do not begin M14 training until M13 is closed and owner approves M14 plan.
