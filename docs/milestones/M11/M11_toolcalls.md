@@ -16,4 +16,8 @@ M11 was seeded after M10 closeout and squash merge to `main` (PR #11, merge comm
 | 2026-06-03T19:30:00Z | Shell | Phase 0 recovery (git status, branch, log) | repo root | complete |
 | 2026-06-03T19:31:00Z | Write/StrReplace | Record M11 scored/commit evidence | m11_nonzero_baseline_evidence.md, pantanal-1.md, nonzero_baseline.md, tests | complete (6cb3a63, CI 26909672684) |
 | 2026-06-03T20:10:00Z | Write | M11 closeout summary and audit | M11_summary.md, M11_audit.md | complete |
-| 2026-06-03T20:15:00Z | Shell | Closeout local verification | repo root | pending |
+| 2026-06-03T20:15:00Z | Shell | Closeout local verification | repo root | complete (213 passed) |
+| 2026-06-03T20:20:00Z | Shell | Closeout commit, push, PR #12 CI | m11 branch | complete (3a30893, CI 26909929317 success) |
+| 2026-06-03T20:25:00Z | Shell | Squash merge PR #12 to main | main | complete (64055a4) |
+| 2026-06-03T20:26:00Z | Shell | Post-merge main CI | main | complete (26909982922 success) |
+| 2026-06-03T20:30:00Z | Write | Seed M12 stub on branch m12-scoring-working-note-criteria-audit | M12_plan.md, M12_toolcalls.md | complete (a54104f pushed) |
