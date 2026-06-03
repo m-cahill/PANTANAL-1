@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M03 closed)
+**Last updated:** 2026-06-03 (M04 closed)
 
 ---
 
@@ -14,6 +14,7 @@
 | M01 | [M01_plan.md](milestones/M01/M01_plan.md) | [M01_summary.md](milestones/M01/M01_summary.md) | [M01_audit.md](milestones/M01/M01_audit.md) | [M01_toolcalls.md](milestones/M01/M01_toolcalls.md) |
 | M02 | [M02_plan.md](milestones/M02/M02_plan.md) | [M02_summary.md](milestones/M02/M02_summary.md) | [M02_audit.md](milestones/M02/M02_audit.md) | [M02_toolcalls.md](milestones/M02/M02_toolcalls.md) |
 | M03 | [M03_plan.md](milestones/M03/M03_plan.md) | [M03_summary.md](milestones/M03/M03_summary.md) | [M03_audit.md](milestones/M03/M03_audit.md) | [M03_toolcalls.md](milestones/M03/M03_toolcalls.md) |
+| M04 | [M04_plan.md](milestones/M04/M04_plan.md) | [M04_summary.md](milestones/M04/M04_summary.md) | [M04_audit.md](milestones/M04/M04_audit.md) | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
 
 ---
 
@@ -98,6 +99,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
+| M04 | Kaggle commit-mode submission path probe | closed | PR #5; [summary](milestones/M04/M04_summary.md), [audit](milestones/M04/M04_audit.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B evidenced; DEF-003B narrowed |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -121,15 +123,14 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - **M02 Kaggle interactive evidence:** patched smoke notebook ran in Kaggle interactive mode via inline fallback and produced synthetic smoke CSV at `tmp/submissions/m02_smoke_submission.csv` without competition data (see `docs/kaggle/kaggle_setup_evidence.md`).
 - PANTANAL-1 contains a baseline-oriented Kaggle notebook scaffold that can either generate a local synthetic fallback CSV or, when real Kaggle `sample_submission.csv` is available in the Kaggle environment, generate a zero-baseline `/kaggle/working/submission.csv` using that schema (M03 repo-side; see `docs/kaggle/baseline_inference_notebook.md`).
 - **M03 Kaggle interactive evidence:** baseline notebook (inline fallback) discovered real `sample_submission.csv` at `/kaggle/input/competitions/birdclef-2026/sample_submission.csv`, selected `REAL_SAMPLE_ZERO_BASELINE`, and produced `/kaggle/working/submission.csv` with 3 rows and 235 columns using the sample schema (see `docs/kaggle/m03_kaggle_evidence.md`). **Interactive mode only** — not scored commit/submit mode.
+- **M04 Kaggle commit/scored evidence:** Kaggle competition notebook `pantanal_1_m03_baseline` Version 2 completed successfully in **1m 7s**, Kaggle reported **1 output file**, and received public score **0.500** using the zero-baseline submission path (see `docs/kaggle/m04_commit_mode_evidence.md`).
 
 **Not yet proven:**
 
-- Kaggle commit/submit-mode execution producing `/kaggle/working/submission.csv` (DEF-002B).
-- Scored/hidden test submission schema behavior (DEF-003B).
-- CPU-only 90-minute runtime compliance.
-- Model inference.
-- Leaderboard submission.
-- Competition score.
+- CPU-only 90-minute **scoring-configuration** compliance (M04 observed short runtime; accelerator/internet not re-recorded in evidence paste).
+- Model inference or meaningful model quality.
+- Private leaderboard performance beyond observed public score.
+- Full hidden/scored-test row count and internals (DEF-003B narrowed for scored acceptance only).
 - Working note readiness.
 
 **M01 explicit non-claims:**
@@ -153,11 +154,20 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 **M03 explicit non-claims:**
 
 - M03 does not prove active competition submission eligibility.
-- M03 does not prove commit/submit-mode or scored submission execution (DEF-002B open).
+- M03 does not prove commit/submit-mode or scored submission execution (DEF-002B evidenced in M04).
 - M03 does not prove leaderboard submission or score.
 - M03 does not prove CPU 90-minute **scoring** runtime compliance (interactive runtime observed only).
 - M03 does not prove model inference or meaningful model quality (zero baseline only).
 - M03 does not prove hidden/full test row count (sample had 3 rows in observed run).
+
+**M04 explicit non-claims (preserve after scored evidence):**
+
+- M04 does not prove model inference or meaningful model quality (zero baseline only).
+- M04 does not prove a competitive solution (public score 0.500 is consistent with all-zero baseline).
+- M04 does not prove private leaderboard performance beyond the observed public score.
+- M04 does not change the fact that the submitted baseline is all-zero.
+- M04 does not prove full hidden/scored-test schema visibility (scored acceptance evidenced; hidden-test internals not exposed in owner paste).
+- M04 does not prove CPU/internet scoring-configuration compliance beyond observed short runtime unless those settings are directly re-recorded.
 
 ---
 
@@ -166,8 +176,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 PANTANAL-1 does **not** currently claim:
 
 - Useful model training or inference quality
-- Full scored/hidden-test `sample_submission.csv` behavior (DEF-003B; M03 evidenced sample-schema alignment in interactive mode only — DEF-003A)
-- BirdCLEF submission readiness or leaderboard performance
+- Full hidden/scored-test internals and row counts (DEF-003B narrowed for scored acceptance in M04; not full hidden-test exposure)
+- BirdCLEF submission readiness as a competitive solution or meaningful leaderboard performance
 - ORNITHOS private artifact reuse in this repo
 - AURORA runtime consumption in this repo
 - RediAI certification
@@ -194,12 +204,16 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
 | DEF-002A | Kaggle interactive synthetic smoke | M02 (evidenced) | Patched smoke notebook runs in Kaggle interactive mode and produces synthetic CSV under `tmp/submissions/` (see `docs/kaggle/kaggle_setup_evidence.md`) |
-| DEF-002B | Kaggle scored/commit-mode real submission path | Future milestone | Commit/submit-mode notebook runs in CPU environment and produces `/kaggle/working/submission.csv` with recorded evidence |
+| DEF-002B | Kaggle scored/commit-mode real submission path | M04 (evidenced) | Kaggle competition notebook Version 2 completed successfully, produced an output file, and received public score 0.500 (see `docs/kaggle/m04_commit_mode_evidence.md`) |
 | DEF-003A | Real sample_submission.csv schema discovery and zero-baseline alignment | M03 (evidenced) | Real `sample_submission.csv` discovered on Kaggle; zero baseline preserves sample header/row order (see `docs/kaggle/m03_kaggle_evidence.md`) |
-| DEF-003B | Scored/hidden test submission schema behavior | Future milestone | Commit/submit-mode run confirms scored submission behavior |
+| DEF-003B | Scored/hidden test submission schema behavior | M04 (narrowed/evidenced) | Kaggle scoring accepted zero-baseline output and returned public score 0.500; hidden-test internals not exposed in evidence paste |
 
 ---
 
 ## 12. Next milestone recommendation
 
-After M03 closeout: **M04 — Kaggle Commit-Mode Submission Path Probe** (stub only). BirdCLEF+ 2026 final deadline has passed; treat M04 as archival/reusable scored-path probe unless active eligibility is directly evidenced. **DEF-002B** and **DEF-003B** remain open. See `docs/milestones/M04/M04_plan.md` when seeded.
+After M04 closeout: **M05 — Baseline Improvement Planning / Post-Competition Analysis** (stub only).
+
+M05 should analyze the completed zero-baseline path, Kaggle public score evidence (**0.500**), and remaining quality/audit gaps (especially DEF-001), then decide whether to pursue a real inference baseline, post-competition working-note documentation, audit hardening, Kaggle packaging improvements, or a new competition/research direction. M05 must not claim model quality unless implemented and evidenced.
+
+See `docs/milestones/M05/M05_plan.md` when seeded.

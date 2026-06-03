@@ -51,18 +51,15 @@ def test_m03_kaggle_evidence_does_not_claim_leaderboard_score() -> None:
     raise AssertionError("missing Public leaderboard score field")
 
 
-def test_pantanal_1_keeps_def_002b_open() -> None:
+def test_pantanal_1_def_002b_evidenced_after_m04() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     deferred = text.split("## 11. Deferred issues register", 1)[-1]
     assert "DEF-002B" in deferred
-    assert "DEF-002B" in text
-    not_proven = text.split("## 8. Current claims", 1)[-1].split("## 9.", 1)[0]
-    assert "DEF-002B" in not_proven or "commit/submit" in not_proven.lower()
+    assert "M04 (evidenced)" in deferred
 
 
-def test_pantanal_1_def_003a_evidenced_def_003b_open() -> None:
+def test_pantanal_1_def_003a_evidenced() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     deferred = text.split("## 11. Deferred issues register", 1)[-1]
     assert "DEF-003A" in deferred
-    assert "DEF-003B" in deferred
     assert "evidenced" in deferred.lower() or "M03" in deferred
