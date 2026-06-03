@@ -16,4 +16,10 @@ Milestone: M16C — Working-Note Draft v0 / Final Evidence Lock
 | 2026-06-03T22:55 | Shell | Pre-closeout verify PR SHA, CI, repo state | PR #17 | Complete |
 | 2026-06-03T22:55 | Write | M16_run1.md, M16_summary.md, M16_audit.md | docs/milestones/M16/ | Complete |
 | 2026-06-03T22:55 | StrReplace | pantanal-1.md closeout updates | docs/pantanal-1.md | Complete |
-| 2026-06-03T22:56 | Shell | Commit closeout, push, merge PR #17 | GitHub | Pending |
+| 2026-06-03T22:56 | Shell | Commit closeout 7f4eee1, push, merge PR #17 | GitHub | Complete |
+| 2026-06-03T22:57 | Shell | Closeout PR CI run 26918250149 | CI | PASS |
+| 2026-06-03T22:57 | Shell | Squash merge dc51adb | main | Complete |
+| 2026-06-03T22:58 | Shell | Post-merge telemetry 19f3f98 | main | Complete |
+| 2026-06-03T22:58 | Shell | Post-merge CI 26918292935 | CI | FAIL (test) |
+| 2026-06-03T22:59 | Shell | Fix test fea7482, post-merge CI 26918331139 | CI | PASS |
+| 2026-06-03T22:59 | Write | Seed M17 placeholder | docs/milestones/M17/ | Complete |

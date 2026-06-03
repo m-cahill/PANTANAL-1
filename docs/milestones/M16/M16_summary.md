@@ -72,7 +72,7 @@ No owner-supplied private-lane bundle and no CPU export made M16A/M16B infeasibl
 | **Squash/main SHA** | `dc51adb85b046750f92df94bf7f42b9b32f5e9a0` |
 | **Closeout PR-head SHA** | `7f4eee1bc0b5d442a52c9af44233432b2993cf47` |
 | **Closeout PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26918250149 — success |
-| **Post-merge main CI** | _Recorded at post-merge telemetry_ |
+| **Post-merge main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26918331139 — success (after test fix `fea7482`) |
 
 No Kaggle submission was made from this PR.
 
