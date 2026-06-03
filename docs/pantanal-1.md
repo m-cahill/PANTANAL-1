@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M09 closed)
+**Last updated:** 2026-06-03 (M10 closed)
 
 ---
 
@@ -20,6 +20,7 @@
 | M07 | [M07_plan.md](milestones/M07/M07_plan.md) | [M07_summary.md](milestones/M07/M07_summary.md) | [M07_audit.md](milestones/M07/M07_audit.md) | [M07_toolcalls.md](milestones/M07/M07_toolcalls.md) |
 | M08 | [M08_plan.md](milestones/M08/M08_plan.md) | [M08_summary.md](milestones/M08/M08_summary.md) | [M08_audit.md](milestones/M08/M08_audit.md) | [M08_toolcalls.md](milestones/M08/M08_toolcalls.md) |
 | M09 | [M09_plan.md](milestones/M09/M09_plan.md) | [M09_summary.md](milestones/M09/M09_summary.md) | [M09_audit.md](milestones/M09/M09_audit.md) | [M09_toolcalls.md](milestones/M09/M09_toolcalls.md) |
+| M10 | [M10_plan.md](milestones/M10/M10_plan.md) | [M10_summary.md](milestones/M10/M10_summary.md) | [M10_audit.md](milestones/M10/M10_audit.md) | [M10_toolcalls.md](milestones/M10/M10_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -112,6 +113,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M07 | Security and supply-chain audit gate | closed | PR #8; [summary](milestones/M07/M07_summary.md), [audit](milestones/M07/M07_audit.md); [security supply chain](quality/security_supply_chain.md); DEF-001 substantially addressed (Bandit + pip-audit) |
 | M08 | Working-note outline / evidence narrative seed | closed | PR #9; [summary](milestones/M08/M08_summary.md), [audit](milestones/M08/M08_audit.md); [outline](working_note/working_note_outline.md), [evidence map](working_note/evidence_map.md) |
 | M09 | Working-note draft planning / public narrative decision gate | closed | PR #10; [summary](milestones/M09/M09_summary.md), [audit](milestones/M09/M09_audit.md); [decision gate](working_note/draft_decision_gate.md), [readiness checklist](working_note/draft_readiness_checklist.md), [recommendation](analysis/M09_next_direction_recommendation.md) |
+| M10 | Real inference baseline spike | closed | PR #11; [summary](milestones/M10/M10_summary.md), [audit](milestones/M10/M10_audit.md); uniform-ε nonzero baseline (M10B); [nonzero baseline doc](kaggle/nonzero_baseline.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -141,6 +143,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 adds security and dependency audit gates using Bandit and pip-audit, further hardening CI without changing Kaggle notebook behavior (M07; see `docs/quality/security_supply_chain.md`).
 - PANTANAL-1 contains a working-note outline and evidence map that organize the M00–M07 governance, Kaggle, and audit evidence into a public narrative seed (M08; see `docs/working_note/working_note_outline.md`, `docs/working_note/evidence_map.md`).
 - PANTANAL-1 contains a working-note draft decision gate, readiness checklist, and next-direction recommendation that evaluate whether to draft, pivot to inference, or archive/template the project (M09; see `docs/working_note/draft_decision_gate.md`, `docs/working_note/draft_readiness_checklist.md`, `docs/analysis/M09_next_direction_recommendation.md`).
+- PANTANAL-1 contains a deterministic non-zero baseline generator that preserves submission schema and produces valid non-zero probability values without adding model weights or training (M10; see `docs/kaggle/nonzero_baseline.md`, `src/pantanal_1/nonzero_baseline.py`).
 
 **Not yet proven:**
 
@@ -228,6 +231,15 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M09 does not improve leaderboard score.
 - M09 does not claim RediAI certification.
 
+**M10 explicit non-claims:**
+
+- M10 does not implement trained model inference.
+- M10 does not prove audio understanding.
+- M10 does not prove model quality.
+- M10 does not improve leaderboard score unless separately scored and evidenced.
+- M10 does not add model weights.
+- M10 does not claim RediAI certification.
+
 ---
 
 ## 9. Explicit non-claims
@@ -271,14 +283,15 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M10 — Real Inference Baseline Spike** (primary; pending owner-approved plan). See `docs/analysis/M09_next_direction_recommendation.md` and `docs/working_note/draft_decision_gate.md`.
+**M11 — Kaggle Non-Zero Baseline Evidence Probe** (primary; pending owner-approved plan). See `docs/milestones/M11/M11_plan.md`.
 
-M10 should implement the smallest possible non-zero inference proof path, if owner approves research momentum. It must preserve data/weights/secrets guardrails, avoid broad ML scope creep, and avoid model-quality claims unless directly evidenced.
+M11 should optionally run the M10 deterministic non-zero baseline path on Kaggle and record evidence, without claiming model quality or score improvement unless directly observed. If no Kaggle run is desired, M11 may instead become an audio-dependency planning gate for a future true inference baseline.
 
 | Priority | Direction |
 |----------|-----------|
-| **Primary** | **M10 — Real inference baseline spike** (M10B in M09 gate nomenclature) |
-| **Secondary** | **M10A — Full working-note draft** — if owner prioritizes publication narrative |
-| **Tertiary** | **M10C — Archive / governed Kaggle template cleanup** — if owner prioritizes reuse and closure |
+| **Primary** | **M11 — Kaggle non-zero baseline evidence probe** |
+| **Secondary** | **M11A — Audio dependency planning gate** |
+| **Tertiary** | **M11B — Full working-note draft** (deferred M10A) |
+| Also available | **M11C — Kaggle packaging hardening**; **M10E / DEF-001 optional** — SBOM/provenance |
 
-Also available: M10D (Kaggle packaging hardening), M10E (optional SBOM/provenance). Do not begin M10 until owner approves `docs/milestones/M10/M10_plan.md`.
+Do not begin M11 until owner approves `docs/milestones/M11/M11_plan.md`.
