@@ -21,4 +21,4 @@ M03 was seeded after M02 closeout and merge to `main` (PR #3, merge commit `15d6
 | 2026-06-03T05:02:00Z | Write | DEF-002B open; DEF-003 split 003A evidenced / 003B open | docs/pantanal-1.md | completed |
 | 2026-06-03T05:03:00Z | Write | Update test_m03_kaggle_evidence.py | tests/ | completed |
 | 2026-06-03T05:04:00Z | Shell | Verification: 83 tests pass | pytest, ruff, verifier | completed |
-| 2026-06-03T05:05:00Z | Shell | Commit push Kaggle evidence; monitor PR #4 CI | git, gh | in_progress |
+| 2026-06-03T05:05:00Z | Shell | Commit cca0bf5; PR #4 CI run 26866519763 | git, gh | completed (success) |
