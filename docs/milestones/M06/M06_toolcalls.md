@@ -15,4 +15,8 @@ M06 was seeded after M05 closeout and squash merge to `main` (PR #6, merge commi
 | 2026-06-03T12:01:00Z | Write | Generate M06 summary and audit | `M06_summary.md`, `M06_audit.md` | completed |
 | 2026-06-03T12:02:00Z | StrReplace | Update Ultimate Truth + M06 plan + M06 closed test | `pantanal-1.md`, `M06_plan.md`, `test_m06_audit_hardening.py` | completed |
 | 2026-06-03T12:03:00Z | Shell | M06 closeout local verification | full verification suite | completed (131 passed, 95% cov) |
-| 2026-06-03T12:04:00Z | Shell | Commit and push M06 closeout | closeout docs + governance | in_progress |
+| 2026-06-03T12:04:00Z | Shell | Commit and push M06 closeout | closeout docs + governance | completed (`aecc037`) |
+| 2026-06-03T12:05:00Z | Shell | Final PR-head CI | run 26873749142 | completed (success, head `aecc037`) |
+| 2026-06-03T12:06:00Z | Shell | Squash merge PR #7 | `main` | completed (merge `fac3af2`) |
+| 2026-06-03T12:07:00Z | Shell | Post-merge main CI | run 26873776568 | completed (success) |
+| 2026-06-03T12:08:00Z | Write | Seed M07 stub | `M07_plan.md`, `M07_toolcalls.md` | in_progress |
