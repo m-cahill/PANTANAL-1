@@ -99,7 +99,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
-| M04 | Kaggle commit-mode submission path probe | in progress | Branch `m04-kaggle-commit-mode-probe`; [plan](milestones/M04/M04_plan.md); DEF-002B/DEF-003B probe — no scored claims yet |
+| M04 | Kaggle commit-mode submission path probe | in progress | Branch `m04-kaggle-commit-mode-probe`; [plan](milestones/M04/M04_plan.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B/DEF-003B evidenced — awaiting closeout |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -123,15 +123,14 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - **M02 Kaggle interactive evidence:** patched smoke notebook ran in Kaggle interactive mode via inline fallback and produced synthetic smoke CSV at `tmp/submissions/m02_smoke_submission.csv` without competition data (see `docs/kaggle/kaggle_setup_evidence.md`).
 - PANTANAL-1 contains a baseline-oriented Kaggle notebook scaffold that can either generate a local synthetic fallback CSV or, when real Kaggle `sample_submission.csv` is available in the Kaggle environment, generate a zero-baseline `/kaggle/working/submission.csv` using that schema (M03 repo-side; see `docs/kaggle/baseline_inference_notebook.md`).
 - **M03 Kaggle interactive evidence:** baseline notebook (inline fallback) discovered real `sample_submission.csv` at `/kaggle/input/competitions/birdclef-2026/sample_submission.csv`, selected `REAL_SAMPLE_ZERO_BASELINE`, and produced `/kaggle/working/submission.csv` with 3 rows and 235 columns using the sample schema (see `docs/kaggle/m03_kaggle_evidence.md`). **Interactive mode only** — not scored commit/submit mode.
+- **M04 Kaggle commit/scored evidence:** Kaggle competition notebook `pantanal_1_m03_baseline` Version 2 completed successfully in **1m 7s**, Kaggle reported **1 output file**, and received public score **0.500** using the zero-baseline submission path (see `docs/kaggle/m04_commit_mode_evidence.md`).
 
 **Not yet proven:**
 
-- Kaggle commit/submit-mode execution producing `/kaggle/working/submission.csv` (DEF-002B).
-- Scored/hidden test submission schema behavior (DEF-003B).
-- CPU-only 90-minute runtime compliance.
-- Model inference.
-- Leaderboard submission.
-- Competition score.
+- CPU-only 90-minute **scoring-configuration** compliance (M04 observed short runtime; accelerator/internet not re-recorded in evidence paste).
+- Model inference or meaningful model quality.
+- Private leaderboard performance beyond observed public score.
+- Full hidden/scored-test row count and internals (DEF-003B narrowed for scored acceptance only).
 - Working note readiness.
 
 **M01 explicit non-claims:**
@@ -161,10 +160,14 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M03 does not prove model inference or meaningful model quality (zero baseline only).
 - M03 does not prove hidden/full test row count (sample had 3 rows in observed run).
 
-**M04 in progress (no new claims yet):**
+**M04 explicit non-claims (preserve after scored evidence):**
 
-- M04 adds commit/submit-mode probe runbook and evidence template (`docs/kaggle/m04_commit_mode_probe.md`, `docs/kaggle/m04_commit_mode_evidence.md`).
-- M04 does not prove commit/submit-mode execution, scored submission, active eligibility, leaderboard score, or CPU scoring compliance until owner manual evidence is recorded.
+- M04 does not prove model inference or meaningful model quality (zero baseline only).
+- M04 does not prove a competitive solution (public score 0.500 is consistent with all-zero baseline).
+- M04 does not prove private leaderboard performance beyond the observed public score.
+- M04 does not change the fact that the submitted baseline is all-zero.
+- M04 does not prove full hidden/scored-test schema visibility (scored acceptance evidenced; hidden-test internals not exposed in owner paste).
+- M04 does not prove CPU/internet scoring-configuration compliance beyond observed short runtime unless those settings are directly re-recorded.
 
 ---
 
@@ -173,8 +176,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 PANTANAL-1 does **not** currently claim:
 
 - Useful model training or inference quality
-- Full scored/hidden-test `sample_submission.csv` behavior (DEF-003B; M03 evidenced sample-schema alignment in interactive mode only — DEF-003A)
-- BirdCLEF submission readiness or leaderboard performance
+- Full hidden/scored-test internals and row counts (DEF-003B narrowed for scored acceptance in M04; not full hidden-test exposure)
+- BirdCLEF submission readiness as a competitive solution or meaningful leaderboard performance
 - ORNITHOS private artifact reuse in this repo
 - AURORA runtime consumption in this repo
 - RediAI certification
@@ -201,14 +204,14 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
 | DEF-002A | Kaggle interactive synthetic smoke | M02 (evidenced) | Patched smoke notebook runs in Kaggle interactive mode and produces synthetic CSV under `tmp/submissions/` (see `docs/kaggle/kaggle_setup_evidence.md`) |
-| DEF-002B | Kaggle scored/commit-mode real submission path | Future milestone | Commit/submit-mode notebook runs in CPU environment and produces `/kaggle/working/submission.csv` with recorded evidence |
+| DEF-002B | Kaggle scored/commit-mode real submission path | M04 (evidenced) | Kaggle competition notebook Version 2 completed successfully, produced an output file, and received public score 0.500 (see `docs/kaggle/m04_commit_mode_evidence.md`) |
 | DEF-003A | Real sample_submission.csv schema discovery and zero-baseline alignment | M03 (evidenced) | Real `sample_submission.csv` discovered on Kaggle; zero baseline preserves sample header/row order (see `docs/kaggle/m03_kaggle_evidence.md`) |
-| DEF-003B | Scored/hidden test submission schema behavior | Future milestone | Commit/submit-mode run confirms scored submission behavior |
+| DEF-003B | Scored/hidden test submission schema behavior | M04 (narrowed/evidenced) | Kaggle scoring accepted zero-baseline output and returned public score 0.500; hidden-test internals not exposed in evidence paste |
 
 ---
 
 ## 12. Current milestone state
 
-M04 is in progress on branch `m04-kaggle-commit-mode-probe`. It is a governance/evidence probe for Kaggle commit/submit-mode behavior. It must not claim scored submission, active eligibility, leaderboard score, or CPU scoring compliance unless directly evidenced.
+M04 is in progress on branch `m04-kaggle-commit-mode-probe`. Repo-side runbook and owner Kaggle commit/scored evidence are recorded. **DEF-002B** is evidenced; **DEF-003B** is narrowed/evidenced for scored acceptance (hidden-test internals not exposed). M04 is **not closed** until owner approves closeout (summary/audit/merge).
 
-BirdCLEF+ 2026 final deadline has passed; treat the commit-mode probe as archival/reusable scored-path documentation unless active eligibility is directly evidenced. **DEF-002B** and **DEF-003B** remain open. See `docs/milestones/M04/M04_plan.md`, `docs/kaggle/m04_commit_mode_probe.md`, and `docs/kaggle/m04_commit_mode_evidence.md`.
+See `docs/milestones/M04/M04_plan.md`, `docs/kaggle/m04_commit_mode_probe.md`, and `docs/kaggle/m04_commit_mode_evidence.md`. Do not claim model inference, competitive quality, or private leaderboard results beyond observed public score **0.500**.

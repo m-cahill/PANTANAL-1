@@ -56,13 +56,13 @@ def test_notebook_smoke_links_runbook_and_evidence() -> None:
     assert "kaggle_setup_evidence.md" in text
 
 
-def test_pantanal_truth_does_not_claim_scored_kaggle_submission() -> None:
-    text = PANTANAL_TRUTH_PATH.read_text(encoding="utf-8").lower()
-    implemented, not_yet = text.split("**not yet proven:**", 1)
-    implemented = implemented.split("**implemented:**", 1)[-1]
-    assert "commit/submit-mode" in not_yet or "/kaggle/working/submission.csv" in not_yet
-    assert "producing `/kaggle/working/submission.csv`" not in implemented
-    assert "def-002b" in not_yet or "def-002b" in text
+def test_pantanal_truth_m04_scored_evidence_without_overclaiming() -> None:
+    text = PANTANAL_TRUTH_PATH.read_text(encoding="utf-8")
+    implemented = text.split("**Implemented:**", 1)[-1].split("**Not yet proven:**", 1)[0]
+    assert "M04 Kaggle commit/scored evidence" in implemented
+    assert "0.500" in implemented
+    assert "model inference" in text.lower()
+    assert "meaningful model quality" in text.lower() or "competitive" in text.lower()
 
 
 def test_pantanal_truth_splits_def_002() -> None:

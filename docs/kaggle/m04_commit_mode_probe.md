@@ -8,7 +8,7 @@ Related: `docs/kaggle/m04_commit_mode_evidence.md`, `docs/kaggle/m03_kaggle_evid
 
 ## Status
 
-M04 is a commit/submit-mode **evidence probe**. It does not assume active competition eligibility. BirdCLEF+ 2026 final deadline has passed.
+M04 is a commit/submit-mode **evidence probe**. Owner commit/scored evidence is recorded in `docs/kaggle/m04_commit_mode_evidence.md` (competition notebook Version 2, public score 0.500). Milestone remains **in progress** until owner closeout.
 
 ---
 

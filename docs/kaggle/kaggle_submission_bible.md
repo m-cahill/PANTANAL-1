@@ -135,19 +135,29 @@ See `docs/kaggle/kaggle_setup_evidence.md` for full observed values.
 
 **DEF-002A** (interactive synthetic smoke): evidenced in M02.
 
-**DEF-002B** (scored/commit-mode real submission path): open.
+**DEF-002B** (scored/commit-mode real submission path): evidenced in M04 (see below).
 
 ---
 
-## M04 commit-mode probe (in progress)
+## M04 commit-mode probe (evidence recorded; milestone not closed)
 
-M04 documents a manual commit/submit-mode probe for the M03 baseline notebook path. Repo-side artifacts:
+M04 documents a commit/submit-mode probe for the M03 baseline notebook path. Owner evidence recorded in `docs/kaggle/m04_commit_mode_evidence.md`.
 
 | Path | Role |
 |------|------|
-| `docs/kaggle/m04_commit_mode_probe.md` | Owner runbook (CPU, internet disabled, commit/submit steps) |
-| `docs/kaggle/m04_commit_mode_evidence.md` | Evidence template; initial status **not yet executed** |
+| `docs/kaggle/m04_commit_mode_probe.md` | Owner runbook |
+| `docs/kaggle/m04_commit_mode_evidence.md` | Recorded run — competition notebook Version 2, public score **0.500** |
 
-Evidence fields may use: `yes`, `no`, `blocked — deadline passed`, `N/A — not attempted`.
+**M04 Kaggle commit/scored evidence (observed):**
 
-**Do not claim M04 success** until commit/submit-mode evidence is recorded. Interactive M03 evidence does not close DEF-002B or DEF-003B.
+- Notebook: `pantanal_1_m03_baseline` Version 2 of 2
+- URL: https://www.kaggle.com/code/michael1232/pantanal-1-m03-baseline/notebook?scriptVersionId=324138273
+- Runtime: 1m 7s; logs: 67.4 second successful run
+- Output: 1 file; data preview shows `row_id` + 234 class columns, zero baseline
+- Public score: **0.500**
+
+**DEF-002B:** evidenced in M04.
+
+**DEF-003B:** narrowed/evidenced for scored acceptance (public score 0.500); hidden-test internals not exposed in evidence paste.
+
+**Do not claim** model inference, competitive quality, or private leaderboard results from M04. Interactive M03 evidence alone did not close DEF-002B or DEF-003B.

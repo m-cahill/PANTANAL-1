@@ -7,9 +7,9 @@
 **Definition of done (repo-side):**
 
 - `docs/kaggle/m04_commit_mode_probe.md` runbook exists with manual steps and claim rules.
-- `docs/kaggle/m04_commit_mode_evidence.md` template exists (initial status: not yet executed).
-- Static tests (`tests/test_m04_commit_mode_docs.py`) enforce doc presence, mode distinction, DEF-002B/DEF-003B non-claims, and M03 notebook output discipline.
-- `docs/pantanal-1.md` marks M04 in progress; DEF-002B and DEF-003B remain open.
+- `docs/kaggle/m04_commit_mode_evidence.md` records owner Kaggle commit/scored run (executed).
+- Static tests (`tests/test_m04_commit_mode_docs.py`) enforce doc presence, recorded evidence, and honest claim boundaries.
+- `docs/pantanal-1.md` marks M04 in progress; DEF-002B evidenced; DEF-003B narrowed/evidenced.
 - `docs/kaggle/kaggle_submission_bible.md` links M04 probe/evidence docs without success claims.
 - PR-head CI green; no competition data, weights, or `submission.csv` in git.
 
@@ -20,7 +20,7 @@
 ## Context
 
 - M03 closed with **interactive** evidence only: real `sample_submission.csv` discovered; `/kaggle/working/submission.csv` produced (3 rows, 235 columns). See `docs/kaggle/m03_kaggle_evidence.md`.
-- **DEF-002A** closed (M02). **DEF-003A** evidenced (M03 interactive). **DEF-002B** and **DEF-003B** open.
+- **DEF-002A** closed (M02). **DEF-003A** evidenced (M03 interactive). **DEF-002B** evidenced (M04). **DEF-003B** narrowed/evidenced (M04 scored acceptance).
 - BirdCLEF+ 2026 final deadline has passed. M04 must not assume active eligibility, scoring, or submission availability unless directly evidenced. If Kaggle blocks commit/submit/scoring, record **blocked — deadline passed** (or the exact observed blocker).
 
 ---
