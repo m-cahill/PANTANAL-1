@@ -1,6 +1,6 @@
 # M07 Plan — Security and Supply-Chain Audit Gate
 
-**Status:** In progress (branch `m07-security-supply-chain-gate`)
+**Status:** Closed (PR #8; branch `m07-security-supply-chain-gate`)
 
 **Objective:** Continue **DEF-001** by adding Bandit source security linting and pip-audit dependency vulnerability scanning in CI, with evidence docs and stdlib honesty tests — without changing Kaggle notebook behavior or adding model inference.
 

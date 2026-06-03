@@ -58,13 +58,13 @@ def test_ci_workflow_still_mentions_coverage_fail_under() -> None:
     assert "fail-under=80" in text
 
 
-def test_pantanal_marks_m07_in_progress() -> None:
+def test_pantanal_marks_m07_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     assert "M07" in text
     ledger = text.split("## 7. Milestone ledger", 1)[-1]
     assert "security" in ledger.lower() or "supply-chain" in ledger.lower()
     assert "| M07 |" in ledger or "m07 |" in ledger.lower()
-    assert "in progress" in ledger.lower()
+    assert "closed" in ledger.lower()
 
 
 def test_pantanal_does_not_claim_inference_or_score_improvement() -> None:
