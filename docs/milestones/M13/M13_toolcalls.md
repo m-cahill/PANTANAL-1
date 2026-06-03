@@ -2,7 +2,7 @@
 
 Milestone: M13 — Audio-Derived Baseline Planning Gate
 
-**Status:** Implementation in progress.
+**Status:** Closeout in progress.
 
 | Timestamp (UTC) | Tool | Purpose | Files / target | Status |
 |-----------------|------|---------|----------------|--------|
@@ -13,4 +13,6 @@ Milestone: M13 — Audio-Derived Baseline Planning Gate
 | 2026-06-03T21:07:00Z | Write | M13 governance tests | `tests/test_m13_audio_baseline_planning.py` | complete |
 | 2026-06-03T21:08:00Z | Shell | Local verification suite | pytest, ruff, mypy, bandit, etc. | complete (247 passed, 90% cov) |
 | 2026-06-03T21:10:00Z | Shell | Commit, push, open PR | git, gh | complete |
-| 2026-06-03T21:11:00Z | Shell | PR CI watch run 26912674012 | GitHub Actions | complete (success, 27s) |
+| 2026-06-03T21:11:00Z | Shell | PR CI watch run 26912724234 | GitHub Actions | complete (success, 24s) |
+| 2026-06-03T21:30:00Z | Shell | Pre-merge verify PR #14 head and CI | gh pr view 14 | complete |
+| 2026-06-03T21:31:00Z | Write | M13 summary and audit (closeout) | `M13_summary.md`, `M13_audit.md` | pending |
