@@ -2,7 +2,7 @@
 
 **Authority:** Subordinate to `docs/pantanal-1.md`. Used to verify Kaggle notebook formatting and debugging discipline.
 
-Related: `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`.
+Related: `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`, `docs/kaggle/m04_commit_mode_probe.md`, `docs/kaggle/m04_commit_mode_evidence.md`.
 
 ---
 
@@ -136,3 +136,18 @@ See `docs/kaggle/kaggle_setup_evidence.md` for full observed values.
 **DEF-002A** (interactive synthetic smoke): evidenced in M02.
 
 **DEF-002B** (scored/commit-mode real submission path): open.
+
+---
+
+## M04 commit-mode probe (in progress)
+
+M04 documents a manual commit/submit-mode probe for the M03 baseline notebook path. Repo-side artifacts:
+
+| Path | Role |
+|------|------|
+| `docs/kaggle/m04_commit_mode_probe.md` | Owner runbook (CPU, internet disabled, commit/submit steps) |
+| `docs/kaggle/m04_commit_mode_evidence.md` | Evidence template; initial status **not yet executed** |
+
+Evidence fields may use: `yes`, `no`, `blocked — deadline passed`, `N/A — not attempted`.
+
+**Do not claim M04 success** until commit/submit-mode evidence is recorded. Interactive M03 evidence does not close DEF-002B or DEF-003B.

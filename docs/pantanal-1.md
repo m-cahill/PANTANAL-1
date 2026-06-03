@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M03 closed)
+**Last updated:** 2026-06-03 (M04 in progress)
 
 ---
 
@@ -14,6 +14,7 @@
 | M01 | [M01_plan.md](milestones/M01/M01_plan.md) | [M01_summary.md](milestones/M01/M01_summary.md) | [M01_audit.md](milestones/M01/M01_audit.md) | [M01_toolcalls.md](milestones/M01/M01_toolcalls.md) |
 | M02 | [M02_plan.md](milestones/M02/M02_plan.md) | [M02_summary.md](milestones/M02/M02_summary.md) | [M02_audit.md](milestones/M02/M02_audit.md) | [M02_toolcalls.md](milestones/M02/M02_toolcalls.md) |
 | M03 | [M03_plan.md](milestones/M03/M03_plan.md) | [M03_summary.md](milestones/M03/M03_summary.md) | [M03_audit.md](milestones/M03/M03_audit.md) | [M03_toolcalls.md](milestones/M03/M03_toolcalls.md) |
+| M04 | [M04_plan.md](milestones/M04/M04_plan.md) | — | — | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
 
 ---
 
@@ -98,6 +99,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
+| M04 | Kaggle commit-mode submission path probe | in progress | Branch `m04-kaggle-commit-mode-probe`; [plan](milestones/M04/M04_plan.md); DEF-002B/DEF-003B probe — no scored claims yet |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -159,6 +161,11 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M03 does not prove model inference or meaningful model quality (zero baseline only).
 - M03 does not prove hidden/full test row count (sample had 3 rows in observed run).
 
+**M04 in progress (no new claims yet):**
+
+- M04 adds commit/submit-mode probe runbook and evidence template (`docs/kaggle/m04_commit_mode_probe.md`, `docs/kaggle/m04_commit_mode_evidence.md`).
+- M04 does not prove commit/submit-mode execution, scored submission, active eligibility, leaderboard score, or CPU scoring compliance until owner manual evidence is recorded.
+
 ---
 
 ## 9. Explicit non-claims
@@ -200,6 +207,8 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ---
 
-## 12. Next milestone recommendation
+## 12. Current milestone state
 
-After M03 closeout: **M04 — Kaggle Commit-Mode Submission Path Probe** (stub only). BirdCLEF+ 2026 final deadline has passed; treat M04 as archival/reusable scored-path probe unless active eligibility is directly evidenced. **DEF-002B** and **DEF-003B** remain open. See `docs/milestones/M04/M04_plan.md` when seeded.
+M04 is in progress on branch `m04-kaggle-commit-mode-probe`. It is a governance/evidence probe for Kaggle commit/submit-mode behavior. It must not claim scored submission, active eligibility, leaderboard score, or CPU scoring compliance unless directly evidenced.
+
+BirdCLEF+ 2026 final deadline has passed; treat the commit-mode probe as archival/reusable scored-path documentation unless active eligibility is directly evidenced. **DEF-002B** and **DEF-003B** remain open. See `docs/milestones/M04/M04_plan.md`, `docs/kaggle/m04_commit_mode_probe.md`, and `docs/kaggle/m04_commit_mode_evidence.md`.
