@@ -1,6 +1,6 @@
 # M02 Plan — Kaggle Notebook Smoke
 
-**Status:** In progress
+**Status:** Closed
 
 ---
 
@@ -26,7 +26,7 @@ Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in
 - [x] `tests/test_kaggle_setup_docs.py` runbook/evidence doc guards
 - [x] `docs/pantanal-1.md` updated (M02 in progress; closed at closeout)
 - [x] Local verification green
-- [ ] PR CI green; no merge without owner approval
+- [x] PR CI green; merged via PR #3
 
 ---
 

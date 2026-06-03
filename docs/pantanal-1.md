@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-04 (M02 in progress; DEF-002A evidenced)
+**Last updated:** 2026-06-04 (M02 closed)
 
 ---
 
@@ -12,6 +12,7 @@
 |-----------|------|---------|-------|-----------|
 | M00 | [M00_plan.md](milestones/M00/M00_plan.md) | [M00_summary.md](milestones/M00/M00_summary.md) | [M00_audit.md](milestones/M00/M00_audit.md) | [M00_toolcalls.md](milestones/M00/M00_toolcalls.md) |
 | M01 | [M01_plan.md](milestones/M01/M01_plan.md) | [M01_summary.md](milestones/M01/M01_summary.md) | [M01_audit.md](milestones/M01/M01_audit.md) | [M01_toolcalls.md](milestones/M01/M01_toolcalls.md) |
+| M02 | [M02_plan.md](milestones/M02/M02_plan.md) | [M02_summary.md](milestones/M02/M02_summary.md) | [M02_audit.md](milestones/M02/M02_audit.md) | [M02_toolcalls.md](milestones/M02/M02_toolcalls.md) |
 
 ---
 
@@ -94,8 +95,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 |-----------|-------|--------|-------|
 | M00 | Public repo bootstrap and governance initialization | closed | PR #1; [summary](milestones/M00/M00_summary.md), [audit](milestones/M00/M00_audit.md) |
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
-| M02 | Kaggle notebook smoke | in progress | Notebook + mirror script on `m02-kaggle-notebook-smoke` |
-| M03 | Baseline inference notebook / first scored attempt | planned | If eligible |
+| M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
+| M03 | Baseline inference notebook / first scored attempt | planned | Stub after M02 merge; archival/future path if deadline passed |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -188,4 +189,4 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M02 — Kaggle notebook smoke** is in progress on branch `m02-kaggle-notebook-smoke` (see `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_submission_bible.md`, `docs/milestones/M02/M02_plan.md`). **DEF-002A** (interactive synthetic smoke) is evidenced; **DEF-002B** (scored real submission path) remains open before closeout.
+After M02 closeout: **M03 — Baseline inference notebook / first scored attempt if eligible** (see `docs/milestones/M03/M03_plan.md` when seeded). BirdCLEF+ 2026 final deadline has passed; treat M03 as archival/reusable baseline work unless active eligibility is directly evidenced. **DEF-002B** (scored `/kaggle/working/submission.csv`) remains open.
