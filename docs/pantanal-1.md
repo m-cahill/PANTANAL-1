@@ -115,7 +115,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M08 | Working-note outline / evidence narrative seed | closed | PR #9; [summary](milestones/M08/M08_summary.md), [audit](milestones/M08/M08_audit.md); [outline](working_note/working_note_outline.md), [evidence map](working_note/evidence_map.md) |
 | M09 | Working-note draft planning / public narrative decision gate | closed | PR #10; [summary](milestones/M09/M09_summary.md), [audit](milestones/M09/M09_audit.md); [decision gate](working_note/draft_decision_gate.md), [readiness checklist](working_note/draft_readiness_checklist.md), [recommendation](analysis/M09_next_direction_recommendation.md) |
 | M10 | Real inference baseline spike | closed | PR #11; [summary](milestones/M10/M10_summary.md), [audit](milestones/M10/M10_audit.md); uniform-ε nonzero baseline (M10B); [nonzero baseline doc](kaggle/nonzero_baseline.md) |
-| M11 | Kaggle non-zero baseline evidence probe | in progress | [plan](milestones/M11/M11_plan.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md) (interactive evidenced); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
+| M11 | Kaggle non-zero baseline evidence probe | in progress | [plan](milestones/M11/M11_plan.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md) (interactive + scored 0.500); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -147,11 +147,10 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains a working-note draft decision gate, readiness checklist, and next-direction recommendation that evaluate whether to draft, pivot to inference, or archive/template the project (M09; see `docs/working_note/draft_decision_gate.md`, `docs/working_note/draft_readiness_checklist.md`, `docs/analysis/M09_next_direction_recommendation.md`).
 - PANTANAL-1 contains a deterministic non-zero baseline generator that preserves submission schema and produces valid non-zero probability values without adding model weights or training (M10; see `docs/kaggle/nonzero_baseline.md`, `src/pantanal_1/nonzero_baseline.py`).
 - PANTANAL-1 contains a runbook and evidence template for evaluating the M10 deterministic non-zero baseline on Kaggle without overclaiming model quality (M11; see `docs/kaggle/m11_nonzero_baseline_runbook.md`, `docs/kaggle/m11_nonzero_baseline_evidence.md`, `notebooks/pantanal_1_m11_nonzero_baseline.ipynb`).
-- **M11 Kaggle interactive evidence:** the M11 notebook discovered real `sample_submission.csv`, selected `REAL_SAMPLE_NONZERO_BASELINE` with epsilon **0.001**, and produced `/kaggle/working/submission.csv` with **3** rows and **235** columns in **Interactive** mode (inline fallback; see `docs/kaggle/m11_nonzero_baseline_evidence.md`). **Interactive mode only** — no submit/score evidence yet; no score improvement claim; uniform epsilon baseline only.
+- **M11 Kaggle interactive evidence:** the M11 notebook discovered real `sample_submission.csv`, selected `REAL_SAMPLE_NONZERO_BASELINE` with epsilon **0.001**, and produced `/kaggle/working/submission.csv` with **3** rows and **235** columns in **Interactive** mode (inline fallback; see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Uniform epsilon baseline only; interactive run does not alone prove scored commit/submit.
+- **M11 Kaggle scored evidence:** the M11 uniform-ε non-zero baseline notebook **Version 2** succeeded on Kaggle and received public score **0.500**. This matched the prior all-zero baseline score of **0.500** (`pantanal_1_m03_baseline` Version 2); **no score improvement was observed** (see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Uniform epsilon baseline only — not model quality or competitive performance.
 
 **Not yet proven:**
-
-- M11 Kaggle commit/submit-mode acceptance or public score for the uniform-ε baseline (interactive execution evidenced; scored path not yet).
 
 - CPU-only 90-minute **scoring-configuration** compliance (M04 observed short runtime; accelerator/internet not re-recorded in evidence paste).
 - Model inference or meaningful model quality.

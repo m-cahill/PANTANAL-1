@@ -74,7 +74,7 @@ Never write repository-root `submission.csv`.
 
 ## M11 Kaggle evidence path (repo-side; owner-run)
 
-M11 adds a dedicated Kaggle notebook and evidence/runbook artifacts. **No Kaggle execution or score claims** in the initial M11 PR unless owner fills `docs/kaggle/m11_nonzero_baseline_evidence.md`.
+M11 adds a dedicated Kaggle notebook and evidence/runbook artifacts. Evidence is recorded in `docs/kaggle/m11_nonzero_baseline_evidence.md`.
 
 | Artifact | Role |
 |----------|------|
@@ -91,7 +91,9 @@ When an owner runs the M11 notebook on Kaggle:
 
 The M03 baseline notebook remains **unchanged**. Compare any new public score to the prior all-zero baseline **0.500** only as a factual note; do not claim score improvement without direct observation.
 
-**M11 interactive evidence (2026-06-03):** Owner interactive run selected `REAL_SAMPLE_NONZERO_BASELINE` with ε **0.001** and wrote `/kaggle/working/submission.csv` (3 rows, 235 columns). See `docs/kaggle/m11_nonzero_baseline_evidence.md`. Commit/submit and public score not yet recorded.
+**M11 interactive evidence (2026-06-03):** Owner interactive run selected `REAL_SAMPLE_NONZERO_BASELINE` with ε **0.001** and wrote `/kaggle/working/submission.csv` (3 rows, 235 columns). See `docs/kaggle/m11_nonzero_baseline_evidence.md`.
+
+**M11 scored evidence:** the uniform-ε baseline was submitted/scored on Kaggle (notebook Version 2, status Succeeded) and received public score **0.500**, matching the prior all-zero baseline. This supports pipeline acceptance for the non-zero path, not model quality or score improvement.
 
 ---
 

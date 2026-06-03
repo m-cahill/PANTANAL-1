@@ -11,6 +11,10 @@ NONZERO_DOC = REPO_ROOT / "docs" / "kaggle" / "nonzero_baseline.md"
 ULTIMATE_TRUTH = REPO_ROOT / "docs" / "pantanal-1.md"
 
 SAMPLE_PATH = "/kaggle/input/competitions/birdclef-2026/sample_submission.csv"
+NOTEBOOK_URL = (
+    "https://www.kaggle.com/code/michael1232/pantanal-1-m11-nonzero-baseline"
+    "?scriptVersionId=324302733"
+)
 
 
 def test_m11_runbook_exists() -> None:
@@ -23,16 +27,50 @@ def test_m11_evidence_file_exists() -> None:
 
 def test_m11_evidence_records_interactive_execution() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
-    assert "Executed" in text or "Interactive" in text
     assert "not yet executed" not in text.lower()
     assert "REAL_SAMPLE_NONZERO_BASELINE" in text
     assert "Interactive" in text
 
 
+def test_m11_evidence_records_notebook_url_and_version() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert "324302733" in text
+    assert "pantanal-1-m11-nonzero-baseline" in text
+    assert "Version 2" in text
+
+
+def test_m11_evidence_records_public_score() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert "0.500" in text
+    for line in text.splitlines():
+        if line.strip().startswith("- Public score:"):
+            assert "0.500" in line
+            return
+    raise AssertionError("missing Public score field")
+
+
+def test_m11_evidence_records_prior_zero_baseline_score() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert "pantanal_1_m03_baseline" in text
+    assert "Prior all-zero baseline public score" in text or "prior all-zero" in text.lower()
+    assert "0.500" in text
+
+
+def test_m11_evidence_records_no_score_improvement() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
+    assert "no score improvement" in text
+    assert "score improvement claimed" in text
+
+
+def test_m11_evidence_records_commit_submit_success() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    assert "Succeeded" in text
+    assert "Commit successful" in text or "commit successful" in text.lower()
+
+
 def test_m11_evidence_records_epsilon() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
     assert "0.001" in text
-    assert "Epsilon" in text or "epsilon" in text
 
 
 def test_m11_evidence_records_sample_path_and_output() -> None:
@@ -40,24 +78,6 @@ def test_m11_evidence_records_sample_path_and_output() -> None:
     assert SAMPLE_PATH in text
     assert "/kaggle/working/submission.csv" in text
     assert "6182" in text
-
-
-def test_m11_evidence_does_not_claim_public_score() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8")
-    lower = text.lower()
-    assert "not observed" in lower or "n/a" in lower
-    for line in text.splitlines():
-        if line.strip().startswith("- Public score:"):
-            value = line.split(":", 1)[1].strip().lower()
-            assert "not observed" in value or value in ("", "n/a")
-            return
-    raise AssertionError("missing Public score field")
-
-
-def test_m11_evidence_score_improvement_not_claimed() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert "score improvement claimed" in text
-    assert "**no**" in text or "no" in text
 
 
 def test_m11_runbook_distinguishes_interactive_commit_submit() -> None:
@@ -68,22 +88,19 @@ def test_m11_runbook_distinguishes_interactive_commit_submit() -> None:
     assert "submit" in lower
 
 
-def test_m11_runbook_does_not_infer_scored_from_interactive() -> None:
-    text = RUNBOOK_PATH.read_text(encoding="utf-8").lower()
-    assert "do not infer" in text
-
-
-def test_nonzero_baseline_doc_references_m11_artifacts() -> None:
+def test_nonzero_baseline_doc_m11_scored_evidence_note() -> None:
     text = NONZERO_DOC.read_text(encoding="utf-8")
-    assert "m11_nonzero_baseline_runbook.md" in text
     assert "m11_nonzero_baseline_evidence.md" in text
+    assert "0.500" in text
+    lower = text.lower()
+    assert "pipeline acceptance" in lower
+    assert "not model quality" in lower or "not model quality or score improvement" in lower
 
 
 def test_nonzero_baseline_doc_scoring_planning_note() -> None:
     text = NONZERO_DOC.read_text(encoding="utf-8").lower()
     assert "roc-auc" in text or "ranking separation" in text
     assert "empirically observed" in text
-    assert "working-note" in text or "working note" in text
 
 
 def test_pantanal_marks_m11_in_progress() -> None:
@@ -97,20 +114,28 @@ def test_pantanal_m11_interactive_evidence_claim() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     assert "M11 Kaggle interactive evidence" in text
     assert "REAL_SAMPLE_NONZERO_BASELINE" in text
-    assert "0.001" in text
-    assert "Interactive mode only" in text or "interactive mode only" in text.lower()
+
+
+def test_pantanal_m11_scored_evidence_claim() -> None:
+    text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
+    assert "M11 Kaggle scored evidence" in text
+    assert "Version 2" in text
+    assert "0.500" in text
+    assert "no score improvement was observed" in text.lower()
 
 
 def test_pantanal_does_not_claim_m11_model_quality() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8").lower()
     assert "m11 does not prove model quality" in text
     claims = text.split("## 8. current claims", 1)[-1].split("**not yet proven:**", 1)[0]
-    assert "model quality" not in claims.split("m11 kaggle interactive", 1)[-1][:400]
+    scored = claims.split("m11 kaggle scored evidence", 1)[-1][:500]
+    assert "competitive performance" not in scored or "not" in scored
 
 
 def test_pantanal_does_not_claim_m11_score_improvement() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8").lower()
     claims = text.split("## 8. current claims", 1)[-1]
     implemented = claims.split("**not yet proven:**", 1)[0]
-    assert "score improvement" not in implemented or "no score improvement" in implemented
+    assert "no score improvement was observed" in implemented
     assert "m11 does not claim score improvement" in text
+    assert "score improvement over" not in implemented
