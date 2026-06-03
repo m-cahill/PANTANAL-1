@@ -73,7 +73,10 @@ Future Kaggle notebooks should print at minimum:
 - Header or CSV line preview
 - Runtime timing when relevant
 
-Reference implementation: `notebooks/pantanal_1_m02_smoke.ipynb` (output-cleared in git).
+Reference implementations (output-cleared in git):
+
+- `notebooks/pantanal_1_m02_smoke.ipynb` — synthetic smoke
+- `notebooks/pantanal_1_m03_baseline.ipynb` — baseline path with real sample discovery and zero baseline (see `docs/kaggle/baseline_inference_notebook.md`)
 
 ---
 
