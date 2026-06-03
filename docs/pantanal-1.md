@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M11 in progress)
+**Last updated:** 2026-06-03 (M11 closed)
 
 ---
 
@@ -21,7 +21,7 @@
 | M08 | [M08_plan.md](milestones/M08/M08_plan.md) | [M08_summary.md](milestones/M08/M08_summary.md) | [M08_audit.md](milestones/M08/M08_audit.md) | [M08_toolcalls.md](milestones/M08/M08_toolcalls.md) |
 | M09 | [M09_plan.md](milestones/M09/M09_plan.md) | [M09_summary.md](milestones/M09/M09_summary.md) | [M09_audit.md](milestones/M09/M09_audit.md) | [M09_toolcalls.md](milestones/M09/M09_toolcalls.md) |
 | M10 | [M10_plan.md](milestones/M10/M10_plan.md) | [M10_summary.md](milestones/M10/M10_summary.md) | [M10_audit.md](milestones/M10/M10_audit.md) | [M10_toolcalls.md](milestones/M10/M10_toolcalls.md) |
-| M11 | [M11_plan.md](milestones/M11/M11_plan.md) | — | — | [M11_toolcalls.md](milestones/M11/M11_toolcalls.md) |
+| M11 | [M11_plan.md](milestones/M11/M11_plan.md) | [M11_summary.md](milestones/M11/M11_summary.md) | [M11_audit.md](milestones/M11/M11_audit.md) | [M11_toolcalls.md](milestones/M11/M11_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -115,7 +115,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M08 | Working-note outline / evidence narrative seed | closed | PR #9; [summary](milestones/M08/M08_summary.md), [audit](milestones/M08/M08_audit.md); [outline](working_note/working_note_outline.md), [evidence map](working_note/evidence_map.md) |
 | M09 | Working-note draft planning / public narrative decision gate | closed | PR #10; [summary](milestones/M09/M09_summary.md), [audit](milestones/M09/M09_audit.md); [decision gate](working_note/draft_decision_gate.md), [readiness checklist](working_note/draft_readiness_checklist.md), [recommendation](analysis/M09_next_direction_recommendation.md) |
 | M10 | Real inference baseline spike | closed | PR #11; [summary](milestones/M10/M10_summary.md), [audit](milestones/M10/M10_audit.md); uniform-ε nonzero baseline (M10B); [nonzero baseline doc](kaggle/nonzero_baseline.md) |
-| M11 | Kaggle non-zero baseline evidence probe | in progress | [plan](milestones/M11/M11_plan.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md) (interactive + scored 0.500); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
+| M11 | Kaggle non-zero baseline evidence probe | closed | PR #12; [summary](milestones/M11/M11_summary.md), [audit](milestones/M11/M11_audit.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -146,9 +146,8 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains a working-note outline and evidence map that organize the M00–M07 governance, Kaggle, and audit evidence into a public narrative seed (M08; see `docs/working_note/working_note_outline.md`, `docs/working_note/evidence_map.md`).
 - PANTANAL-1 contains a working-note draft decision gate, readiness checklist, and next-direction recommendation that evaluate whether to draft, pivot to inference, or archive/template the project (M09; see `docs/working_note/draft_decision_gate.md`, `docs/working_note/draft_readiness_checklist.md`, `docs/analysis/M09_next_direction_recommendation.md`).
 - PANTANAL-1 contains a deterministic non-zero baseline generator that preserves submission schema and produces valid non-zero probability values without adding model weights or training (M10; see `docs/kaggle/nonzero_baseline.md`, `src/pantanal_1/nonzero_baseline.py`).
-- PANTANAL-1 contains a runbook and evidence template for evaluating the M10 deterministic non-zero baseline on Kaggle without overclaiming model quality (M11; see `docs/kaggle/m11_nonzero_baseline_runbook.md`, `docs/kaggle/m11_nonzero_baseline_evidence.md`, `notebooks/pantanal_1_m11_nonzero_baseline.ipynb`).
-- **M11 Kaggle interactive evidence:** the M11 notebook discovered real `sample_submission.csv`, selected `REAL_SAMPLE_NONZERO_BASELINE` with epsilon **0.001**, and produced `/kaggle/working/submission.csv` with **3** rows and **235** columns in **Interactive** mode (inline fallback; see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Uniform epsilon baseline only; interactive run does not alone prove scored commit/submit.
-- **M11 Kaggle scored evidence:** the M11 uniform-ε non-zero baseline notebook **Version 2** succeeded on Kaggle and received public score **0.500**. This matched the prior all-zero baseline score of **0.500** (`pantanal_1_m03_baseline` Version 2); **no score improvement was observed** (see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Uniform epsilon baseline only — not model quality or competitive performance.
+- PANTANAL-1 contains a runbook, evidence template, and output-cleared notebook for evaluating the M10 deterministic non-zero baseline on Kaggle without overclaiming model quality (M11; see `docs/kaggle/m11_nonzero_baseline_runbook.md`, `docs/kaggle/m11_nonzero_baseline_evidence.md`, `notebooks/pantanal_1_m11_nonzero_baseline.ipynb`).
+- M11 recorded Kaggle evidence for the uniform-ε non-zero baseline. The notebook produced a valid Kaggle submission path and received public score **0.500**, matching the prior all-zero baseline score of **0.500** (`pantanal_1_m03_baseline` Version 2); **no score improvement was observed** (see `docs/kaggle/m11_nonzero_baseline_evidence.md`). Interactive run also evidenced `/kaggle/working/submission.csv` (3 rows, 235 columns) with ε **0.001** and inline fallback.
 
 **Not yet proven:**
 
@@ -250,9 +249,11 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M11 does not prove model quality.
 - M11 does not prove audio understanding.
 - M11 does not prove trained model inference.
-- M11 does not claim score improvement unless directly observed.
+- M11 does not prove score improvement.
 - M11 does not add model weights.
 - M11 does not claim RediAI certification.
+- M11 does not prove competitive performance.
+- M11 does not prove working-note readiness.
 
 ---
 
@@ -297,13 +298,15 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M11 — Kaggle Non-Zero Baseline Evidence Probe** is **in progress**. See `docs/milestones/M11/M11_plan.md`. Owner manual Kaggle run and evidence fill-in may follow green PR-head CI.
+**M12 — Scoring Methodology and Working-Note Criteria Audit** (primary; pending owner-approved plan). See `docs/milestones/M12/M12_plan.md` when seeded.
+
+M12 should audit the official scoring methodology, explain why all-zero and uniform-ε baselines both scored **0.500**, and evaluate the BirdCLEF+/CLEF working-note award criteria. It should recommend whether to pursue an audio-derived baseline, working-note draft, or reusable template next.
 
 | Priority | Direction |
 |----------|-----------|
-| **Current** | **M11 — Kaggle non-zero baseline evidence probe** (implementation + owner-run evidence) |
-| **Secondary** | **M11A — Audio dependency planning gate** (deferred; not M11 scope) |
-| **Tertiary** | **M11B — Full working-note draft** (deferred M10A) |
-| Also available | **M11C — Kaggle packaging hardening**; **M10E / DEF-001 optional** — SBOM/provenance |
+| **Primary** | **M12 — Scoring methodology and working-note criteria audit** |
+| **Secondary** | **M12A — Audio dependency planning gate** |
+| **Tertiary** | **M12B — Minimal audio-derived baseline** |
+| Also available | **M12C — Working-note draft v0**; **M12D — Kaggle packaging hardening**; **DEF-001 optional** — SBOM/provenance |
 
-After M11 closes: owner may choose audio/inference spike (M11A direction), working-note draft (M11B), or packaging hardening (M11C).
+Do not begin M12 until owner approves `docs/milestones/M12/M12_plan.md`.

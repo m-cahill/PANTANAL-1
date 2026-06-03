@@ -103,25 +103,19 @@ def test_nonzero_baseline_doc_scoring_planning_note() -> None:
     assert "empirically observed" in text
 
 
-def test_pantanal_marks_m11_in_progress() -> None:
+def test_pantanal_marks_m11_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
     m11_row = ledger.split("| M11 |", 1)[-1].split("\n", 1)[0]
-    assert "in progress" in m11_row.lower()
+    assert "closed" in m11_row.lower()
 
 
-def test_pantanal_m11_interactive_evidence_claim() -> None:
+def test_pantanal_m11_recorded_kaggle_evidence_claim() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
-    assert "M11 Kaggle interactive evidence" in text
-    assert "REAL_SAMPLE_NONZERO_BASELINE" in text
-
-
-def test_pantanal_m11_scored_evidence_claim() -> None:
-    text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
-    assert "M11 Kaggle scored evidence" in text
-    assert "Version 2" in text
+    assert "M11 recorded Kaggle evidence" in text
     assert "0.500" in text
     assert "no score improvement was observed" in text.lower()
+    assert "runbook, evidence template, and output-cleared notebook" in text.lower()
 
 
 def test_pantanal_does_not_claim_m11_model_quality() -> None:
@@ -137,5 +131,5 @@ def test_pantanal_does_not_claim_m11_score_improvement() -> None:
     claims = text.split("## 8. current claims", 1)[-1]
     implemented = claims.split("**not yet proven:**", 1)[0]
     assert "no score improvement was observed" in implemented
-    assert "m11 does not claim score improvement" in text
+    assert "m11 does not prove score improvement" in text
     assert "score improvement over" not in implemented
