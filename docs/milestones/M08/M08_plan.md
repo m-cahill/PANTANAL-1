@@ -1,6 +1,6 @@
 # M08 Plan — Working-Note Outline / Evidence Narrative Seed
 
-**Status:** In progress (branch `m08-working-note-outline`)
+**Status:** Closed (PR #9; branch `m08-working-note-outline`)
 
 **Objective:** Create a structured working-note outline and evidence map that organize M00–M07 governance, Kaggle, and audit evidence into a public narrative seed — without drafting a full paper, changing notebooks, or claiming model quality.
 

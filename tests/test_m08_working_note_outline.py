@@ -79,11 +79,11 @@ def test_evidence_map_score_non_claim() -> None:
     assert "predictive model quality" in lower or "does not support predictive" in lower
 
 
-def test_pantanal_marks_m08_in_progress() -> None:
+def test_pantanal_marks_m08_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1]
     assert "| M08 |" in ledger
-    assert "in progress" in ledger.lower()
+    assert "closed" in ledger.lower()
 
 
 def test_pantanal_does_not_claim_working_note_readiness() -> None:
