@@ -28,11 +28,17 @@ jobs:
       - name: Ruff format check
         run: ruff format --check .
 
+      - name: MyPy (src)
+        run: mypy src/pantanal_1
+
       - name: Compileall
         run: python -m compileall src tests scripts
 
-      - name: Pytest
-        run: pytest -q
+      - name: Pytest with coverage
+        run: pytest -q --cov=src/pantanal_1 --cov-report=term-missing --cov-report=xml
+
+      - name: Coverage report gate
+        run: coverage report --fail-under=80
 
       - name: Verify repository state
         run: python scripts/verify_repo_state.py

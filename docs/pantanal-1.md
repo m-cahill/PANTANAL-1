@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M05 closed)
+**Last updated:** 2026-06-03 (M06 in progress)
 
 ---
 
@@ -16,6 +16,7 @@
 | M03 | [M03_plan.md](milestones/M03/M03_plan.md) | [M03_summary.md](milestones/M03/M03_summary.md) | [M03_audit.md](milestones/M03/M03_audit.md) | [M03_toolcalls.md](milestones/M03/M03_toolcalls.md) |
 | M04 | [M04_plan.md](milestones/M04/M04_plan.md) | [M04_summary.md](milestones/M04/M04_summary.md) | [M04_audit.md](milestones/M04/M04_audit.md) | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
 | M05 | [M05_plan.md](milestones/M05/M05_plan.md) | [M05_summary.md](milestones/M05/M05_summary.md) | [M05_audit.md](milestones/M05/M05_audit.md) | [M05_toolcalls.md](milestones/M05/M05_toolcalls.md) |
+| M06 | [M06_plan.md](milestones/M06/M06_plan.md) | — | — | [M06_toolcalls.md](milestones/M06/M06_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -104,6 +105,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
 | M04 | Kaggle commit-mode submission path probe | closed | PR #5; [summary](milestones/M04/M04_summary.md), [audit](milestones/M04/M04_audit.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B evidenced; DEF-003B narrowed |
 | M05 | Baseline improvement planning / post-competition analysis | closed | PR #6; [summary](milestones/M05/M05_summary.md), [audit](milestones/M05/M05_audit.md); [analysis](analysis/post_competition_analysis.md); [matrix](analysis/next_milestone_decision_matrix.md); [index](analysis/M00_M04_evidence_index.md) |
+| M06 | Audit hardening / evidence consolidation | in progress | [plan](milestones/M06/M06_plan.md); [audit hardening](quality/audit_hardening.md); DEF-001 partially addressed (coverage + mypy) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -129,6 +131,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - **M03 Kaggle interactive evidence:** baseline notebook (inline fallback) discovered real `sample_submission.csv` at `/kaggle/input/competitions/birdclef-2026/sample_submission.csv`, selected `REAL_SAMPLE_ZERO_BASELINE`, and produced `/kaggle/working/submission.csv` with 3 rows and 235 columns using the sample schema (see `docs/kaggle/m03_kaggle_evidence.md`). **Interactive mode only** — not scored commit/submit mode.
 - **M04 Kaggle commit/scored evidence:** Kaggle competition notebook `pantanal_1_m03_baseline` Version 2 completed successfully in **1m 7s**, Kaggle reported **1 output file**, and received public score **0.500** using the zero-baseline submission path (see `docs/kaggle/m04_commit_mode_evidence.md`).
 - PANTANAL-1 contains a post-competition analysis and next-milestone decision matrix evaluating the zero-baseline scored path, remaining gaps, and recommended future directions (M05; see `docs/analysis/post_competition_analysis.md`, `docs/analysis/next_milestone_decision_matrix.md`, `docs/analysis/M00_M04_evidence_index.md`).
+- PANTANAL-1 adds audit-hardening gates for source coverage and mypy type checking, improving enterprise CI posture without changing Kaggle notebook behavior (M06 in progress; see `docs/quality/audit_hardening.md`).
 
 **Not yet proven:**
 
@@ -182,6 +185,14 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M05 does not add audit hardening gates.
 - M05 does not create working-note readiness unless separately scoped.
 
+**M06 explicit non-claims:**
+
+- M06 does not implement model inference.
+- M06 does not improve leaderboard score.
+- M06 does not prove model quality.
+- M06 does not add a complete security/supply-chain hardening stack unless explicitly implemented.
+- M06 does not claim DEF-001 is fully closed unless all exit criteria are met.
+
 ---
 
 ## 9. Explicit non-claims
@@ -215,7 +226,7 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 | ID | Issue | Deferred to | Exit criteria |
 |----|-------|-------------|---------------|
-| DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
+| DEF-001 | Coverage / mypy / security audit gates | M06 partial; M07+ security | Coverage + mypy CI green at 80% / `src/pantanal_1`; security scans (Bandit, pip-audit, SBOM) remain for M07+ unless authorized |
 | DEF-002A | Kaggle interactive synthetic smoke | M02 (evidenced) | Patched smoke notebook runs in Kaggle interactive mode and produces synthetic CSV under `tmp/submissions/` (see `docs/kaggle/kaggle_setup_evidence.md`) |
 | DEF-002B | Kaggle scored/commit-mode real submission path | M04 (evidenced) | Kaggle competition notebook Version 2 completed successfully, produced an output file, and received public score 0.500 (see `docs/kaggle/m04_commit_mode_evidence.md`) |
 | DEF-003A | Real sample_submission.csv schema discovery and zero-baseline alignment | M03 (evidenced) | Real `sample_submission.csv` discovered on Kaggle; zero baseline preserves sample header/row order (see `docs/kaggle/m03_kaggle_evidence.md`) |
@@ -225,12 +236,10 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M06B — Audit hardening / evidence consolidation** (primary). Address **DEF-001** (coverage / mypy / security audit gates) without changing Kaggle notebook behavior or adding model inference. See `docs/milestones/M06/M06_plan.md` when seeded.
+**M06 — Audit hardening / evidence consolidation** is **in progress** on branch `m06-audit-hardening-evidence-consolidation`. See [M06_plan.md](milestones/M06/M06_plan.md) and [audit_hardening.md](quality/audit_hardening.md).
 
-**M06A — Real inference baseline spike** remains the secondary option if the owner prioritizes ML/research momentum over audit hardening.
+**M07+ (recommended):** Security and supply-chain scans (Bandit, pip-audit, SBOM) to complete remaining **DEF-001** exit criteria.
+
+**M06A — Real inference baseline spike** remains the secondary option if the owner prioritizes ML/research momentum over further audit hardening.
 
 Also evaluated in M05: M06C (Kaggle packaging), M06D (working-note outline seed), M06E (archive/template cleanup). See `docs/analysis/next_milestone_decision_matrix.md`.
-
-**DEF-001** — coverage / mypy / security audit gates — remains open until M06B (or equivalent) implements and evidences agreed CI gates.
-
-Do not begin M06 implementation until owner approves M06 plan.
