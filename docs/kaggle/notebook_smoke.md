@@ -15,6 +15,14 @@ Artifacts:
 | `notebooks/pantanal_1_m02_smoke.ipynb` | Minimal smoke notebook (outputs cleared) |
 | `scripts/run_m02_notebook_smoke.py` | Pure-Python mirror of notebook logic |
 | `src/pantanal_1/synthetic_schema.py` | Package-level synthetic labels and soundscape stems |
+| `docs/kaggle/kaggle_setup_runbook.md` | Manual Kaggle setup checklist (not execution proof) |
+| `docs/kaggle/kaggle_setup_evidence.md` | Evidence template for future live Kaggle runs |
+
+---
+
+## Kaggle setup (manual, not yet executed)
+
+To set up the notebook on Kaggle from scratch, follow `docs/kaggle/kaggle_setup_runbook.md`. Record observed results in `docs/kaggle/kaggle_setup_evidence.md`. Neither file proves execution until the evidence template is filled with actual observations.
 
 ---
 

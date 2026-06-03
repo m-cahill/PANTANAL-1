@@ -17,7 +17,11 @@ Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in
 - [x] `notebooks/pantanal_1_m02_smoke.ipynb` (cleared outputs, safety markdown)
 - [x] `scripts/run_m02_notebook_smoke.py` writes `tmp/submissions/m02_smoke_submission.csv`
 - [x] `docs/kaggle/notebook_smoke.md` documents claims and non-claims
+- [x] `docs/kaggle/kaggle_setup_runbook.md` manual Kaggle setup checklist
+- [x] `docs/kaggle/kaggle_setup_evidence.md` evidence template (not yet executed)
+- [ ] Manual Kaggle setup performed and evidence recorded (owner; blocks DEF-002 exit)
 - [x] `tests/test_notebook_smoke.py` and `tests/test_synthetic_schema.py`
+- [x] `tests/test_kaggle_setup_docs.py` runbook/evidence doc guards
 - [x] `docs/pantanal-1.md` updated (M02 in progress; closed at closeout)
 - [x] Local verification green
 - [ ] PR CI green; no merge without owner approval
@@ -31,12 +35,14 @@ Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in
 3. Mirror smoke script (stdlib + existing package only)
 4. Documentation: local vs Kaggle, archival intent, deadline passed
 5. Preserve M00/M01 guardrails and `verify_repo_state.py`
+6. Kaggle setup runbook and evidence template for consistent manual setup
 
 ---
 
 ## Out of scope
 
-- Real Kaggle notebook commit/submit proof
+- Claiming Kaggle execution without owner-provided evidence in `kaggle_setup_evidence.md`
+- Real Kaggle notebook commit/submit proof (unless evidenced by owner)
 - Real `sample_submission.csv` / taxonomy alignment
 - Competition audio, model inference, runtime budget proof
 - Leaderboard submission or score

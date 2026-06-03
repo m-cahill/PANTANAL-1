@@ -114,6 +114,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - Repo state verifier and GitHub Actions CI (lint, compile, pytest, verify).
 - Synthetic submission contract: generate and validate zero-baseline submission-shaped CSV with 234 synthetic class columns and 5-second row windows (M01).
 - Kaggle-oriented smoke notebook and dependency-free mirror script exercising the synthetic M01 contract surface without competition data (M02; see `docs/kaggle/notebook_smoke.md`).
+- Kaggle setup runbook and empty evidence template for manual notebook setup (`docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`); **live Kaggle setup not yet executed from this repo**.
 
 **Not yet proven:**
 
@@ -184,4 +185,4 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M02 — Kaggle notebook smoke** is in progress on branch `m02-kaggle-notebook-smoke` (see `docs/kaggle/notebook_smoke.md`, `docs/milestones/M02/M02_plan.md`). M02 is archival/governance proof and a reusable scaffold; it does not imply active submission eligibility after the competition deadline.
+**M02 — Kaggle notebook smoke** is in progress on branch `m02-kaggle-notebook-smoke` (see `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_setup_runbook.md`, `docs/milestones/M02/M02_plan.md`). M02 is archival/governance proof and a reusable scaffold; it does not imply active submission eligibility after the competition deadline. Complete manual Kaggle setup using the runbook and record evidence before closeout; **DEF-002** remains open until evidence is recorded.

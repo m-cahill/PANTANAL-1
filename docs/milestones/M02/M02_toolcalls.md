@@ -1,6 +1,8 @@
 # M02 Tool Calls Log
 
-M02 was seeded after M01 closeout and merge to `main`. No implementation has started.
+M02 was seeded after M01 closeout and merge to `main`.
+
+**Note:** Repo-side smoke scaffold is committed (PR #3). Manual Kaggle setup per `docs/kaggle/kaggle_setup_runbook.md` has **not** been executed; `docs/kaggle/kaggle_setup_evidence.md` remains empty template only.
 
 | Timestamp (UTC) | Tool | Purpose | Files / Target | Status |
 |-----------------|------|---------|----------------|--------|
@@ -9,4 +11,8 @@ M02 was seeded after M01 closeout and merge to `main`. No implementation has sta
 | 2026-06-03T00:15:00Z | Shell | Local verification: ruff, compileall, pytest, verify_repo_state | repo root | completed |
 | 2026-06-03T17:10:00Z | Shell | Phase 0 recovery: git status, branch, log, remote | repo root | completed |
 | 2026-06-03T17:11:00Z | Shell | Phase 2 full local verification before commit | repo root | completed |
-| 2026-06-03T17:12:00Z | Shell | Phase 3 commit M02 implementation | repo root | in_progress |
+| 2026-06-03T17:12:00Z | Shell | Phase 3 commit M02 implementation | repo root | completed |
+| 2026-06-03T17:13:00Z | Shell | Phase 4 push branch and open PR | origin/m02-kaggle-notebook-smoke | completed |
+| 2026-06-03T17:14:00Z | Shell | Phase 5 monitor CI run 26855702195 | PR #3 | completed (success) |
+| 2026-06-03T18:00:00Z | Write | Add Kaggle setup runbook and evidence template | docs/kaggle/ | completed |
+| 2026-06-03T18:01:00Z | Shell | Local verification and commit runbook follow-up | repo root | in_progress |
