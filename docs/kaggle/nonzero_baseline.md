@@ -72,18 +72,24 @@ Never write repository-root `submission.csv`.
 
 ---
 
-## Documented Kaggle behavior (not executed in initial M10 PR)
+## M11 Kaggle evidence path (repo-side; owner-run)
 
-When a future Kaggle notebook or manual run uses this path:
+M11 adds a dedicated Kaggle notebook and evidence/runbook artifacts. **No Kaggle execution or score claims** in the initial M11 PR unless owner fills `docs/kaggle/m11_nonzero_baseline_evidence.md`.
+
+| Artifact | Role |
+|----------|------|
+| `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` | M03-style diagnostics + M10 uniform-ε + inline fallback |
+| `docs/kaggle/m11_nonzero_baseline_runbook.md` | Interactive → commit → optional submit steps |
+| `docs/kaggle/m11_nonzero_baseline_evidence.md` | Owner evidence template (starts not yet executed) |
+
+When an owner runs the M11 notebook on Kaggle:
 
 | Condition | Output |
 |-----------|--------|
-| Real `sample_submission.csv` under `/kaggle/input` (see `kaggle_paths.py`) | `/kaggle/working/submission.csv` with uniform ε |
-| No real sample file | Use synthetic fallback locally only (`tmp/submissions/`) |
+| Real `sample_submission.csv` under `/kaggle/input` (see `kaggle_paths.py`) | `/kaggle/working/submission.csv` with uniform ε (`0.001` default) |
+| No real sample file | Synthetic fallback under `tmp/submissions/m11_synthetic_nonzero_baseline.csv` |
 
-The M03 baseline notebook is **unchanged** in M10; integrate a Kaggle notebook only in a later milestone if needed.
-
-**No Kaggle run, commit/submit, or score claims** are made in the initial M10 PR unless owner provides separate evidence.
+The M03 baseline notebook remains **unchanged**. Compare any new public score to the prior all-zero baseline **0.500** only as a factual note; do not claim score improvement without direct observation.
 
 ---
 
