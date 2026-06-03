@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M04 closed)
+**Last updated:** 2026-06-03 (M05 in progress)
 
 ---
 
@@ -15,6 +15,9 @@
 | M02 | [M02_plan.md](milestones/M02/M02_plan.md) | [M02_summary.md](milestones/M02/M02_summary.md) | [M02_audit.md](milestones/M02/M02_audit.md) | [M02_toolcalls.md](milestones/M02/M02_toolcalls.md) |
 | M03 | [M03_plan.md](milestones/M03/M03_plan.md) | [M03_summary.md](milestones/M03/M03_summary.md) | [M03_audit.md](milestones/M03/M03_audit.md) | [M03_toolcalls.md](milestones/M03/M03_toolcalls.md) |
 | M04 | [M04_plan.md](milestones/M04/M04_plan.md) | [M04_summary.md](milestones/M04/M04_summary.md) | [M04_audit.md](milestones/M04/M04_audit.md) | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
+| M05 | [M05_plan.md](milestones/M05/M05_plan.md) | — | — | [M05_toolcalls.md](milestones/M05/M05_toolcalls.md) |
+
+**M05 note:** Post-competition analysis and next-direction planning ([analysis](analysis/post_competition_analysis.md), [decision matrix](analysis/next_milestone_decision_matrix.md), [M00–M04 index](analysis/M00_M04_evidence_index.md)). Summary/audit after closeout.
 
 ---
 
@@ -100,6 +103,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
 | M04 | Kaggle commit-mode submission path probe | closed | PR #5; [summary](milestones/M04/M04_summary.md), [audit](milestones/M04/M04_audit.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B evidenced; DEF-003B narrowed |
+| M05 | Baseline improvement planning / post-competition analysis | in progress | [plan](milestones/M05/M05_plan.md); [analysis](analysis/post_competition_analysis.md); [matrix](analysis/next_milestone_decision_matrix.md); no inference in M05 |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -124,6 +128,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains a baseline-oriented Kaggle notebook scaffold that can either generate a local synthetic fallback CSV or, when real Kaggle `sample_submission.csv` is available in the Kaggle environment, generate a zero-baseline `/kaggle/working/submission.csv` using that schema (M03 repo-side; see `docs/kaggle/baseline_inference_notebook.md`).
 - **M03 Kaggle interactive evidence:** baseline notebook (inline fallback) discovered real `sample_submission.csv` at `/kaggle/input/competitions/birdclef-2026/sample_submission.csv`, selected `REAL_SAMPLE_ZERO_BASELINE`, and produced `/kaggle/working/submission.csv` with 3 rows and 235 columns using the sample schema (see `docs/kaggle/m03_kaggle_evidence.md`). **Interactive mode only** — not scored commit/submit mode.
 - **M04 Kaggle commit/scored evidence:** Kaggle competition notebook `pantanal_1_m03_baseline` Version 2 completed successfully in **1m 7s**, Kaggle reported **1 output file**, and received public score **0.500** using the zero-baseline submission path (see `docs/kaggle/m04_commit_mode_evidence.md`).
+- PANTANAL-1 contains a post-competition analysis and next-milestone decision matrix evaluating the zero-baseline scored path, remaining gaps, and recommended future directions (M05; see `docs/analysis/post_competition_analysis.md`, `docs/analysis/next_milestone_decision_matrix.md`, `docs/analysis/M00_M04_evidence_index.md`).
 
 **Not yet proven:**
 
@@ -169,6 +174,14 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M04 does not prove full hidden/scored-test schema visibility (scored acceptance evidenced; hidden-test internals not exposed in owner paste).
 - M04 does not prove CPU/internet scoring-configuration compliance beyond observed short runtime unless those settings are directly re-recorded.
 
+**M05 explicit non-claims:**
+
+- M05 does not implement model inference.
+- M05 does not improve leaderboard score.
+- M05 does not prove model quality.
+- M05 does not add audit hardening gates.
+- M05 does not create working-note readiness unless separately scoped.
+
 ---
 
 ## 9. Explicit non-claims
@@ -212,8 +225,13 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-After M04 closeout: **M05 — Baseline Improvement Planning / Post-Competition Analysis** (stub only).
+**M05 (in progress):** Post-competition analysis and decision matrix complete in repo; see `docs/analysis/post_competition_analysis.md` and `docs/analysis/next_milestone_decision_matrix.md`.
 
-M05 should analyze the completed zero-baseline path, Kaggle public score evidence (**0.500**), and remaining quality/audit gaps (especially DEF-001), then decide whether to pursue a real inference baseline, post-competition working-note documentation, audit hardening, Kaggle packaging improvements, or a new competition/research direction. M05 must not claim model quality unless implemented and evidenced.
+**Recommended after M05 closeout:**
 
-See `docs/milestones/M05/M05_plan.md` when seeded.
+- **Primary — M06B:** Audit hardening / evidence consolidation (address **DEF-001**) if the goal is enterprise-grade closure and a stronger audit score.
+- **Secondary — M06A:** Smallest real inference baseline spike if the goal is research momentum (accept dependency/runtime/claim risk).
+
+Also evaluated: M06C (Kaggle packaging), M06D (working-note outline seed), M06E (archive/template cleanup). M05 does not draft the working note.
+
+Do not begin M06 implementation until M05 is merged and owner approves direction.
