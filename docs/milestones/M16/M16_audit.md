@@ -152,7 +152,7 @@ No HIGH blocking issues.
   "milestone": "M16C",
   "mode": "DELTA AUDIT",
   "pr_head_sha": "4f26637",
-  "squash_main_sha": "TBD_POST_MERGE",
+  "squash_main_sha": "dc51adb",
   "verdict": "green",
   "score": 5.0,
   "tests_total": 335,

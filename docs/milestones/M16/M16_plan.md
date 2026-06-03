@@ -1,6 +1,6 @@
 # M16C — Working-Note Draft v0 / Final Evidence Lock
 
-**Status:** Closing (PR #17 closeout)  
+**Status:** Closed  
 **Branch:** `m16c-working-note-draft-v0`  
 **Authority:** `docs/pantanal-1.md`
 
