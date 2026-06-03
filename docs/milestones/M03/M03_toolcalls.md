@@ -24,4 +24,7 @@ M03 was seeded after M02 closeout and merge to `main` (PR #3, merge commit `15d6
 | 2026-06-03T05:05:00Z | Shell | Commit cca0bf5; PR #4 CI run 26866538387 | git, gh | completed (success) |
 | 2026-06-03T06:00:00Z | Write | Generate M03_summary.md, M03_audit.md | docs/milestones/M03/ | completed |
 | 2026-06-03T06:01:00Z | Write | Closeout: pantanal-1.md M03 closed, M03_plan closed | docs/pantanal-1.md | completed |
-| 2026-06-03T06:02:00Z | Shell | Closeout local verification | ruff, pytest, verifier | in_progress |
+| 2026-06-03T06:02:00Z | Shell | Closeout local verification (83 tests) | ruff, pytest, verifier | completed |
+| 2026-06-03T06:03:00Z | Shell | Closeout commit 3f70d80; PR #4 CI run 26867105589 | git, gh | completed (success) |
+| 2026-06-03T06:04:00Z | Shell | Squash merge PR #4 to main; merge commit 62d5feb | gh pr merge | completed |
+| 2026-06-03T06:05:00Z | Shell | Post-merge main CI run 26867122517 | GitHub Actions | completed (success) |
