@@ -11,12 +11,14 @@ M06 begins closing **DEF-001** by adding coverage and type-checking gates for `s
 - CI enforcement for both in `.github/workflows/ci.yml`
 - `docs/quality/audit_hardening.md` (this file) and stdlib doc/config tests in `tests/test_m06_audit_hardening.py`
 
+M07 extends this M06 audit-hardening slice with security and dependency gates; see `docs/quality/security_supply_chain.md`.
+
 ## What M06 Does Not Add
 
 - Model inference
 - Kaggle submission or notebook behavior changes
 - Heavy ML dependencies
-- Security scans (Bandit, pip-audit, SBOM) — deferred to M07+ unless separately authorized
+- Security scans (Bandit, pip-audit) — added in M07; SBOM/provenance/action pinning remain optional
 - Full enterprise hardening or a 5/5 audit guarantee
 - Separate `coverage_policy.md` / `type_checking_policy.md` documents
 
@@ -30,9 +32,9 @@ M06 begins closing **DEF-001** by adding coverage and type-checking gates for `s
 
 ## DEF-001 Status
 
-**Partially addressed.** Coverage and mypy gates are implemented and enforced in CI. Security and dependency/supply-chain scans remain for a future milestone (M07+ recommended).
+**Substantially addressed in M07** (not fully closed). Coverage and mypy gates were added in M06; Bandit and pip-audit gates were added in M07 (`docs/quality/security_supply_chain.md`). Optional future hardening: SBOM, GitHub Actions SHA pinning, provenance/attestation.
 
-Exit criteria for full DEF-001 closure (from `docs/pantanal-1.md`): CI jobs green with **agreed** thresholds for coverage, mypy, **and** security audit components.
+Exit criteria for **full** DEF-001 closure (from `docs/pantanal-1.md`): all agreed gates green **and** any remaining optional hardening items explicitly scoped or waived.
 
 ## Verification
 
@@ -51,4 +53,4 @@ python scripts/verify_repo_state.py
 
 ### CI (`.github/workflows/ci.yml`)
 
-Existing steps preserved: Ruff check/format, compileall, pytest with coverage, `coverage report --fail-under=80`, mypy, `verify_repo_state.py`.
+Existing steps preserved: Ruff check/format, compileall, pytest with coverage, `coverage report --fail-under=80`, mypy, Bandit, pip-audit, `verify_repo_state.py`.
