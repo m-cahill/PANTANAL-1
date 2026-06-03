@@ -10,35 +10,54 @@ EVIDENCE_PATH = REPO_ROOT / "docs" / "kaggle" / "m11_nonzero_baseline_evidence.m
 NONZERO_DOC = REPO_ROOT / "docs" / "kaggle" / "nonzero_baseline.md"
 ULTIMATE_TRUTH = REPO_ROOT / "docs" / "pantanal-1.md"
 
+SAMPLE_PATH = "/kaggle/input/competitions/birdclef-2026/sample_submission.csv"
+
 
 def test_m11_runbook_exists() -> None:
     assert RUNBOOK_PATH.is_file()
 
 
-def test_m11_evidence_template_exists() -> None:
+def test_m11_evidence_file_exists() -> None:
     assert EVIDENCE_PATH.is_file()
 
 
-def test_m11_evidence_not_yet_executed() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert "not yet executed" in text
-
-
-def test_m11_evidence_includes_epsilon() -> None:
+def test_m11_evidence_records_interactive_execution() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
-    assert "Epsilon" in text or "epsilon" in text
+    assert "Executed" in text or "Interactive" in text
+    assert "not yet executed" not in text.lower()
+    assert "REAL_SAMPLE_NONZERO_BASELINE" in text
+    assert "Interactive" in text
+
+
+def test_m11_evidence_records_epsilon() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
     assert "0.001" in text
+    assert "Epsilon" in text or "epsilon" in text
 
 
-def test_m11_evidence_includes_public_score_field() -> None:
+def test_m11_evidence_records_sample_path_and_output() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8")
-    assert "Public score" in text
+    assert SAMPLE_PATH in text
+    assert "/kaggle/working/submission.csv" in text
+    assert "6182" in text
 
 
-def test_m11_evidence_score_improvement_requires_observation() -> None:
+def test_m11_evidence_does_not_claim_public_score() -> None:
+    text = EVIDENCE_PATH.read_text(encoding="utf-8")
+    lower = text.lower()
+    assert "not observed" in lower or "n/a" in lower
+    for line in text.splitlines():
+        if line.strip().startswith("- Public score:"):
+            value = line.split(":", 1)[1].strip().lower()
+            assert "not observed" in value or value in ("", "n/a")
+            return
+    raise AssertionError("missing Public score field")
+
+
+def test_m11_evidence_score_improvement_not_claimed() -> None:
     text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert "score improvement" in text
-    assert "observed" in text or "observation" in text
+    assert "score improvement claimed" in text
+    assert "**no**" in text or "no" in text
 
 
 def test_m11_runbook_distinguishes_interactive_commit_submit() -> None:
@@ -60,6 +79,13 @@ def test_nonzero_baseline_doc_references_m11_artifacts() -> None:
     assert "m11_nonzero_baseline_evidence.md" in text
 
 
+def test_nonzero_baseline_doc_scoring_planning_note() -> None:
+    text = NONZERO_DOC.read_text(encoding="utf-8").lower()
+    assert "roc-auc" in text or "ranking separation" in text
+    assert "empirically observed" in text
+    assert "working-note" in text or "working note" in text
+
+
 def test_pantanal_marks_m11_in_progress() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
@@ -67,20 +93,24 @@ def test_pantanal_marks_m11_in_progress() -> None:
     assert "in progress" in m11_row.lower()
 
 
-def test_pantanal_m11_narrow_pre_evidence_claim() -> None:
+def test_pantanal_m11_interactive_evidence_claim() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
-    assert "runbook and evidence template" in text.lower() or "runbook" in text
-    assert "non-zero baseline" in text.lower() or "non-zero" in text.lower()
+    assert "M11 Kaggle interactive evidence" in text
+    assert "REAL_SAMPLE_NONZERO_BASELINE" in text
+    assert "0.001" in text
+    assert "Interactive mode only" in text or "interactive mode only" in text.lower()
 
 
 def test_pantanal_does_not_claim_m11_model_quality() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8").lower()
     assert "m11 does not prove model quality" in text
+    claims = text.split("## 8. current claims", 1)[-1].split("**not yet proven:**", 1)[0]
+    assert "model quality" not in claims.split("m11 kaggle interactive", 1)[-1][:400]
 
 
 def test_pantanal_does_not_claim_m11_score_improvement() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8").lower()
     claims = text.split("## 8. current claims", 1)[-1]
     implemented = claims.split("**not yet proven:**", 1)[0]
-    assert "m11 recorded kaggle evidence" not in implemented
+    assert "score improvement" not in implemented or "no score improvement" in implemented
     assert "m11 does not claim score improvement" in text

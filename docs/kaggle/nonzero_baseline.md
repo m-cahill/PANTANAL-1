@@ -91,6 +91,16 @@ When an owner runs the M11 notebook on Kaggle:
 
 The M03 baseline notebook remains **unchanged**. Compare any new public score to the prior all-zero baseline **0.500** only as a factual note; do not claim score improvement without direct observation.
 
+**M11 interactive evidence (2026-06-03):** Owner interactive run selected `REAL_SAMPLE_NONZERO_BASELINE` with ε **0.001** and wrote `/kaggle/working/submission.csv` (3 rows, 235 columns). See `docs/kaggle/m11_nonzero_baseline_evidence.md`. Commit/submit and public score not yet recorded.
+
+---
+
+## Scoring and working-note planning (not a milestone plan)
+
+Uniform epsilon may not improve ROC-AUC-style scoring because it does not create meaningful ranking separation. Score improvement must be empirically observed, not inferred.
+
+Future planning should separately evaluate the official scoring methodology and the CLEF working-note criteria, because the working-note prize may reward reproducibility, clarity, and scientific communication independently of leaderboard position.
+
 ---
 
 ## Safety
