@@ -1,0 +1,15 @@
+# M00–M04 Evidence Index
+
+**Authority:** Subordinate to `docs/pantanal-1.md`. Index only — see milestone summaries/audits for narrative detail.
+
+| Milestone | Primary proof | PR | CI (representative) | Kaggle evidence | Claims proved | Key non-claims | Open follow-ups |
+|-----------|---------------|-----|---------------------|-----------------|---------------|----------------|-----------------|
+| **M00** | Ultimate Truth, boundaries, policies, `.gitignore` + verifier, `pantanal_1` v0.0.0, GitHub Actions CI | [#1](https://github.com/m-cahill/PANTANAL-1/pull/1) | [26851821443](https://github.com/m-cahill/PANTANAL-1/actions/runs/26851821443) | — | Governance scaffold; prohibited-artifact enforcement; CI green | No Kaggle execution; no real submission; no inference; no score | DEF-001, DEF-002, DEF-003 opened |
+| **M01** | `submission_contract.py`, synthetic 234-class zero baseline, `make_zero_submission.py`, 15 contract tests | [#2](https://github.com/m-cahill/PANTANAL-1/pull/2) | [26854017825](https://github.com/m-cahill/PANTANAL-1/actions/runs/26854017825) | — | Synthetic submission shape (row_id, 234 cols, 5s windows) | No real `sample_submission.csv`; no Kaggle; no inference; no score | DEF-002, DEF-003; real sample alignment |
+| **M02** | `pantanal_1_m02_smoke.ipynb`, mirror script, submission bible, setup runbook/evidence | [#3](https://github.com/m-cahill/PANTANAL-1/pull/3) | [26860850139](https://github.com/m-cahill/PANTANAL-1/actions/runs/26860850139) | [kaggle_setup_evidence.md](../kaggle/kaggle_setup_evidence.md) — interactive, inline fallback, `tmp/submissions/m02_smoke_submission.csv` | Kaggle interactive synthetic smoke (**DEF-002A**) | No commit/submit; no `/kaggle/working/submission.csv`; no score | DEF-002B scored path; DEF-003 real sample |
+| **M03** | `pantanal_1_m03_baseline.ipynb`, `kaggle_paths.py`, `sample_baseline.py`, M03 evidence doc | [#4](https://github.com/m-cahill/PANTANAL-1/pull/4) | [26866538387](https://github.com/m-cahill/PANTANAL-1/actions/runs/26866538387) | [m03_kaggle_evidence.md](../kaggle/m03_kaggle_evidence.md) — interactive, real sample, `/kaggle/working/submission.csv` 3×235 | Real sample discovery + zero baseline (**DEF-003A**); baseline notebook scaffold | Interactive only; no commit/scored; no score; no inference quality | DEF-002B commit/scored; DEF-003B scored behavior |
+| **M04** | `m04_commit_mode_probe.md`, `m04_commit_mode_evidence.md`, M04 doc tests | [#5](https://github.com/m-cahill/PANTANAL-1/pull/5) | [26870722915](https://github.com/m-cahill/PANTANAL-1/actions/runs/26870722915) | [m04_commit_mode_evidence.md](../kaggle/m04_commit_mode_evidence.md) — Version 2, 1m 7s, public **0.500** | Scored zero-baseline path (**DEF-002B**); scored acceptance (**DEF-003B** narrowed) | No inference; not competitive; no private LB; hidden internals partial | DEF-001 audit gates; real inference; packaging; working note |
+
+**Post-M04 planning:** `docs/analysis/post_competition_analysis.md`, `docs/analysis/next_milestone_decision_matrix.md`.
+
+**Deferred register (after M04):** DEF-001 open; DEF-002A/B and DEF-003A/B evidenced or narrowed per `docs/pantanal-1.md` §11.
