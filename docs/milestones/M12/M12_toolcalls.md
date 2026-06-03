@@ -1,6 +1,13 @@
-# M12 Tool Calls Log
+# M12 Tool Calls
 
-M12 was seeded after M11 closeout and squash merge to `main` (PR #12, merge commit `64055a4`). No implementation has started.
+Milestone: M12 — Scoring Methodology and Working-Note Criteria Audit
 
-| Timestamp (UTC) | Tool | Purpose | Files / Target | Status |
+| Timestamp (UTC) | Tool | Purpose | Files / target | Status |
 |-----------------|------|---------|----------------|--------|
+| 2026-06-03T20:30:00Z | Write | Replace stub M12 plan with approved plan | `docs/milestones/M12/M12_plan.md` | complete |
+| 2026-06-03T20:31:00Z | Shell | Checkout `m12-scoring-working-note-criteria-audit` | branch | complete |
+| 2026-06-03T20:35:00Z | Write | M12 scoring and working-note audit docs | `docs/analysis/M12_*.md`, `docs/working_note/M12_*.md` | complete |
+| 2026-06-03T20:36:00Z | StrReplace | Update Ultimate Truth and nonzero cross-ref | `docs/pantanal-1.md`, `docs/kaggle/nonzero_baseline.md` | complete |
+| 2026-06-03T20:37:00Z | Write | M12 governance tests | `tests/test_m12_scoring_working_note_audit.py` | complete |
+| 2026-06-03T20:38:00Z | Shell | Local verification suite | repo root | complete |
+| 2026-06-03T20:39:00Z | Shell | Commit, push, open PR | branch `m12-scoring-working-note-criteria-audit` | pending |
