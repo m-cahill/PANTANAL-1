@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M07 closed)
+**Last updated:** 2026-06-03 (M08 in progress)
 
 ---
 
@@ -18,6 +18,7 @@
 | M05 | [M05_plan.md](milestones/M05/M05_plan.md) | [M05_summary.md](milestones/M05/M05_summary.md) | [M05_audit.md](milestones/M05/M05_audit.md) | [M05_toolcalls.md](milestones/M05/M05_toolcalls.md) |
 | M06 | [M06_plan.md](milestones/M06/M06_plan.md) | [M06_summary.md](milestones/M06/M06_summary.md) | [M06_audit.md](milestones/M06/M06_audit.md) | [M06_toolcalls.md](milestones/M06/M06_toolcalls.md) |
 | M07 | [M07_plan.md](milestones/M07/M07_plan.md) | [M07_summary.md](milestones/M07/M07_summary.md) | [M07_audit.md](milestones/M07/M07_audit.md) | [M07_toolcalls.md](milestones/M07/M07_toolcalls.md) |
+| M08 | [M08_plan.md](milestones/M08/M08_plan.md) | — | — | [M08_toolcalls.md](milestones/M08/M08_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -108,6 +109,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M05 | Baseline improvement planning / post-competition analysis | closed | PR #6; [summary](milestones/M05/M05_summary.md), [audit](milestones/M05/M05_audit.md); [analysis](analysis/post_competition_analysis.md); [matrix](analysis/next_milestone_decision_matrix.md); [index](analysis/M00_M04_evidence_index.md) |
 | M06 | Audit hardening / evidence consolidation | closed | PR #7; [summary](milestones/M06/M06_summary.md), [audit](milestones/M06/M06_audit.md); [audit hardening](quality/audit_hardening.md); coverage + mypy gates (DEF-001 partial through M06) |
 | M07 | Security and supply-chain audit gate | closed | PR #8; [summary](milestones/M07/M07_summary.md), [audit](milestones/M07/M07_audit.md); [security supply chain](quality/security_supply_chain.md); DEF-001 substantially addressed (Bandit + pip-audit) |
+| M08 | Working-note outline / evidence narrative seed | in progress | [plan](milestones/M08/M08_plan.md); [outline](working_note/working_note_outline.md), [evidence map](working_note/evidence_map.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -135,6 +137,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains a post-competition analysis and next-milestone decision matrix evaluating the zero-baseline scored path, remaining gaps, and recommended future directions (M05; see `docs/analysis/post_competition_analysis.md`, `docs/analysis/next_milestone_decision_matrix.md`, `docs/analysis/M00_M04_evidence_index.md`).
 - PANTANAL-1 adds audit-hardening CI gates for source coverage and mypy type checking, improving enterprise CI posture without changing Kaggle notebook behavior (M06; see `docs/quality/audit_hardening.md`).
 - PANTANAL-1 adds security and dependency audit gates using Bandit and pip-audit, further hardening CI without changing Kaggle notebook behavior (M07; see `docs/quality/security_supply_chain.md`).
+- PANTANAL-1 contains a working-note outline and evidence map that organize the M00–M07 governance, Kaggle, and audit evidence into a public narrative seed (M08; see `docs/working_note/working_note_outline.md`, `docs/working_note/evidence_map.md`).
 
 **Not yet proven:**
 
@@ -204,6 +207,15 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M07 does not add SBOM/provenance/action pinning.
 - M07 does not prove the project is vulnerability-free.
 
+**M08 explicit non-claims:**
+
+- M08 does not create a full working-note draft.
+- M08 does not make the project CLEF submission-ready.
+- M08 does not implement model inference.
+- M08 does not prove model quality.
+- M08 does not improve leaderboard score.
+- M08 does not claim RediAI certification.
+
 ---
 
 ## 9. Explicit non-claims
@@ -247,10 +259,8 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M08 — Working-Note Outline / Evidence Narrative Seed** (primary). Turn the M00–M07 evidence trail into a working-note outline or public narrative seed, without claiming model quality, RediAI certification, or competitive performance. See `docs/milestones/M08/M08_plan.md` when seeded.
+**M08 — Working-Note Outline / Evidence Narrative Seed** is **in progress** on branch `m08-working-note-outline`. See [M08_plan.md](milestones/M08/M08_plan.md), [working_note_outline.md](working_note/working_note_outline.md), [evidence_map.md](working_note/evidence_map.md). Closeout (summary, audit, merge) awaits owner approval after green PR CI.
 
-**M08A — Real inference baseline spike** remains the secondary option if the owner chooses ML/research momentum instead of documentation/public narrative.
+**M08A — Real inference baseline spike** remains the leading candidate after M08 if the owner chooses ML/research momentum instead of further documentation work.
 
 Also evaluated in M05: M06C (Kaggle packaging), M06E (archive/template cleanup). See `docs/analysis/next_milestone_decision_matrix.md`.
-
-Do not begin M08 implementation until owner approves M08 plan.
