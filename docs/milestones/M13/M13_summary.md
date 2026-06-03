@@ -89,10 +89,12 @@ Without M13, the project could add audio/ML dependencies or training work withou
 |-------|--------|
 | **PR** | https://github.com/m-cahill/PANTANAL-1/pull/14 |
 | **Merge method** | squash merge |
-| **Final PR-head SHA** | `bc0227f3dc1f33805169dd8d595f8d4f8095b30e` |
-| **Authoritative PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26912724234 — success (24s) |
-| **Squash/main SHA** | _Updated at post-merge closeout_ |
-| **Post-merge main CI** | _Updated at post-merge closeout_ |
+| **Final PR-head SHA** | `2de0f5f` (closeout); impl chain includes `bc0227f` / `b870aa2` |
+| **Authoritative PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26912874923 — success (32s, closeout head) |
+| **Prior PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26912724234 — success (24s) |
+| **Squash/main SHA** | `a684b699c54b816ef15c414183fac8d0208124fe` |
+| **Post-merge main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26912920316 — success (28s) |
+| **Merge timestamp (UTC)** | 2026-06-03T21:04:11Z |
 
 No new runtime dependencies. M06/M07 gates unchanged.
 
@@ -179,7 +181,8 @@ M14 implementation is **not** authorized by M13 closeout alone.
 | Reference | Value |
 |-----------|--------|
 | **PR** | https://github.com/m-cahill/PANTANAL-1/pull/14 |
-| **PR-head SHA** | `bc0227f3dc1f33805169dd8d595f8d4f8095b30e` |
+| **PR-head SHA** | `2de0f5f` (pre-merge closeout) |
+| **Squash/main SHA** | `a684b699c54b816ef15c414183fac8d0208124fe` |
 | **Impl commit** | `b870aa26f43dc3fdcb6109d765f8094635480bc7` |
 | **Authoritative PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26912724234 |
 | **Baseline (M12 closeout)** | `4d47eb6` on `main` |

@@ -1,5 +1,7 @@
 # M13 — Audio-Derived Baseline Planning Gate
 
+**Status:** Closed (PR #14 squash `a684b69`, 2026-06-03).
+
 ## Milestone intent
 
 Create a governed, implementation-ready plan for the first real audio-derived baseline after M12 showed that all-zero and uniform-ε baselines both scored public **0.500**.

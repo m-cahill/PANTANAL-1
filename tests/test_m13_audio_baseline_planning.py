@@ -79,12 +79,12 @@ def test_evaluation_plan_no_improvement_unless_public_score_above_0500() -> None
     assert "no score improvement" in text or ("score improvement" in text and "> 0.500" in text)
 
 
-def test_pantanal_marks_m13_in_progress() -> None:
+def test_pantanal_marks_m13_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
     assert "| M13 |" in ledger
     m13_row = ledger.split("| M13 |", 1)[-1].split("\n", 1)[0]
-    assert "in progress" in m13_row.lower()
+    assert "closed" in m13_row.lower()
 
 
 def test_pantanal_does_not_claim_model_training_or_quality() -> None:

@@ -6,8 +6,8 @@
 |-------|--------|
 | **Milestone** | M13 — Audio-Derived Baseline Planning Gate |
 | **Mode** | DELTA AUDIT |
-| **Range** | `4d47eb6` (M12 closeout on main) … `bc0227f` (PR-head PR #14) + closeout commit |
-| **CI Status** | Green (authoritative PR run 26912724234) |
+| **Range** | `4d47eb6` (M12 closeout on main) … `a684b69` (squash merge PR #14) + post-merge telemetry |
+| **CI Status** | Green (PR run 26912874923; post-merge main 26912920316) |
 | **Audit Verdict** | 🟢 — Planning package complete; ORNITHOS handoff defined; M14 path documented; strict planning-only non-claims preserved |
 
 **Score:** **5.0 / 5.0** (delta **0.0** from M12 **5.0**)
@@ -129,7 +129,7 @@
 | `docs/analysis/M13_kaggle_inference_packaging_plan.md` | Yes |
 | `docs/analysis/M13_evaluation_plan.md` | Yes |
 | `tests/test_m13_audio_baseline_planning.py` | Yes |
-| PR #14 | Yes (PR-head `bc0227f`) |
+| PR #14 squash merge | Yes (`a684b69`; PR-head `2de0f5f`) |
 
 ---
 
@@ -232,8 +232,8 @@ No HIGH blocking issues.
 {
   "milestone": "M13",
   "mode": "DELTA AUDIT",
-  "pr_head_sha": "bc0227f",
-  "squash_main_sha": "TBD_POST_MERGE",
+  "pr_head_sha": "2de0f5f",
+  "squash_main_sha": "a684b69",
   "verdict": "green",
   "score": 5.0,
   "tests_total": 247,
