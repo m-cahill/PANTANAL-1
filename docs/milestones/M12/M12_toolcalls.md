@@ -10,4 +10,5 @@ Milestone: M12 — Scoring Methodology and Working-Note Criteria Audit
 | 2026-06-03T20:36:00Z | StrReplace | Update Ultimate Truth and nonzero cross-ref | `docs/pantanal-1.md`, `docs/kaggle/nonzero_baseline.md` | complete |
 | 2026-06-03T20:37:00Z | Write | M12 governance tests | `tests/test_m12_scoring_working_note_audit.py` | complete |
 | 2026-06-03T20:38:00Z | Shell | Local verification suite | repo root | complete |
-| 2026-06-03T20:39:00Z | Shell | Commit, push, open PR | branch `m12-scoring-working-note-criteria-audit` | pending |
+| 2026-06-03T20:39:00Z | Shell | Commit, push, open PR #13 | branch `m12-scoring-working-note-criteria-audit` | complete |
+| 2026-06-03T20:40:00Z | Shell | Monitor PR CI | PR #13 | pending |
