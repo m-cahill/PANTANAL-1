@@ -12,4 +12,5 @@ M05 was seeded after M04 closeout and squash merge to `main` (PR #5, merge commi
 | 2026-06-03T08:15Z | Write | M05 analysis doc tests | `tests/test_m05_post_competition_analysis.py` | done |
 | 2026-06-03T08:15Z | StrReplace | M05 in progress + claims in Ultimate Truth | `docs/pantanal-1.md` | done |
 | 2026-06-03T08:16Z | Shell | Local verification (ruff, compileall, pytest, verifier) | repo root | done (110 passed) |
-| 2026-06-03T08:17Z | Shell | git commit + push + gh pr create | branch `m05-baseline-improvement-planning` | pending |
+| 2026-06-03T08:17Z | Shell | git commit + push + gh pr create | branch `m05-baseline-improvement-planning`; commit `0b094b4`; PR #6 | done |
+| 2026-06-03T08:18Z | Shell | Watch PR #6 CI | run 26872246050 | done (success) |
