@@ -72,11 +72,11 @@ def test_recommendation_preserves_competitive_model_non_claims() -> None:
     assert "predictive model quality" in text or "model quality" in text
 
 
-def test_pantanal_marks_m09_in_progress() -> None:
+def test_pantanal_marks_m09_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1]
     assert "| M09 |" in ledger
-    assert "in progress" in ledger.lower()
+    assert "closed" in ledger.lower()
 
 
 def test_pantanal_does_not_claim_model_inference() -> None:

@@ -1,6 +1,6 @@
 # M09 Plan — Working-Note Draft Planning / Public Narrative Decision Gate
 
-**Status:** In progress (branch `m09-working-note-draft-decision-gate`)
+**Status:** Closed (PR #10; branch `m09-working-note-draft-decision-gate`)
 
 **Objective:** Decide whether PANTANAL-1 should expand the M08 working-note outline into a full draft, pivot to a real inference baseline, or archive as a governed Kaggle template — via decision-gate docs, readiness checklist, and next-direction recommendation. No full draft, no inference, no new Kaggle submissions.
 

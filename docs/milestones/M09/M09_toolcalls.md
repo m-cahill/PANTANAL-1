@@ -10,3 +10,7 @@ M09 was seeded after M08 closeout and squash merge to `main` (PR #9, merge commi
 | 2026-06-03T12:03:00Z | Shell | Commit, push branch, open PR to main | git, gh | completed (coverage.xml accidental) |
 | 2026-06-03T12:04:00Z | Shell | Remove accidental coverage.xml from git | coverage.xml | completed |
 | 2026-06-03T12:05:00Z | Shell | Open PR #10 to main; monitor CI | gh | completed (run 26876606160 success) |
+| 2026-06-03T14:00:00Z | Shell | M09 closeout Phase 0: git status, branch, log, remote | repo root | completed |
+| 2026-06-03T14:01:00Z | Write | Generate M09_summary.md and M09_audit.md; update pantanal-1, plan, tests | docs/milestones/M09/*, docs/pantanal-1.md, tests/test_m09_decision_gate.py | completed |
+| 2026-06-03T14:02:00Z | Shell | M09 closeout local verification suite | repo root | completed (169 passed, 95% cov) |
+| 2026-06-03T14:03:00Z | Shell | Commit and push M09 closeout | git | pending |
