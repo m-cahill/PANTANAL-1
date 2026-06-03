@@ -263,12 +263,12 @@ def test_validator_does_not_import_audio_ml() -> None:
 # --- Ultimate Truth ---
 
 
-def test_pantanal_marks_m14_in_progress() -> None:
+def test_pantanal_marks_m14_closed() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
     assert "| M14 |" in ledger
     m14_row = ledger.split("| M14 |", 1)[-1].split("\n", 1)[0]
-    assert "in progress" in m14_row.lower() or "in-progress" in m14_row.lower()
+    assert "closed" in m14_row.lower()
 
 
 def test_pantanal_m14_evidence_contract_claim() -> None:

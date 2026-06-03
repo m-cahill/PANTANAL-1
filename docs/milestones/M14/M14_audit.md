@@ -7,7 +7,7 @@
 | **Milestone** | M14 — 5090 Blackwell Audio-Derived Baseline Evidence Contract |
 | **Mode** | DELTA AUDIT |
 | **Range** | `4666bbe` (main pre-M14) … `8481cf9` (PR-head) + post-merge telemetry |
-| **CI Status** | Green (PR run 26913828912; post-merge recorded at closeout) |
+| **CI Status** | Green (PR 26913828912; closeout 26914768091; post-merge main 26914804282) |
 | **Audit Verdict** | 🟢 — Evidence contract complete; stdlib validator and fixtures enforce G0 discipline; M13 planning operationalized without scope creep |
 
 **Score:** **5.0 / 5.0** (delta **0.0** from M13 **5.0**)
@@ -235,7 +235,8 @@ No HIGH blocking issues.
 {
   "milestone": "M14",
   "mode": "DELTA AUDIT",
-  "pr_head_sha": "8481cf9",
+  "pr_head_sha": "a6934ef",
+  "squash_main_sha": "2b12658",
   "verdict": "green",
   "score": 5.0,
   "tests_total": 275,

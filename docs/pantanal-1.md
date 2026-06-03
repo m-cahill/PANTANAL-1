@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M14 in progress)
+**Last updated:** 2026-06-03 (M14 closed)
 
 ---
 
@@ -24,7 +24,7 @@
 | M11 | [M11_plan.md](milestones/M11/M11_plan.md) | [M11_summary.md](milestones/M11/M11_summary.md) | [M11_audit.md](milestones/M11/M11_audit.md) | [M11_toolcalls.md](milestones/M11/M11_toolcalls.md) |
 | M12 | [M12_plan.md](milestones/M12/M12_plan.md) | [M12_summary.md](milestones/M12/M12_summary.md) | [M12_audit.md](milestones/M12/M12_audit.md) | [M12_toolcalls.md](milestones/M12/M12_toolcalls.md) |
 | M13 | [M13_plan.md](milestones/M13/M13_plan.md) | [M13_summary.md](milestones/M13/M13_summary.md) | [M13_audit.md](milestones/M13/M13_audit.md) | [M13_toolcalls.md](milestones/M13/M13_toolcalls.md) |
-| M14 | [M14_plan.md](milestones/M14/M14_plan.md) | — | — | [M14_toolcalls.md](milestones/M14/M14_toolcalls.md) |
+| M14 | [M14_plan.md](milestones/M14/M14_plan.md) | [M14_summary.md](milestones/M14/M14_summary.md) | [M14_audit.md](milestones/M14/M14_audit.md) | [M14_toolcalls.md](milestones/M14/M14_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -121,7 +121,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M11 | Kaggle non-zero baseline evidence probe | closed | PR #12; [summary](milestones/M11/M11_summary.md), [audit](milestones/M11/M11_audit.md); [runbook](kaggle/m11_nonzero_baseline_runbook.md), [evidence](kaggle/m11_nonzero_baseline_evidence.md); `notebooks/pantanal_1_m11_nonzero_baseline.ipynb` |
 | M12 | Scoring Methodology and Working-Note Criteria Audit | closed | PR #13 squash `57d1ed7`; PR-head `1c3cf0b`; PR CI [26911494073](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911494073); post-merge CI [26911835469](https://github.com/m-cahill/PANTANAL-1/actions/runs/26911835469); [summary](milestones/M12/M12_summary.md), [audit](milestones/M12/M12_audit.md); [scoring audit](analysis/M12_scoring_methodology_audit.md), [working-note criteria audit](working_note/M12_working_note_criteria_audit.md), [next direction](analysis/M12_next_direction_decision.md) |
 | M13 | Audio-Derived Baseline Planning Gate | closed | PR #14 squash `a684b69`; PR-head `2de0f5f`; PR CI [26912874923](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912874923); post-merge CI [26912920316](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912920316); [summary](milestones/M13/M13_summary.md), [audit](milestones/M13/M13_audit.md); [audio strategy](analysis/M13_audio_baseline_strategy.md), [Blackwell training plan](analysis/M13_blackwell_training_plan.md), [artifact boundary](analysis/M13_artifact_boundary_plan.md), [Kaggle packaging](analysis/M13_kaggle_inference_packaging_plan.md), [evaluation plan](analysis/M13_evaluation_plan.md) |
-| M14 | 5090 Blackwell Audio-Derived Baseline Evidence Contract | in progress | Branch `m14-audio-baseline-evidence-contract`; [plan](milestones/M14/M14_plan.md); [evidence contract](analysis/M14_evidence_contract.md), [private runbook](analysis/M14_private_training_runbook.md), [manifest schema](models/M14_MODEL_MANIFEST_SCHEMA.md), [model card template](models/M14_model_card_template.md) |
+| M14 | 5090 Blackwell Audio-Derived Baseline Evidence Contract | closed | PR #15 squash `2b12658`; PR-head `a6934ef`; PR CI [26913828912](https://github.com/m-cahill/PANTANAL-1/actions/runs/26913828912) (impl `8481cf9`); closeout PR CI [26914768091](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914768091); post-merge CI [26914804282](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914804282); [summary](milestones/M14/M14_summary.md), [audit](milestones/M14/M14_audit.md); [evidence contract](analysis/M14_evidence_contract.md), [private runbook](analysis/M14_private_training_runbook.md), [manifest schema](models/M14_MODEL_MANIFEST_SCHEMA.md), [model card template](models/M14_model_card_template.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 

@@ -102,9 +102,12 @@ Without M14, private training could produce summaries with no machine-checkable 
 | **Authoritative PR-head CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26913828912 — success (25s) |
 | **Impl commit** | `ae67d6a` |
 | **Telemetry commit** | `8481cf9` |
-| **Merge method** | squash merge (at closeout) |
-| **Squash/main SHA** | Recorded at post-merge closeout |
-| **Post-merge main CI** | Recorded at post-merge closeout |
+| **Merge method** | squash merge |
+| **Merge timestamp (UTC)** | 2026-06-03T21:42:07Z |
+| **Squash/main SHA** | `2b12658119b8f508b52c2ef28aa7d86e42673d7f` |
+| **Closeout PR-head SHA** | `a6934ef0413cf91547f7d795f247f54f1226703f` |
+| **Closeout PR CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26914768091 — success (25s) |
+| **Post-merge main CI** | https://github.com/m-cahill/PANTANAL-1/actions/runs/26914804282 — success |
 
 No new runtime dependencies. M06/M07 gates unchanged.
 
