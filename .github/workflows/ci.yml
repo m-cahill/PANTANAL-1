@@ -40,5 +40,11 @@ jobs:
       - name: Coverage report gate
         run: coverage report --fail-under=80
 
+      - name: Bandit (src)
+        run: bandit -r src/pantanal_1
+
+      - name: pip-audit (dev dependencies)
+        run: pip-audit -r requirements-dev.txt
+
       - name: Verify repository state
         run: python scripts/verify_repo_state.py
