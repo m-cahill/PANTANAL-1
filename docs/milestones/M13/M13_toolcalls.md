@@ -2,7 +2,17 @@
 
 Milestone: M13 — Audio-Derived Baseline Planning Gate
 
-**Status:** Seeded after M12 closeout. No tool calls yet.
+**Status:** Closeout in progress.
 
 | Timestamp (UTC) | Tool | Purpose | Files / target | Status |
 |-----------------|------|---------|----------------|--------|
+| 2026-06-03T21:00:00Z | Write | Log M13 start; recovery checkpoint | `docs/milestones/M13/M13_toolcalls.md` | complete |
+| 2026-06-03T21:00:01Z | Shell | Create branch `m13-audio-derived-baseline-planning` from main | git | complete |
+| 2026-06-03T21:05:00Z | Write | M13 analysis docs and plan | `docs/analysis/M13_*.md`, `docs/milestones/M13/M13_plan.md` | complete |
+| 2026-06-03T21:06:00Z | Write | Ultimate Truth M13 in progress | `docs/pantanal-1.md` | complete |
+| 2026-06-03T21:07:00Z | Write | M13 governance tests | `tests/test_m13_audio_baseline_planning.py` | complete |
+| 2026-06-03T21:08:00Z | Shell | Local verification suite | pytest, ruff, mypy, bandit, etc. | complete (247 passed, 90% cov) |
+| 2026-06-03T21:10:00Z | Shell | Commit, push, open PR | git, gh | complete |
+| 2026-06-03T21:11:00Z | Shell | PR CI watch run 26912724234 | GitHub Actions | complete (success, 24s) |
+| 2026-06-03T21:30:00Z | Shell | Pre-merge verify PR #14 head and CI | gh pr view 14 | complete |
+| 2026-06-03T21:31:00Z | Write | M13 summary and audit (closeout) | `M13_summary.md`, `M13_audit.md` | pending |
