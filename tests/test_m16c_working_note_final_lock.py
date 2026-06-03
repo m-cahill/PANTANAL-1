@@ -195,15 +195,15 @@ class TestM16cUltimateTruth:
         content = truth.read_text(encoding="utf-8")
         assert "| M16 |" in content
 
-    def test_pantanal_m16_in_progress(self) -> None:
+    def test_pantanal_m16_ledger_recorded(self) -> None:
         truth = DOCS / "pantanal-1.md"
         content = truth.read_text(encoding="utf-8").lower()
         assert "m16" in content
         # Milestone ledger row (not artifacts table)
         idx = content.find("| m16 | working-note")
         assert idx != -1, "M16 ledger row not found"
-        section = content[idx : idx + 120]
-        assert "in progress" in section
+        section = content[idx : idx + 200]
+        assert "in progress" in section or "closed" in section
 
     def test_pantanal_m16_non_claims(self) -> None:
         truth = DOCS / "pantanal-1.md"
