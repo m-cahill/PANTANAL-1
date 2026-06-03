@@ -7,4 +7,5 @@ M09 was seeded after M08 closeout and squash merge to `main` (PR #9, merge commi
 | 2026-06-03T12:00:00Z | Read | M09 implementation start; review M08 plan, README, tests, pantanal-1 | docs/milestones/M08/M08_plan.md, docs/working_note/README.md, tests/test_m08_working_note_outline.py, docs/pantanal-1.md | completed |
 | 2026-06-03T12:01:00Z | Write | Create M09 decision gate, checklist, recommendation, plan, tests; update pantanal-1 and README | docs/working_note/*, docs/analysis/M09_*, docs/milestones/M09/M09_plan.md, tests/test_m09_decision_gate.py, docs/pantanal-1.md | completed |
 | 2026-06-03T12:02:00Z | Shell | Full local verification suite for M09 | repo root | completed |
-| 2026-06-03T12:03:00Z | Shell | Commit, push branch, open PR to main | git, gh | pending |
+| 2026-06-03T12:03:00Z | Shell | Commit, push branch, open PR to main | git, gh | completed (coverage.xml accidental) |
+| 2026-06-03T12:04:00Z | Shell | Remove accidental coverage.xml from git | coverage.xml | pending |
