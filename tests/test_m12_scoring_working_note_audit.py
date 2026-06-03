@@ -72,8 +72,8 @@ def test_pantanal_marks_m12_closed() -> None:
     assert "closed" in m12_row.lower()
 
 
-def test_pantanal_recommends_m13_next() -> None:
+def test_pantanal_recommends_m14_next() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     section = text.split("## 12. Next milestone recommendation", 1)[-1]
-    assert "M13" in section
-    assert "Audio-Derived Baseline Planning Gate" in section
+    assert "M14" in section
+    assert "5090 Blackwell Audio-Derived Baseline Training Sprint" in section
