@@ -2,7 +2,7 @@
 
 M02 was seeded after M01 closeout and merge to `main`.
 
-**Note:** Repo-side smoke scaffold is committed (PR #3). First manual Kaggle notebook copy failed with `ModuleNotFoundError: pantanal_1`; import-fallback debug patch added. Patched notebook re-test on Kaggle not yet recorded in evidence.
+**Note:** PR #3. DEF-002A interactive synthetic smoke evidenced in `docs/kaggle/kaggle_setup_evidence.md` (inline fallback, `tmp/submissions/m02_smoke_submission.csv`). DEF-002B scored path open. Kaggle notebook URL not recorded.
 
 | Timestamp (UTC) | Tool | Purpose | Files / Target | Status |
 |-----------------|------|---------|----------------|--------|
@@ -18,4 +18,6 @@ M02 was seeded after M01 closeout and merge to `main`.
 | 2026-06-03T18:01:00Z | Shell | Local verification and commit runbook follow-up | repo root | completed |
 | 2026-06-03T18:02:00Z | Shell | Push fcfdd86 and monitor CI run 26856249610 for PR #3 | origin/m02-kaggle-notebook-smoke | completed (success) |
 | 2026-06-04T02:30:00Z | Write | Kaggle import debug patch: notebook fallback + docs | notebooks/, docs/, tests/ | completed |
-| 2026-06-04T02:35:00Z | Shell | Verify, commit, push import fallback patch | PR #3 | in_progress |
+| 2026-06-04T02:35:00Z | Shell | Verify, commit 9e57484, push import fallback patch | PR #3 | completed |
+| 2026-06-04T02:36:00Z | Shell | Monitor CI run 26860145932 | PR #3 | completed (success) |
+| 2026-06-04T03:00:00Z | Write | Record Kaggle interactive evidence + submission bible | docs/kaggle/, tests/ | completed |

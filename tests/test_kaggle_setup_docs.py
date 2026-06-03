@@ -19,11 +19,11 @@ RUNBOOK_NON_CLAIMS = (
     "does not prove leaderboard submission or score",
 )
 
-EVIDENCE_INCOMPLETE_MARKERS = (
-    "attempted",
-    "blocked",
-    "modulenotfounderror",
-    "def-002",
+EVIDENCE_INTERACTIVE_MARKERS = (
+    "interactive",
+    "inline fallback",
+    "tmp/submissions/m02_smoke_submission.csv",
+    "def-002a",
 )
 
 
@@ -41,11 +41,13 @@ def test_runbook_contains_required_non_claims() -> None:
         assert phrase in text, f"missing runbook non-claim: {phrase}"
 
 
-def test_evidence_records_failed_attempt_not_success() -> None:
-    text = EVIDENCE_PATH.read_text(encoding="utf-8").lower()
-    assert any(marker in text for marker in EVIDENCE_INCOMPLETE_MARKERS)
-    assert "modulenotfounderror" in text
-    assert "yes / no / unknown" in text
+def test_evidence_records_interactive_smoke_success() -> None:
+    raw = EVIDENCE_PATH.read_text(encoding="utf-8")
+    text = raw.lower()
+    for marker in EVIDENCE_INTERACTIVE_MARKERS:
+        assert marker in text, f"missing evidence marker: {marker}"
+    assert "tmp/submissions/m02_smoke_submission.csv`: **yes**" in raw
+    assert "/kaggle/working/submission.csv`: **no**" in raw
 
 
 def test_notebook_smoke_links_runbook_and_evidence() -> None:
@@ -54,16 +56,17 @@ def test_notebook_smoke_links_runbook_and_evidence() -> None:
     assert "kaggle_setup_evidence.md" in text
 
 
-def test_pantanal_truth_does_not_claim_kaggle_execution() -> None:
+def test_pantanal_truth_does_not_claim_scored_kaggle_submission() -> None:
     text = PANTANAL_TRUTH_PATH.read_text(encoding="utf-8").lower()
     implemented, not_yet = text.split("**not yet proven:**", 1)
     implemented = implemented.split("**implemented:**", 1)[-1]
-    assert "kaggle notebook execution in the kaggle cpu environment" in not_yet
-    assert "kaggle notebook execution in the kaggle cpu environment" not in implemented
+    assert "commit/submit-mode" in not_yet or "/kaggle/working/submission.csv" in not_yet
+    assert "producing `/kaggle/working/submission.csv`" not in implemented
+    assert "def-002b" in not_yet or "def-002b" in text
 
 
-def test_pantanal_truth_keeps_def_002_open() -> None:
+def test_pantanal_truth_splits_def_002() -> None:
     text = PANTANAL_TRUTH_PATH.read_text(encoding="utf-8")
-    assert "DEF-002" in text
-    assert "live execution" in text.lower() or "Kaggle CPU" in text
-    assert "recorded evidence" in text.lower()
+    assert "DEF-002A" in text
+    assert "DEF-002B" in text
+    assert "evidenced" in text.lower()

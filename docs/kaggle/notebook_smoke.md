@@ -16,7 +16,8 @@ Artifacts:
 | `scripts/run_m02_notebook_smoke.py` | Pure-Python mirror of notebook logic |
 | `src/pantanal_1/synthetic_schema.py` | Package-level synthetic labels and soundscape stems |
 | `docs/kaggle/kaggle_setup_runbook.md` | Manual Kaggle setup checklist (not execution proof) |
-| `docs/kaggle/kaggle_setup_evidence.md` | Evidence template for future live Kaggle runs |
+| `docs/kaggle/kaggle_setup_evidence.md` | Kaggle execution evidence (interactive smoke recorded) |
+| `docs/kaggle/kaggle_submission_bible.md` | Canonical Kaggle paths, modes, debug standard, evidence rules |
 
 ---
 
@@ -46,14 +47,14 @@ For a real Kaggle submission notebook, the final output path must be `/kaggle/wo
 
 ## What M02 does not prove
 
-- M02 does **not** prove the notebook ran on Kaggle.
+- M02 does **not** prove scored commit/submit-mode execution or real `/kaggle/working/submission.csv`.
 - M02 does **not** prove active competition submission eligibility (BirdCLEF+ 2026 final deadline has passed).
 - M02 does **not** prove real `sample_submission.csv` compatibility.
 - M02 does **not** prove CPU 90-minute runtime compliance.
 - M02 does **not** prove inference.
 - M02 does **not** prove leaderboard submission or score.
 
-Real Kaggle execution remains **DEF-002** until directly evidenced.
+**DEF-002A** (interactive synthetic smoke) is evidenced in M02. **DEF-002B** (scored `/kaggle/working/submission.csv`) remains open. See `docs/kaggle/kaggle_submission_bible.md`.
 
 ---
 

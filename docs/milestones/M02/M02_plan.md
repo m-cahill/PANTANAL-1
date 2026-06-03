@@ -19,7 +19,9 @@ Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in
 - [x] `docs/kaggle/notebook_smoke.md` documents claims and non-claims
 - [x] `docs/kaggle/kaggle_setup_runbook.md` manual Kaggle setup checklist
 - [x] `docs/kaggle/kaggle_setup_evidence.md` evidence template (not yet executed)
-- [ ] Manual Kaggle setup performed and evidence recorded (owner; blocks DEF-002 exit)
+- [x] Kaggle interactive synthetic smoke evidenced (`docs/kaggle/kaggle_setup_evidence.md`; DEF-002A)
+- [x] `docs/kaggle/kaggle_submission_bible.md`
+- [ ] DEF-002B: commit/submit-mode `/kaggle/working/submission.csv` (out of M02 scope unless owner evidences)
 - [x] `tests/test_notebook_smoke.py` and `tests/test_synthetic_schema.py`
 - [x] `tests/test_kaggle_setup_docs.py` runbook/evidence doc guards
 - [x] `docs/pantanal-1.md` updated (M02 in progress; closed at closeout)
@@ -35,7 +37,8 @@ Create the first minimal Kaggle notebook smoke path for PANTANAL-1: a checked-in
 3. Mirror smoke script (stdlib + existing package only)
 4. Documentation: local vs Kaggle, archival intent, deadline passed
 5. Preserve M00/M01 guardrails and `verify_repo_state.py`
-6. Kaggle setup runbook and evidence template for consistent manual setup
+6. Kaggle setup runbook, evidence file, and submission bible
+7. Record interactive Kaggle smoke evidence (DEF-002A)
 
 ---
 

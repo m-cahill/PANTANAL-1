@@ -67,7 +67,7 @@ Future manual execution evidence should be recorded in:
 
 `docs/kaggle/kaggle_setup_evidence.md`
 
-Do not update `docs/pantanal-1.md` claims or resolve **DEF-002** until that file contains actual observed results.
+Do not update `docs/pantanal-1.md` scored-submission claims or resolve **DEF-002B** until commit/submit-mode evidence is recorded. **DEF-002A** interactive smoke is documented in `docs/kaggle/kaggle_setup_evidence.md`. See `docs/kaggle/kaggle_submission_bible.md`.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M02 in progress)
+**Last updated:** 2026-06-04 (M02 in progress; DEF-002A evidenced)
 
 ---
 
@@ -114,12 +114,13 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - Repo state verifier and GitHub Actions CI (lint, compile, pytest, verify).
 - Synthetic submission contract: generate and validate zero-baseline submission-shaped CSV with 234 synthetic class columns and 5-second row windows (M01).
 - Kaggle-oriented smoke notebook and dependency-free mirror script exercising the synthetic M01 contract surface without competition data (M02; see `docs/kaggle/notebook_smoke.md`).
-- Kaggle setup runbook and evidence template for manual notebook setup (`docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`).
-- M02 smoke notebook includes Kaggle environment diagnostics and inline synthetic fallback when `pantanal_1` is not installed (after first manual Kaggle attempt failed with `ModuleNotFoundError: No module named 'pantanal_1'`).
+- Kaggle setup runbook, evidence file, and submission bible (`docs/kaggle/kaggle_setup_runbook.md`, `docs/kaggle/kaggle_setup_evidence.md`, `docs/kaggle/kaggle_submission_bible.md`).
+- M02 smoke notebook includes Kaggle environment diagnostics and inline synthetic fallback when `pantanal_1` is not installed.
+- **M02 Kaggle interactive evidence:** patched smoke notebook ran in Kaggle interactive mode via inline fallback and produced synthetic smoke CSV at `tmp/submissions/m02_smoke_submission.csv` without competition data (see `docs/kaggle/kaggle_setup_evidence.md`).
 
 **Not yet proven:**
 
-- Kaggle notebook execution in the Kaggle CPU environment.
+- Kaggle commit/submit-mode execution producing `/kaggle/working/submission.csv` (DEF-002B).
 - Valid `submission.csv` generation against real `sample_submission.csv`.
 - CPU-only 90-minute runtime compliance.
 - Model inference.
@@ -138,10 +139,10 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 
 **M02 explicit non-claims:**
 
-- M02 does not prove the notebook ran on Kaggle.
 - M02 does not prove active competition submission eligibility (final deadline passed).
+- M02 does not prove real `/kaggle/working/submission.csv` generation or scored commit/submit-mode execution.
 - M02 does not prove real Kaggle `sample_submission.csv` compatibility.
-- M02 does not prove CPU 90-minute runtime compliance.
+- M02 does not prove CPU 90-minute scoring runtime compliance.
 - M02 does not prove model inference.
 - M02 does not prove leaderboard submission or score.
 
@@ -179,11 +180,12 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 | ID | Issue | Deferred to | Exit criteria |
 |----|-------|-------------|---------------|
 | DEF-001 | Coverage / mypy / security audit gates | Post-M00 hardening | CI jobs green with agreed thresholds |
-| DEF-002 | Kaggle notebook smoke (live execution) | Post-M02 | Patched notebook runs in Kaggle CPU environment with recorded evidence in `docs/kaggle/kaggle_setup_evidence.md` (first attempt failed: missing `pantanal_1` package) |
+| DEF-002A | Kaggle interactive synthetic smoke | M02 (evidenced) | Patched smoke notebook runs in Kaggle interactive mode and produces synthetic CSV under `tmp/submissions/` (see `docs/kaggle/kaggle_setup_evidence.md`) |
+| DEF-002B | Kaggle scored/commit-mode real submission path | Future milestone | Commit/submit-mode notebook runs in CPU environment and produces `/kaggle/working/submission.csv` with recorded evidence |
 | DEF-003 | Real sample_submission.csv alignment | Future milestone | Synthetic contract tests complete (M01); real sample alignment deferred |
 
 ---
 
 ## 12. Next milestone recommendation
 
-**M02 — Kaggle notebook smoke** is in progress on branch `m02-kaggle-notebook-smoke` (see `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_setup_runbook.md`, `docs/milestones/M02/M02_plan.md`). M02 is archival/governance proof and a reusable scaffold; it does not imply active submission eligibility after the competition deadline. Complete manual Kaggle setup using the runbook and record evidence before closeout; **DEF-002** remains open until evidence is recorded.
+**M02 — Kaggle notebook smoke** is in progress on branch `m02-kaggle-notebook-smoke` (see `docs/kaggle/notebook_smoke.md`, `docs/kaggle/kaggle_submission_bible.md`, `docs/milestones/M02/M02_plan.md`). **DEF-002A** (interactive synthetic smoke) is evidenced; **DEF-002B** (scored real submission path) remains open before closeout.
