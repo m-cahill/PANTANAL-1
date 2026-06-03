@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M15 closed)
+**Last updated:** 2026-06-03 (M16 in progress)
 
 ---
 
@@ -26,6 +26,7 @@
 | M13 | [M13_plan.md](milestones/M13/M13_plan.md) | [M13_summary.md](milestones/M13/M13_summary.md) | [M13_audit.md](milestones/M13/M13_audit.md) | [M13_toolcalls.md](milestones/M13/M13_toolcalls.md) |
 | M14 | [M14_plan.md](milestones/M14/M14_plan.md) | [M14_summary.md](milestones/M14/M14_summary.md) | [M14_audit.md](milestones/M14/M14_audit.md) | [M14_toolcalls.md](milestones/M14/M14_toolcalls.md) |
 | M15 | [M15_plan.md](milestones/M15/M15_plan.md) | [M15_summary.md](milestones/M15/M15_summary.md) | [M15_audit.md](milestones/M15/M15_audit.md) | [M15_toolcalls.md](milestones/M15/M15_toolcalls.md) |
+| M16 | [M16_plan.md](milestones/M16/M16_plan.md) | — | — | [M16_toolcalls.md](milestones/M16/M16_toolcalls.md) |
 
 **M05 analysis:** [post_competition_analysis.md](analysis/post_competition_analysis.md), [next_milestone_decision_matrix.md](analysis/next_milestone_decision_matrix.md), [M00_M04_evidence_index.md](analysis/M00_M04_evidence_index.md).
 
@@ -124,6 +125,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M13 | Audio-Derived Baseline Planning Gate | closed | PR #14 squash `a684b69`; PR-head `2de0f5f`; PR CI [26912874923](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912874923); post-merge CI [26912920316](https://github.com/m-cahill/PANTANAL-1/actions/runs/26912920316); [summary](milestones/M13/M13_summary.md), [audit](milestones/M13/M13_audit.md); [audio strategy](analysis/M13_audio_baseline_strategy.md), [Blackwell training plan](analysis/M13_blackwell_training_plan.md), [artifact boundary](analysis/M13_artifact_boundary_plan.md), [Kaggle packaging](analysis/M13_kaggle_inference_packaging_plan.md), [evaluation plan](analysis/M13_evaluation_plan.md) |
 | M14 | 5090 Blackwell Audio-Derived Baseline Evidence Contract | closed | PR #15 squash `2b12658`; PR-head `a6934ef`; PR CI [26913828912](https://github.com/m-cahill/PANTANAL-1/actions/runs/26913828912) (impl `8481cf9`); closeout PR CI [26914768091](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914768091); post-merge CI [26914804282](https://github.com/m-cahill/PANTANAL-1/actions/runs/26914804282); [summary](milestones/M14/M14_summary.md), [audit](milestones/M14/M14_audit.md); [evidence contract](analysis/M14_evidence_contract.md), [private runbook](analysis/M14_private_training_runbook.md), [manifest schema](models/M14_MODEL_MANIFEST_SCHEMA.md), [model card template](models/M14_model_card_template.md) |
 | M15 | Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate | closed | PR #16 squash `d2a3736`; PR-head `dc34e70`; PR CI [26916594679](https://github.com/m-cahill/PANTANAL-1/actions/runs/26916594679) (impl `c9a3aaa`); closeout PR CI [26917159945](https://github.com/m-cahill/PANTANAL-1/actions/runs/26917159945); post-merge CI [26917189928](https://github.com/m-cahill/PANTANAL-1/actions/runs/26917189928); [summary](milestones/M15/M15_summary.md), [audit](milestones/M15/M15_audit.md); [evidence request](analysis/M15_private_lane_evidence_request.md), [ingest decision gate](analysis/M15_ingest_decision_gate.md), [packet template](analysis/M15_private_lane_evidence_packet_template.md) |
+| M16 | Working-Note Draft v0 / Final Evidence Lock (M16C) | in progress | Branch `m16c-working-note-draft-v0`; [draft v0](working_note/M16_working_note_draft_v0.md), [evidence lock](working_note/M16_final_evidence_lock.md), [submission decision](analysis/M16_final_submission_decision.md) |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -160,6 +162,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - PANTANAL-1 contains an audio-derived baseline planning package for a future 5090 Blackwell training sprint, including strategy, artifact boundary, Kaggle packaging, and evaluation plans (M13; see `docs/analysis/M13_audio_baseline_strategy.md`, `docs/analysis/M13_blackwell_training_plan.md`, `docs/analysis/M13_artifact_boundary_plan.md`, `docs/analysis/M13_kaggle_inference_packaging_plan.md`, `docs/analysis/M13_evaluation_plan.md`).
 - PANTANAL-1 contains a public-safe evidence contract for future private-lane audio-derived baseline training summaries, including validation-summary schema, synthetic fixtures, stdlib validator, model manifest guidance, model card template, private training runbook, and governance tests (M14; see `docs/analysis/M14_evidence_contract.md`, `docs/analysis/M14_private_training_runbook.md`, `docs/models/M14_MODEL_MANIFEST_SCHEMA.md`, `docs/models/M14_model_card_template.md`, `schemas/m14_validation_summary.schema.json`, `scripts/validate_m14_evidence.py`).
 - PANTANAL-1 contains a private-lane evidence request packet and pre-ingest decision gate for future M15A evidence ingest, including a required evidence checklist, go/no-go decision gate, packet template, and governance tests (M15; see `docs/analysis/M15_private_lane_evidence_request.md`, `docs/analysis/M15_ingest_decision_gate.md`, `docs/analysis/M15_private_lane_evidence_packet_template.md`, `tests/test_m15_private_lane_evidence_request.py`).
+- PANTANAL-1 contains a working-note draft v0 and final evidence lock consolidating M00–M15 evidence (M16; see `docs/working_note/M16_working_note_draft_v0.md`, `docs/working_note/M16_final_evidence_lock.md`, `docs/analysis/M16_final_submission_decision.md`, `tests/test_m16c_working_note_final_lock.py`).
 
 **Not yet proven:**
 
@@ -318,6 +321,20 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 - M15 does not claim RediAI certification.
 - M15 does not create working-note readiness.
 
+**M16 explicit non-claims:**
+
+- M16 does not train a model.
+- M16 does not implement audio inference.
+- M16 does not add audio or ML dependencies.
+- M16 does not ingest private-lane evidence.
+- M16 does not package a Kaggle audio baseline.
+- M16 does not submit to Kaggle.
+- M16 does not improve leaderboard score.
+- M16 does not claim G1/G2/G3/G4 evidence exists.
+- M16 does not prove model quality.
+- M16 does not claim RediAI certification.
+- M16 does not create final CLEF-ready working-note readiness.
+
 ---
 
 ## 9. Explicit non-claims
@@ -361,16 +378,16 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ## 12. Next milestone recommendation
 
-**M15** closed as **Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate**. No owner-supplied private-lane evidence bundle was available; M15 delivered the request packet and decision gate for future private-lane ingest.
+**M16C** is in progress as **Working-Note Draft v0 / Final Evidence Lock** before the BirdCLEF+ 2026 deadline. M16 consolidates M00–M15 into a truthful narrative; it does not submit new Kaggle notebooks or ingest private-lane evidence.
 
-M12 established that placeholder baselines (all-zero and uniform-ε) both scored **0.500** with no ranking signal. M13 defined the planning path; M14 defines the public-safe validation contract; M15 operationalizes the handoff checklist for the private lane.
+If Kaggle requires a final selection, use `docs/analysis/M16_final_submission_decision.md` (recommended: M04 zero-baseline Version 2, public score **0.500**).
 
 | Priority | Direction |
 |----------|-----------|
-| **Primary (next)** | **M16A — Private-lane evidence ingest** (when owner supplies public-safe bundle validated by `scripts/validate_m14_evidence.py`) |
-| **Alternative** | **M16B — Kaggle audio baseline packaging** (if CPU-compatible export exists) |
-| **Secondary** | **M16C — Working-note draft v0** (narrative consolidation using M00–M15 evidence) |
-| **Tertiary** | **Archive / template hardening** |
+| **Current (in progress)** | **M16C — Working-note draft v0 / final evidence lock** |
+| **Post-deadline** | **M16A — Private-lane evidence ingest** (when owner supplies public-safe bundle) |
+| **Post-deadline** | **M16B — Kaggle audio baseline packaging** (if CPU-compatible export exists) |
+| **Post-deadline** | Working-note refinement after stronger evidence |
 | Also available | **DEF-001 optional** — SBOM/provenance |
 
-Do not begin M16A, M16B, or M16C implementation until M15 is closed and owner authorizes direction.
+Do not begin post-deadline M16A/M16B work or any further milestone until M16 is closed and owner authorizes direction.
