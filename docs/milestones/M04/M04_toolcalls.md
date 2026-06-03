@@ -11,4 +11,5 @@ M04 was seeded after M03 closeout and squash merge to `main` (PR #4, merge commi
 | 2026-06-03T06:42:00Z | Shell | Monitor PR-head CI | run 26867485373 | completed (success) |
 | 2026-06-03T07:00:00Z | Write/StrReplace | Record owner Kaggle commit/scored evidence | m04_commit_mode_evidence.md, pantanal-1.md, tests, aligned docs | completed |
 | 2026-06-03T07:05:00Z | Shell | Local verification (99 pytest passed) | repo root | completed |
-| 2026-06-03T07:06:00Z | Shell | git commit, push; monitor PR #5 CI | branch m04-kaggle-commit-mode-probe | in_progress |
+| 2026-06-03T07:06:00Z | Shell | git commit, push; monitor PR #5 CI | branch m04-kaggle-commit-mode-probe; SHA c59692b; PR #5 | completed |
+| 2026-06-03T07:08:00Z | Shell | Monitor PR-head CI | run 26870696963 | completed (success) |
