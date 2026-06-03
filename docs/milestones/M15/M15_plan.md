@@ -1,66 +1,153 @@
-# M15 — Owner-Choice Milestone (Stub)
+# M15 — Private-Lane Evidence Request Packet / Pre-Ingest Readiness Gate
 
-**Status:** Stub only. Implementation not started. Owner approval required before any M15 work.
-
----
-
-## Purpose
-
-M14 delivered the public-safe evidence contract (validation schema, fixtures, stdlib validator, manifest guidance, model card template, private runbook). **M15** is the next execution fork — owner selects direction based on available artifacts.
-
-**Do not begin M15 until:**
-
-1. M14 is closed on `main`.
-2. Owner approves this plan (or a successor) in writing.
-3. Owner selects **M15A** or **M15B** below.
+**Status:** Closing (PR #16 closeout)  
+**Branch:** `m15-private-lane-evidence-request`  
+**Authority:** `docs/pantanal-1.md`
 
 ---
 
-## M15A — Private-Lane Training Evidence Ingest
+## Background
 
-**Use when:** Owner supplies a completed **public-safe** private-lane training summary from ORNITHOS/5090 Blackwell.
+M14 established the public-safe evidence contract (validation schema, fixtures, stdlib validator, manifest guidance, model card template, private runbook). M15A was originally planned as a private-lane evidence ingest milestone.
 
-**Likely scope (when approved):**
-
-- Ingest manifest, model card, validation summary JSON (docs/metadata only unless owner approves binary)
-- Run `scripts/validate_m14_evidence.py` on validation summaries
-- Update `docs/pantanal-1.md` with claim-safe language only (G1/G2 per M13 evaluation plan)
-- Governance tests for ingest boundary
-
-**Out of scope unless separately authorized:**
-
-- Kaggle notebook packaging
-- Kaggle submissions
-- Model weights in git without owner approval
+**Decision:** No owner-supplied public-safe private-lane evidence bundle has been provided yet. M15 pivots from ingest execution to **pre-ingest readiness**.
 
 ---
 
-## M15B — Kaggle Audio Baseline Packaging
+## Objective
 
-**Use when:** A **CPU-compatible** export/package candidate exists from private lane.
+Create the smallest possible public-safe packet that tells the ORNITHOS/private 5090 training lane exactly what evidence must be produced for a future M15A ingest milestone.
 
-**Likely scope (when approved):**
-
-- Wire notebook/package evidence for offline CPU inference
-- Runtime budget documentation (≤ 90 minutes)
-- Preserve no score claims unless public score > **0.500** is observed
-
-**Out of scope unless separately authorized:**
-
-- Raw audio, Kaggle competition data, weights, or private ORNITHOS code in git without owner approval
-- Score improvement or model quality claims without evidence
+This is a **pre-ingest readiness milestone**, not a training, inference, Kaggle packaging, or evidence-ingest milestone.
 
 ---
 
-## Shared guardrails (binding)
+## Required Outcome
 
-- ORNITHOS remains private upstream; PANTANAL-1 remains public packaging
-- Validate against `docs/analysis/M14_evidence_contract.md`
-- No score claims without observed public score > **0.500**
-- Follow M14 non-claims until appropriate evaluation gate
+Produce a concise, implementation-ready evidence request package that the private lane can use to generate the future public-safe bundle required by M14.
 
 ---
 
-## Owner gate
+## Scope
 
-Do not begin M15 implementation until the owner approves direction (M15A or M15B) in writing.
+### In Scope
+
+1. `docs/milestones/M15/M15_plan.md` — this document (replace seeded stub)
+2. `docs/milestones/M15/M15_toolcalls.md` — record all tool calls and decisions
+3. `docs/analysis/M15_private_lane_evidence_request.md` — exact checklist of files requested from private lane with public-safe constraints
+4. `docs/analysis/M15_ingest_decision_gate.md` — go/no-go criteria for future M15A
+5. `docs/analysis/M15_private_lane_evidence_packet_template.md` — copy/paste template for private lane to fill out
+6. `tests/test_m15_private_lane_evidence_request.py` — governance tests
+7. `docs/pantanal-1.md` — update with M15 in-progress status, claims, non-claims
+
+### Out of Scope
+
+- Fabricating private-lane evidence
+- Creating fake validation metrics as real evidence
+- Training or running inference
+- Adding dependencies
+- Modifying Kaggle notebooks
+- Committing weights, raw audio, Kaggle data, private ORNITHOS code, or generated submissions
+- Claiming G1/G2/G3/G4 evidence exists
+
+Synthetic examples are allowed only if clearly labeled synthetic and not used as claims.
+
+---
+
+## Deliverables
+
+| Artifact | Purpose |
+|----------|---------|
+| `docs/analysis/M15_private_lane_evidence_request.md` | Checklist of required files + public-safe constraints |
+| `docs/analysis/M15_ingest_decision_gate.md` | Go/no-go criteria for future M15A |
+| `docs/analysis/M15_private_lane_evidence_packet_template.md` | Copy/paste template for private lane |
+| `tests/test_m15_private_lane_evidence_request.py` | Governance tests |
+| Updated `docs/pantanal-1.md` | M15 ledger entry, claims, non-claims |
+
+---
+
+## Evidence Request Summary
+
+The private lane must produce:
+
+1. **Model manifest JSON** — per `docs/models/M14_MODEL_MANIFEST_SCHEMA.md`
+2. **Model card markdown** — per `docs/models/M14_model_card_template.md`
+3. **Validation summary JSON** — per `schemas/m14_validation_summary.schema.json`
+4. **Non-constant prediction summary** — required for G1 claim
+5. **CPU timing summary** (if available) — required for G2 claim
+6. **License/provenance summary** — required for any ingest
+
+All files must be **public-safe**: no raw audio, no Kaggle competition CSVs, no private ORNITHOS code, no model binaries (unless owner-approved), no generated `submission.csv`, no secrets or private paths.
+
+---
+
+## Decision Gate Summary
+
+Future M15A proceeds only when:
+
+- Validation summary passes `scripts/validate_m14_evidence.py`
+- Non-constant evidence exists (for G1)
+- CPU timing evidence exists (for G2)
+- Public score evidence exists (for G4)
+
+If evidence is incomplete, return to private lane or switch direction.
+
+---
+
+## Verification Commands
+
+```bash
+ruff check .
+ruff format --check .
+mypy src/pantanal_1
+python -m compileall src tests scripts
+pytest -q --cov=src/pantanal_1 --cov-report=term-missing
+coverage report --fail-under=80
+bandit -r src/pantanal_1
+pip-audit -r requirements-dev.txt
+python scripts/verify_repo_state.py
+```
+
+---
+
+## PR Stop Point
+
+After implementation:
+
+1. Push branch
+2. Open PR
+3. Wait for PR-head CI
+4. Do not merge
+5. Report: branch, PR URL, SHA, CI verdict, files changed, tests added, verification results, claims/non-claims, confirmation no evidence ingested
+
+---
+
+## Closeout Instructions
+
+Do not close or merge until owner approval.
+
+At closeout, create:
+
+- `docs/milestones/M15/M15_run1.md` using `docs/prompts/workflowprompt.md`
+- `docs/milestones/M15/M15_summary.md` using `docs/prompts/summaryprompt.md`
+- `docs/milestones/M15/M15_audit.md` using `docs/prompts/unifiedmilestoneauditpromptV2.md`
+
+Closeout must include the language: `ensure all documentation is updated as necessary`
+
+After closeout and merge, seed M16 only. Do not begin M16 implementation unless separately authorized.
+
+---
+
+## Non-Claims
+
+- M15 does not ingest real private-lane evidence.
+- M15 does not train a model.
+- M15 does not implement audio inference.
+- M15 does not add audio/ML dependencies.
+- M15 does not add model weights.
+- M15 does not ingest raw audio or Kaggle competition data.
+- M15 does not submit to Kaggle.
+- M15 does not improve leaderboard score.
+- M15 does not prove model quality.
+- M15 does not claim RediAI certification.
+- M15 does not create working-note readiness.
