@@ -106,10 +106,12 @@ def test_pantanal_1_def_003b_narrowed_or_evidenced() -> None:
     assert "Scored/hidden test submission schema behavior" not in not_proven
 
 
-def test_pantanal_1_m04_still_in_progress() -> None:
+def test_pantanal_1_m04_closed_in_ledger() -> None:
     text = ULTIMATE_TRUTH.read_text(encoding="utf-8")
     ledger = text.split("## 7. Milestone ledger", 1)[-1].split("## 8.", 1)[0]
-    assert "in progress" in ledger.lower()
+    m04_row = ledger.split("| M04 |", 1)[-1].split("\n", 1)[0]
+    assert "closed" in m04_row.lower()
+    assert "PR #5" in m04_row or "pr #5" in m04_row.lower()
 
 
 def test_kaggle_submission_bible_records_m04_evidence() -> None:

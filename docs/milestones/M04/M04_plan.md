@@ -1,6 +1,6 @@
 # M04 Plan — Kaggle Commit-Mode Submission Path Probe
 
-**Status:** In progress (branch `m04-kaggle-commit-mode-probe`)
+**Status:** Closed (PR #5; branch `m04-kaggle-commit-mode-probe`)
 
 **Objective:** Probe and document whether the M03 zero-baseline notebook path can run in Kaggle **commit/submit mode** and produce `/kaggle/working/submission.csv`, with honest evidence and without overclaiming eligibility, score, or model quality.
 

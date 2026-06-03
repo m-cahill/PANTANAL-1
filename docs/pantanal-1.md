@@ -2,7 +2,7 @@
 
 **Repository:** https://github.com/m-cahill/PANTANAL-1  
 **Competition:** [BirdCLEF+ 2026](https://www.kaggle.com/competitions/birdclef-2026/)  
-**Last updated:** 2026-06-03 (M04 in progress)
+**Last updated:** 2026-06-03 (M04 closed)
 
 ---
 
@@ -14,7 +14,7 @@
 | M01 | [M01_plan.md](milestones/M01/M01_plan.md) | [M01_summary.md](milestones/M01/M01_summary.md) | [M01_audit.md](milestones/M01/M01_audit.md) | [M01_toolcalls.md](milestones/M01/M01_toolcalls.md) |
 | M02 | [M02_plan.md](milestones/M02/M02_plan.md) | [M02_summary.md](milestones/M02/M02_summary.md) | [M02_audit.md](milestones/M02/M02_audit.md) | [M02_toolcalls.md](milestones/M02/M02_toolcalls.md) |
 | M03 | [M03_plan.md](milestones/M03/M03_plan.md) | [M03_summary.md](milestones/M03/M03_summary.md) | [M03_audit.md](milestones/M03/M03_audit.md) | [M03_toolcalls.md](milestones/M03/M03_toolcalls.md) |
-| M04 | [M04_plan.md](milestones/M04/M04_plan.md) | — | — | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
+| M04 | [M04_plan.md](milestones/M04/M04_plan.md) | [M04_summary.md](milestones/M04/M04_summary.md) | [M04_audit.md](milestones/M04/M04_audit.md) | [M04_toolcalls.md](milestones/M04/M04_toolcalls.md) |
 
 ---
 
@@ -99,7 +99,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 | M01 | submission.csv skeleton + sample_submission contract | closed | PR #2; [summary](milestones/M01/M01_summary.md), [audit](milestones/M01/M01_audit.md) |
 | M02 | Kaggle notebook smoke | closed | PR #3; [summary](milestones/M02/M02_summary.md), [audit](milestones/M02/M02_audit.md); DEF-002A evidenced |
 | M03 | Baseline inference notebook / first scored attempt | closed | PR #4; [summary](milestones/M03/M03_summary.md), [audit](milestones/M03/M03_audit.md); DEF-003A evidenced |
-| M04 | Kaggle commit-mode submission path probe | in progress | Branch `m04-kaggle-commit-mode-probe`; [plan](milestones/M04/M04_plan.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B/DEF-003B evidenced — awaiting closeout |
+| M04 | Kaggle commit-mode submission path probe | closed | PR #5; [summary](milestones/M04/M04_summary.md), [audit](milestones/M04/M04_audit.md); [evidence](kaggle/m04_commit_mode_evidence.md); DEF-002B evidenced; DEF-003B narrowed |
 
 **Ideal handoff path (ORNITHOS M40 charter):** M00 bootstrap → M01 Kaggle site smoke → M02 submission skeleton → M03 baseline notebook → M04 runtime budget → M05 first scored submission → M06 improvement → M07 final lock → M08 working note seed.
 
@@ -154,7 +154,7 @@ See `docs/policies/data_policy.md`, `docs/policies/model_policy.md`, `docs/polic
 **M03 explicit non-claims:**
 
 - M03 does not prove active competition submission eligibility.
-- M03 does not prove commit/submit-mode or scored submission execution (DEF-002B open).
+- M03 does not prove commit/submit-mode or scored submission execution (DEF-002B evidenced in M04).
 - M03 does not prove leaderboard submission or score.
 - M03 does not prove CPU 90-minute **scoring** runtime compliance (interactive runtime observed only).
 - M03 does not prove model inference or meaningful model quality (zero baseline only).
@@ -210,8 +210,10 @@ Do not rename files in `docs/manuals/`; naming inconsistency is acknowledged and
 
 ---
 
-## 12. Current milestone state
+## 12. Next milestone recommendation
 
-M04 is in progress on branch `m04-kaggle-commit-mode-probe`. Repo-side runbook and owner Kaggle commit/scored evidence are recorded. **DEF-002B** is evidenced; **DEF-003B** is narrowed/evidenced for scored acceptance (hidden-test internals not exposed). M04 is **not closed** until owner approves closeout (summary/audit/merge).
+After M04 closeout: **M05 — Baseline Improvement Planning / Post-Competition Analysis** (stub only).
 
-See `docs/milestones/M04/M04_plan.md`, `docs/kaggle/m04_commit_mode_probe.md`, and `docs/kaggle/m04_commit_mode_evidence.md`. Do not claim model inference, competitive quality, or private leaderboard results beyond observed public score **0.500**.
+M05 should analyze the completed zero-baseline path, Kaggle public score evidence (**0.500**), and remaining quality/audit gaps (especially DEF-001), then decide whether to pursue a real inference baseline, post-competition working-note documentation, audit hardening, Kaggle packaging improvements, or a new competition/research direction. M05 must not claim model quality unless implemented and evidenced.
+
+See `docs/milestones/M05/M05_plan.md` when seeded.

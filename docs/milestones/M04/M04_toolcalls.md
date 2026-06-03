@@ -13,3 +13,6 @@ M04 was seeded after M03 closeout and squash merge to `main` (PR #4, merge commi
 | 2026-06-03T07:05:00Z | Shell | Local verification (99 pytest passed) | repo root | completed |
 | 2026-06-03T07:06:00Z | Shell | git commit, push; monitor PR #5 CI | branch m04-kaggle-commit-mode-probe; SHA c59692b; PR #5 | completed |
 | 2026-06-03T07:08:00Z | Shell | Monitor PR-head CI | run 26870696963 | completed (success) |
+| 2026-06-03T08:00:00Z | Write | M04 closeout: summary, audit, pantanal-1.md, test fix | docs/milestones/M04/, docs/pantanal-1.md, tests/ | completed |
+| 2026-06-03T08:05:00Z | Shell | Local verification before closeout commit | repo root | completed (99 passed) |
+| 2026-06-03T08:06:00Z | Shell | git commit/push closeout; monitor CI; merge PR #5 | branch m04-kaggle-commit-mode-probe | in_progress |
